@@ -6,11 +6,9 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 18:54:24 by azamario          #+#    #+#             */
-/*   Updated: 2021/06/29 20:35:17 by azamario         ###   ########.fr       */
+/*   Updated: 2021/06/29 23:51:33 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-//função de teste para exemplificar variadic functions
 
 /*
 variaric funcion reduces code, it's a single function that processes 
@@ -29,9 +27,7 @@ add(6, 20, 20, 20, 10, 20, 10) = 100
 4 - begin and end argument list with va_start and va_end (va = variable)
     macros that recognize where argument list starts and ends
 
-*/
 
-/*
 a - first param = fixed number os arguments, second param = the variable number of arguments)
 b - type va_list is used for argument pointer variables, it points to first optional argument
 c - va_start: this macro initializes the argument pointer variable ap to point to the first of the optional arguments of the current function
