@@ -6,12 +6,14 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 18:54:24 by azamario          #+#    #+#             */
-/*   Updated: 2021/06/30 10:46:24 by azamario         ###   ########.fr       */
+/*   Updated: 2021/06/30 16:09:07 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 variaric funcion reduces code, it's a single function that processes variable number of arguments
+We typically use variadic function when we don’t know the total number of arguments that will be used for a function
+Basically one single function could potentially have n number of arguments
 
 example:
 int add(int args, ...);
@@ -30,7 +32,7 @@ Important steps:
 
 Code below:
 a - first param = fixed number of arguments, second param = the variable number of arguments
-b - type va_list is used for argument pointer variables (ap), it points to first optional argument
+b - type va_list is used for argument pointer variables, it points to first optional argument
 c - va_start: this macro initializes the argument pointer variable ap to point to the first of the optional arguments of the current function
     You access the optional arguments by successive calls to va_arg. The first call to va_arg gives you the first optional argument, 
     the next call gives you the second, and so on.
