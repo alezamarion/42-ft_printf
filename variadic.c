@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 18:54:24 by azamario          #+#    #+#             */
-/*   Updated: 2021/06/30 16:09:07 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/02 13:59:10 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ We typically use variadic function when we don’t know the total number of argu
 Basically one single function could potentially have n number of arguments
 
 example:
-int add(int args, ...);
+int add(int args, ...); stdarg.h
 first param = fixed number of arguments, second param = the variable number of arguments
 
 add(3, 1, 2, 3) = 6
@@ -53,7 +53,7 @@ https://www.gnu.org/software/libc/manual/html_node/Variadic-Functions.html
 int add(int args, ...)              //a
 {             
     va_list ap;                     //b
-
+    
     va_start(ap, args);             //c
   
     int i = 0;
