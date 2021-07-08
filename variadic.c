@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 18:54:24 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/02 13:59:10 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/02 23:05:25 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,4 +112,32 @@ write something like this if concerned about pre-C99 portability:
 #endif
   …
 }
+
+from: http://www.firmcodes.com/can-write-function-takes-variable-number-arguments-limitations-vprintf/
+
+Limitations of variable arguments function
+
+How can I find how many arguments a function was passed?
+Any function which takes a variable number of arguments must be able to determine from the arguments themselves, 
+how many of them there have been passed. printf() and some similar functions achieve this by looking for the format string. 
+This is also why these functions fail badly if the format string does not match the argument list. Another common technique, 
+applicable when the arguments are all of the same type, is to use a sentinel value (often 0, -1, or an appropriately-cast null pointer) 
+at the end of the list. Also, one can pass an explicit count of the number of variable arguments. 
+
+Is this allowed ? void function(…..)
+No! Standard C requires at least one fixed argument, in part so that you can hand it to va_start().
+
+How do I get floating point numbers passed as arguments?
+Arguments of type float are always promoted to type double, and types char and short int are promoted to int.
+
+Therefore, it is never correct to invoke:
+va_arg(args, float);
+
+instead you should always use:
+va_arg(args, double);
+
+Similarly, use:
+va_arg(args, int);
+to retrieve arguments which were originally char, short, or int.
+
 */

@@ -1,0 +1,114 @@
+
+PRINTF | Stands for "print formatted"
+
+
+from: https://docs.microsoft.com/en-us/cpp/c-runtime-library/format-specification-syntax-printf-and-wprintf-functions?view=msvc-160
+
+take format string + optional arguments and
+produce formatted sequence of characters for output
+
+the format string contais zero or more directives wich are:
+- literal characters for output
+- encoded conversion specifications that describe how to format an argument in the output
+
+conversion specificatons:
+%[flags][width][.precision][size]type
+
+Each field of the conversion specification is a character or a number that signifies a particular format option
+or conversion specifier. The required "type" field specifies the kind of conversion to be applied to an argument. 
+The optional "flags", "width", and "precision" fields control additional format aspects such as leading spaces or zeroes, 
+justification, and displayed precision. The "size" field specifies the size of the argument consumed and converted.
+
+only required: "type"  
+- specifies kind of conversion to be applied to an argument, ex: %s or %c
+    
+    |*| We have to manage the following conversions: |*|
+    c - Character:      specifies a single-byte character (char)
+                        convert an int to an unsigned character and print the resulting character
+    s - String:         specifies a single-byte or multi-byte character string; (char*)
+                        s - print the string pointed to by a char *
+    p - Pointer:    	Display the argument as an address in hexadecimal digits
+                        p - print a void * argument in hexadecimal (ANSI C only)
+    d - Integer:        Signed decimal integer
+    i - Integer:    	Signed decimal integer
+                        d or i - print an int as a signed decimal number
+    u - Integer:    	Unsigned decimal integer
+                        u - print an unsigned as an unsigned decimal number
+    x - Integer:    	Unsigned hexadecimal integer; uses "abcdef"
+    X - Integer:    	Unsigned hexadecimal integer; uses "ABCDEF"
+                        x or X - print an unsigned as an unsigned hexadecimal number 
+                        (where the letters abcdef are used with x and ABCDEF are used with X)
+    %                   A '%' is written. No argument is converted.
+                        % - print a single % character 
+                       
+    Note: if the argument that corresponds to %s is a null pointer, "(null)" is displayed.   
+
+not required: 
+- flags 
+    The first optional field in a conversion specification contains flag directives, zero or more flag characters that specify output 
+    justification and control output of signs, blanks, leading zeros, decimal points, and octal and hexadecimal prefixes. 
+    More than one flag directive may appear in a conversion specification, and the flag characters can appear in any order.
+    
+    |*| We have to manage the following flags: |*|
+    It will manage any combination of the following flags: ’-0.*’ and minimum fieldwidth with all conversions
+    - (align)         Left align the result within the given field width.	Default is right align.
+    0 (padding)       When the 'width' option is specified, prepends zeros for numeric types. (The default prepends spaces.)
+                      For example, printf("%4X",3) produces    3, while printf("%04X",3) produces 0003.    
+                      If width is prefixed by 0, leading zeros are added until the minimum width is reached. 
+                      
+                      If both 0 and - appear, the 0 is ignored. 
+                      If 0 is specified for an integer format (i, u, x, X, o, d) and a precision specification is also present—for example, %04.d—the 0 is ignored. 
+                      If 0 is specified for the a or A floating-point format, leading zeros are prepended to the mantissa, after the 0x or 0X prefix.
+                      Default: no padding.
+    . (precision)     It consists of a period (.) followed by a non-negative decimal integer that, depending on the conversion type, 
+                      specifies the number of string characters, the number of decimal places, or the number of significant digits to be output.              
+                      Unlike the width specification, the precision specification can cause either truncation of the output value or rounding of a 
+                      floating-point value. 
+                      How Precision Values Affect Type:
+                        c - Character:      no effect
+                        s - String:         specifies the maximum number of characters to be printed. Characters in excess of precision aren't printed. Default: Characters are printed until a null character is found.
+                        p - Pointer:	    
+                        d - Integer:        The precision specifies the minimum number of digits to be printed.     
+                        i - Integer:    	If the number of digits in the argument is less than precision, 
+                        u - Integer:    	the output value is padded on the left with zeros. 
+                        x - Integer:    	The value isn't truncated when the number of digits 
+                        X - Integer:    	exceeds precision. Default: precision is 1
+    * (asterisck)     Can replace specifications of flags
+                      For example, printf("%*d", 5, 10) will result in    10 being printed, with a total width of 5 characters.
+                      It's same of printf("Teste: %5d  \n", 10);
+                      For example, printf("%.*s", 3, "abcdef") will result in abc being printed.
+                      It's same of printf("%.3s  \n", "abcdef");
+
+from https://en.wikipedia.org/wiki/Printf_format_string
+
+The string is written in a simple template language: characters are usually copied literally into the function's output, 
+but format specifiers, which start with a % character, indicate the location and method to translate a piece of data (such as a number) to characters.
+
+ex:
+printf("Color %s, Number %d, Float %4.2f", "red", 123456, 3,14); -> Color Red, Number 123456, Float 3,14
+
+
+
+
+
+
+Code:                                                               Output:
+
+#include <stdio.h>
+
+int main() 
+{
+    int number = 26;
+    printf("Normal: Hello %i  \n", number);                         -> Normal:                  Hello 26  
+    printf("Alinhado à esquerda (-): Hello %-i  \n", number);       -> Alinhado à esquerda (-): Hello 26
+    printf("Padding normal: Hello %10i  \n", number);               -> Padding normal:          Hello         26
+    printf("Asterisco: Hello %*i  \n", 10, number);                 -> Width:                   Hello         26  
+    printf("Padding com zeros: Hello %010i  \n", number);           -> Padding com zeros:       Hello 0000000026
+
+    char *str ="A galera da vila é fera";
+    printf("String normal: %s  \n", str);                           -> String normal:           A galera da vila é fera
+    printf("String com precision: %.8s  \n", str);                  -> String com precision:    A galera
+    
+    return 0;
+}
+
