@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:14 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/08 19:24:16 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/08 22:11:56 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,11 @@ size_t	ft_strlen(const char *s);
 void	ft_putstr(char *s);
 void	ft_putchar(char c);
 void	ft_putnbr(int n);
+
+//print integer II
+int	ft_len(int num);
+int	ft_to_positive(int num);
+char *ft_itoa(int n);
 
 
 

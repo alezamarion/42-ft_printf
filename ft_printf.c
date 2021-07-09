@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:00 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/08 19:24:02 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/08 22:15:58 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ static void types_identifier(const char *format, int *i, int *len, va_list args)
                print_c  = va_arg(args, char *);
             write(1, &print_c, 1);
             if (fl.type == 'd' || fl.type == 'i')
-               ft_putnbr(va_arg(args, int));
+               ft_itoa(va_arg(args, int));
             if (fl.type == 'u')
                print_c  = va_arg(args, char *);
             write(1, &print_c, 1);
