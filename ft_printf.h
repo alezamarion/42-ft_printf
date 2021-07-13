@@ -6,10 +6,9 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:14 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/08 22:11:56 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/12 22:07:55 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
@@ -22,29 +21,34 @@
 
 # define CONVERSIONS	"cspdiuxX%"
 # define ALL_FLAGS "-0.*0123456789cspdiuxX%"
+# define NUMBERS		"0123456789"
 
-typedef struct {
-    char type;
-    int width;
-    int precision;
+typedef struct 
+{
+    char    type;
+    char    *strNum;
+    int     width;
+    int     precision;
 } t_flags;
 
-int ft_printf(const char *format, ...);
+int     ft_printf(const char *format, ...);
 void	ft_putchar_len(char c, int *len);
 int		ft_strchr_01(char *s, char c);
-void		print_spec_c(char c, int len, va_list args);
 
 //para imprimir integer:
 size_t	ft_strlen(const char *s);
 void	ft_putstr(char *s);
 void	ft_putchar(char c);
 void	ft_putnbr(int n);
+char	*ft_itoa(int n);
+void	ft_putstr_len(char *s, int *len);
+void	print_s(char *c, int *len);
+void    print_i_d(t_flags fl, va_list args, int *len);
 
-//print integer II
-int	ft_len(int num);
-int	ft_to_positive(int num);
-char *ft_itoa(int n);
-
+void    print_u(t_flags fl, va_list args, int *len);
+char	*ft_uitoa(unsigned int n);
+int 	ft_ulen(unsigned int num);
+void	print_c(char c, int *len);
 
 
 #endif

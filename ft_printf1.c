@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_printf1.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 19:23:34 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/08 15:56:15 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/12 13:13:06 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,9 +144,9 @@ int ft_printf(const char *format, ...)
             ft_putchar(*format);
             num_printed_char++;
             format++;
-        }/*
-        while(*format == '%')
-            format++;
+        }
+        while(*format == '%')/*
+            *format++;
             while(*format && ft_strchr(FLAGS, *format))
             	flags = check_flags();
 			num_printed_char = num_printed_char + join_flags_types_and_print(); */
@@ -160,3 +160,4 @@ int main(void)
     ft_printf("Hello World!");
 }
 
+//trabalhar só com os tipos
