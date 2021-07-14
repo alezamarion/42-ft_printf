@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:00 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/13 20:36:28 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/13 23:19:13 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,18 +72,20 @@ int ft_printf(const char *format, ...)
 
 int main (void)
 {
-    // c - i - d - u - s
-
     //char c = 'u';
     char *s = "Vila 26 bombando";
+    char *t = "Será que o pointer tá bacana?";
     //int in = 42;
     //int dec = 42;
-   // unsigned int ui = -300;
+    //unsigned int ui = -300;
 
     //ft_printf("\nchar: %c, string: %s, int: %i, decimal: %d, unsigned: %u\n\n", c, s, in, dec, ui);
     //printf("\nchar: %c, string: %s, int: %i, decimal: %d, unsigned: %u\n\n", c, s, in, dec, ui);
-    printf("%p\n", &s);
-    ft_printf("%p\n", &s);
+    printf("   printf: %p\n", &s);
+    ft_printf("ft_printf: %p\n", &s);
+
+    printf("   printf: %p\n", &t);
+    ft_printf("ft_printf: %p\n", &t);
 
     return (0);
 }

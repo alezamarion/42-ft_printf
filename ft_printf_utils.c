@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:27 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/13 21:15:58 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/13 23:18:59 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,34 +57,36 @@ void 	print_u(t_flags fl, va_list args, int *len)
 void	print_p(t_flags fl, va_list args, int *len)
 {
 	fl.strNum = ft_int_to_hex(va_arg(args, unsigned long int));
-	ft_putstr_len(fl.strNum, len);
+	ft_putstr_len_p(fl.strNum, len);
 }
 
-int	ft_int_to_hex_len(unsigned long int num)
+void	ft_putstr_len_p(char *s, int *len)
 {
-	size_t	len;
+	int i;
 
-	if (num <= 0)
-		len = 1;
-	else
-		len = 0;
-	while (num != 0)
+	write(1, "0", 1);
+	write(1, "x", 1);
+	if (s != NULL)
 	{
-		num = num / 10;
-		len++;
+		i = 0;
+		while (s[i])
+			ft_putchar_len(s[i++], len);
 	}
-	return (len);
 }
 
 char	*ft_int_to_hex(unsigned long int n)
-{
-    int len;
-	int i;
+{ 
+	unsigned long int num;
+	int len;
 	char *result;
 
-	len = 0;
-	i = 0;
-	len = ft_int_to_hex_len(n);
+	num = n;
+	len  = 0;
+	while (num)
+	{
+		num = num / 16;
+		len++;
+	}
 	result = (char *)malloc(sizeof(char) * len + 1);
 	if (result == NULL)
 		return (0);
@@ -94,7 +96,6 @@ char	*ft_int_to_hex(unsigned long int n)
 	{
 		int temp;
 
-		temp = 0;
 		temp = n % 16;
         if (temp < 10) 
 		{
@@ -238,7 +239,7 @@ char	*ft_uitoa(unsigned int n)
 	char	*result;
 
 	len = ft_ulen(n);
-	result = (char *)malloc(sizeof(char) * len + 1);
+	result = (char *)malloc(sizeof(char) * len - 1);
 	if (result == NULL)
 		return (0);
 	result[len] = '\0';
