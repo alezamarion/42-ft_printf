@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:27 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/14 00:02:47 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/14 00:12:50 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,19 +73,25 @@ void	ft_putstr_len_p(char *s, int *len)
 	}
 }
 
+int		len_hex(unsigned long int x)
+{
+	int len;
+	
+	len  = 0;
+	while (x)
+	{
+		x = x / 16;
+		len++;
+	}
+	return (len);
+}
+
 char	*ft_int_to_hex(unsigned long int n)
 { 
-	unsigned long int num;
 	int len;
 	char *result;
 
-	num = n;
-	len  = 0;
-	while (num)
-	{
-		num = num / 16;
-		len++;
-	}
+	len = len_hex(n);
 	result = (char *)malloc(len + 1);
 	if (result == NULL)
 		return (0);
