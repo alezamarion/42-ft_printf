@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:27 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/14 00:15:48 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/14 08:58:08 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,22 @@ void 	print_u(t_flags fl, va_list args, int *len)
 
 void	print_p(t_flags fl, va_list args, int *len)
 {
-	fl.strNum = ft_int_to_hex(va_arg(args, unsigned long int));
+	fl.strNum = ft_int_to_hex_px(va_arg(args, unsigned long int));
 	ft_putstr_len_p(fl.strNum, len);
 }
+
+void	print_x(t_flags fl, va_list args, int *len)
+{
+	fl.strNum = ft_int_to_hex_px(va_arg(args, unsigned long int));
+	ft_putstr_len(fl.strNum, len);	//o printf não imprime o hexa com '0x' no início, ao contrário dos ponteiros
+}
+
+void	print_X(t_flags fl, va_list args, int *len)
+{
+	fl.strNum = ft_int_to_hex_X(va_arg(args, unsigned long int));
+	ft_putstr_len(fl.strNum, len);	//o printf não imprime o hexa com '0x' no início, ao contrário dos ponteiros
+}
+
 
 void	ft_putstr_len_p(char *s, int *len)
 {
@@ -73,7 +86,7 @@ void	ft_putstr_len_p(char *s, int *len)
 	}
 }
 
-int		len_hex(unsigned long int x)
+int		ft_len_hex(unsigned long int x)
 {
 	int len;
 	
@@ -86,12 +99,12 @@ int		len_hex(unsigned long int x)
 	return (len);
 }
 
-char	*ft_int_to_hex(unsigned long int n)
+char	*ft_int_to_hex_px(unsigned long int n)
 { 
 	int len;
 	char *result;
 
-	len = len_hex(n);
+	len = ft_len_hex(n);
 	result = (char *)malloc(len + 1);
 	if (result == NULL)
 		return (0);
@@ -110,6 +123,29 @@ char	*ft_int_to_hex(unsigned long int n)
 	return (result);	
 }
 
+char	*ft_int_to_hex_X(unsigned long int n)
+{ 
+	int len;
+	char *result;
+
+	len = ft_len_hex(n);
+	result = (char *)malloc(len + 1);
+	if (result == NULL)
+		return (0);
+	result[len--] = '\0';
+	while (len >= 0)
+	{
+		int temp;
+
+		temp = n % 16;
+        if (temp < 10) 
+            result[len--] = temp + 48;
+        else 
+            result[len--] = temp + 55;
+        n = n / 16;
+    }
+	return (result);	
+}
 
 //para imprimir integer:
 size_t	ft_strlen(const char *s)

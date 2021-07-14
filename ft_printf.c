@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:00 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/14 00:15:50 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/14 08:51:18 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,12 @@ static void handle_types(int *len, va_list args, t_flags fl)
         print_u(fl, args, len);
     if (fl.type == 'p')
         print_p(fl, args, len);
-    // write(1, &print_c, 1);
-    // if (fl.type == 'x')
-    //    print_c  = va_arg(args, char *);
-    // write(1, &print_c, 1);
-    // if (fl.type == 'X')
-    //    print_c  = va_arg(args, char *);
-    // write(1, &print_c, 1);
+    if (fl.type == 'x')
+        print_x(fl, args, len);
+    if (fl.type == 'X')
+        print_X(fl, args, len);
     // if (fl.type == '%')
     //    print_c  = va_arg(args, char *);
-    // write(1, &print_c, 1);
 }
 
 static void get_specs(const char *format, int  *i, int *len, va_list args) {
@@ -72,20 +68,24 @@ int ft_printf(const char *format, ...)
 
 int main (void)
 {
-    //char c = 'u';
+    char c = 'u';
     char *s = "Vila 26 bombando";
-    char *t = "Será que o pointer tá bacana?";
-    //int in = 42;
-    //int dec = 42;
-    //unsigned int ui = -300;
+    int in = 42;
+    int dec = 42;
+    unsigned int ui = -300;
+    int hexa = 30000000;
 
-    //ft_printf("\nchar: %c, string: %s, int: %i, decimal: %d, unsigned: %u\n\n", c, s, in, dec, ui);
-    //printf("\nchar: %c, string: %s, int: %i, decimal: %d, unsigned: %u\n\n", c, s, in, dec, ui);
-    printf("   printf: %p\n", &s);
-    ft_printf("ft_printf: %p\n", &s);
+    printf("\n   printf -> char: %c, string: %s, int: %i, decimal: %d, unsigned: %u\n", c, s, in, dec, ui);
+    ft_printf("ft_printf -> char: %c, string: %s, int: %i, decimal: %d, unsigned: %u\n\n", c, s, in, dec, ui);
 
-    printf("   printf: %p\n", &t);
-    ft_printf("ft_printf: %p\n", &t);
+    printf("\n   printf -> pointer: %p, hexa 'x': %x, hexa 'X': %X\n", &s, hexa, hexa);
+    ft_printf("ft_printf -> pointer: %p, hexa 'x': %x, hexa 'X': %X\n\n", &s, hexa, hexa);
+   
+    //printf("   printf: %p\n", &s);
+    //ft_printf("ft_printf: %p\n", &s);
+
+    //printf("   printf: %p\n", &t);
+    //ft_printf("ft_printf: %p\n", &t);
 
     return (0);
 }
