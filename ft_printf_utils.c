@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:27 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/14 08:58:08 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/14 09:15:36 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,15 +63,14 @@ void	print_p(t_flags fl, va_list args, int *len)
 void	print_x(t_flags fl, va_list args, int *len)
 {
 	fl.strNum = ft_int_to_hex_px(va_arg(args, unsigned long int));
-	ft_putstr_len(fl.strNum, len);	//o printf não imprime o hexa com '0x' no início, ao contrário dos ponteiros
+	ft_putstr_len(fl.strNum, len);
 }
 
 void	print_X(t_flags fl, va_list args, int *len)
 {
 	fl.strNum = ft_int_to_hex_X(va_arg(args, unsigned long int));
-	ft_putstr_len(fl.strNum, len);	//o printf não imprime o hexa com '0x' no início, ao contrário dos ponteiros
+	ft_putstr_len(fl.strNum, len);
 }
-
 
 void	ft_putstr_len_p(char *s, int *len)
 {
