@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:27 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/14 09:15:36 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/14 09:24:20 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,10 @@ void	print_X(t_flags fl, va_list args, int *len)
 	ft_putstr_len(fl.strNum, len);
 }
 
+void print_pct(int *len)
+{
+	ft_putstr_len("%", len);
+}
 void	ft_putstr_len_p(char *s, int *len)
 {
 	int i;

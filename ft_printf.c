@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:00 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/14 09:12:49 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/14 09:24:36 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ static void handle_types(int *len, va_list args, t_flags fl)
         print_x(fl, args, len);
     if (fl.type == 'X')
         print_X(fl, args, len);
-    // if (fl.type == '%')
-    //    print_c  = va_arg(args, char *);
+    if (fl.type == '%')
+        print_pct(len);
 }
 
 static void get_specs(const char *format, int  *i, int *len, va_list args) {
@@ -78,8 +78,8 @@ int main (void)
     printf("\n   printf -> char: %c, string: %s, int: %i, decimal: %d, unsigned: %u\n", c, s, in, dec, ui);
     ft_printf("ft_printf -> char: %c, string: %s, int: %i, decimal: %d, unsigned: %u\n\n", c, s, in, dec, ui);
 
-    printf("\n   printf -> pointer: %p, hexa 'x': %x, hexa 'X': %X\n", &s, hexa, hexa);
-    ft_printf("ft_printf -> pointer: %p, hexa 'x': %x, hexa 'X': %X\n\n", &s, hexa, hexa);
+    printf("\n   printf -> pointer: %p, hexa 'x': %x, hexa 'X': %X,  %%\n", &s, hexa, hexa);
+    ft_printf("ft_printf -> pointer: %p, hexa 'x': %x, hexa 'X': %X,  %%\n\n", &s, hexa, hexa);
    
     return (0);
 }

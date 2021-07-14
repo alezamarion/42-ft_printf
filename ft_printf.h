@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:14 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/14 09:12:45 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/14 09:24:17 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,6 @@ void	print_x(t_flags fl, va_list args, int *len);
 char	*ft_int_to_hex_X(unsigned long int n);
 void	print_X(t_flags fl, va_list args, int *len);
 
+void print_pct(int *len);
 
 #endif
