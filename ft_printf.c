@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:00 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/14 08:51:18 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/14 09:07:19 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,11 +81,5 @@ int main (void)
     printf("\n   printf -> pointer: %p, hexa 'x': %x, hexa 'X': %X\n", &s, hexa, hexa);
     ft_printf("ft_printf -> pointer: %p, hexa 'x': %x, hexa 'X': %X\n\n", &s, hexa, hexa);
    
-    //printf("   printf: %p\n", &s);
-    //ft_printf("ft_printf: %p\n", &s);
-
-    //printf("   printf: %p\n", &t);
-    //ft_printf("ft_printf: %p\n", &t);
-
     return (0);
 }
