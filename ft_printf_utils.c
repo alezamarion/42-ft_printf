@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:27 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/12 22:06:21 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/13 21:15:58 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,22 +37,80 @@ void		print_c(char c, int *len)
 	ft_putchar_len(c, len);
 }
 
-void		print_s(char *c, int *len)
+void	print_s(char *c, int *len)
 {
 	ft_putstr_len(c, len);
 }
 
-void print_i_d(t_flags fl, va_list args, int *len)
+void 	print_i_d(t_flags fl, va_list args, int *len)
 {
 	fl.strNum = ft_itoa(va_arg(args, int));
 	ft_putstr_len(fl.strNum, len);
 }
 
-void print_u(t_flags fl, va_list args, int *len)
+void 	print_u(t_flags fl, va_list args, int *len)
 {
 	fl.strNum = ft_uitoa(va_arg(args, unsigned int));
 	ft_putstr_len(fl.strNum, len);	
 }
+
+void	print_p(t_flags fl, va_list args, int *len)
+{
+	fl.strNum = ft_int_to_hex(va_arg(args, unsigned long int));
+	ft_putstr_len(fl.strNum, len);
+}
+
+int	ft_int_to_hex_len(unsigned long int num)
+{
+	size_t	len;
+
+	if (num <= 0)
+		len = 1;
+	else
+		len = 0;
+	while (num != 0)
+	{
+		num = num / 10;
+		len++;
+	}
+	return (len);
+}
+
+char	*ft_int_to_hex(unsigned long int n)
+{
+    int len;
+	int i;
+	char *result;
+
+	len = 0;
+	i = 0;
+	len = ft_int_to_hex_len(n);
+	result = (char *)malloc(sizeof(char) * len + 1);
+	if (result == NULL)
+		return (0);
+	result[len] = '\0';
+	len--;
+	while (len >= 0)
+	{
+		int temp;
+
+		temp = 0;
+		temp = n % 16;
+        if (temp < 10) 
+		{
+            result[len] = temp + 48;
+            len--;
+        }
+        else 
+		{
+            result[len] = temp + 87;
+            len--;
+        }
+        n = n / 16;
+    }
+	return (result);	
+}
+
 
 //para imprimir integer:
 size_t	ft_strlen(const char *s)
@@ -176,7 +234,6 @@ int	ft_ulen(unsigned int num)
 
 char	*ft_uitoa(unsigned int n)
 {
-	int		sign;
 	int		len;
 	char	*result;
 

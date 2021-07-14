@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:00 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/12 22:05:54 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/13 20:36:28 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ static void handle_types(int *len, va_list args, t_flags fl)
         print_i_d(fl, args, len);
     if (fl.type == 'u')
         print_u(fl, args, len);
-    // if (fl.type == 'p')
-    //    print_c  = va_arg(args, char *);
+    if (fl.type == 'p')
+        print_p(fl, args, len);
     // write(1, &print_c, 1);
     // if (fl.type == 'x')
     //    print_c  = va_arg(args, char *);
@@ -74,14 +74,16 @@ int main (void)
 {
     // c - i - d - u - s
 
-    char c = 'u';
+    //char c = 'u';
     char *s = "Vila 26 bombando";
-    int in = 42;
-    int dec = 42;
-    unsigned int ui = -300;
+    //int in = 42;
+    //int dec = 42;
+   // unsigned int ui = -300;
 
-    ft_printf("\nchar: %c, string: %s, int: %i, decimal: %d, unsigned: %u\n\n", c, s, in, dec, ui);
-    printf("\nchar: %c, string: %s, int: %i, decimal: %d, unsigned: %u\n\n", c, s, in, dec, ui);
+    //ft_printf("\nchar: %c, string: %s, int: %i, decimal: %d, unsigned: %u\n\n", c, s, in, dec, ui);
+    //printf("\nchar: %c, string: %s, int: %i, decimal: %d, unsigned: %u\n\n", c, s, in, dec, ui);
+    printf("%p\n", &s);
+    ft_printf("%p\n", &s);
 
     return (0);
 }
