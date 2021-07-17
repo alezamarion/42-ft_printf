@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:27 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/14 09:24:20 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/17 10:51:40 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,19 +56,19 @@ void 	print_u(t_flags fl, va_list args, int *len)
 
 void	print_p(t_flags fl, va_list args, int *len)
 {
-	fl.strNum = ft_int_to_hex_px(va_arg(args, unsigned long int));
+	fl.strNum = ft_int_to_hex_pxX(va_arg(args, unsigned long int), fl);
 	ft_putstr_len_p(fl.strNum, len);
 }
 
 void	print_x(t_flags fl, va_list args, int *len)
 {
-	fl.strNum = ft_int_to_hex_px(va_arg(args, unsigned long int));
+	fl.strNum = ft_int_to_hex_pxX(va_arg(args, unsigned long int), fl);
 	ft_putstr_len(fl.strNum, len);
 }
 
 void	print_X(t_flags fl, va_list args, int *len)
 {
-	fl.strNum = ft_int_to_hex_X(va_arg(args, unsigned long int));
+	fl.strNum = ft_int_to_hex_pxX(va_arg(args, unsigned long int), fl);
 	ft_putstr_len(fl.strNum, len);
 }
 
@@ -102,10 +102,11 @@ int		ft_len_hex(unsigned long int x)
 	return (len);
 }
 
-char	*ft_int_to_hex_px(unsigned long int n)
+char	*ft_int_to_hex_pxX(unsigned long int n, t_flags fl)
 { 
 	int len;
 	char *result;
+	int temp;
 
 	len = ft_len_hex(n);
 	result = (char *)malloc(len + 1);
@@ -114,38 +115,18 @@ char	*ft_int_to_hex_px(unsigned long int n)
 	result[len--] = '\0';
 	while (len >= 0)
 	{
-		int temp;
-
+		temp = 0;
 		temp = n % 16;
         if (temp < 10) 
             result[len--] = temp + 48;
         else 
-            result[len--] = temp + 87;
-        n = n / 16;
-    }
-	return (result);	
-}
-
-char	*ft_int_to_hex_X(unsigned long int n)
-{ 
-	int len;
-	char *result;
-
-	len = ft_len_hex(n);
-	result = (char *)malloc(len + 1);
-	if (result == NULL)
-		return (0);
-	result[len--] = '\0';
-	while (len >= 0)
-	{
-		int temp;
-
-		temp = n % 16;
-        if (temp < 10) 
-            result[len--] = temp + 48;
-        else 
-            result[len--] = temp + 55;
-        n = n / 16;
+		{
+			if (fl.type == 'x' || fl.type == 'p')
+            	result[len--] = temp + 87;
+			else
+				result[len--] = temp + 55;
+		}
+		n = n / 16;
     }
 	return (result);	
 }

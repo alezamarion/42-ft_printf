@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:14 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/15 17:46:42 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/17 10:50:12 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include "stdlib.h"
 # include "string.h"
 # define CONVERSIONS	"cspdiuxX%"
-# define ALL_FLAGS "-0.0123456789cspdiuxX%"
+# define ALL_FLAGS		"-0.0123456789cspdiuxX%"
 # define NUMBERS		"0123456789"
 
 typedef struct t_flags
@@ -45,11 +45,10 @@ char	*ft_uitoa(unsigned int n);
 int		ft_ulen(unsigned int num);
 void	print_c(char c, int *len);
 void	print_p(t_flags fl, va_list args, int *len);
-char	*ft_int_to_hex_px(unsigned long int n);
+char	*ft_int_to_hex_pxX(unsigned long int n, t_flags fl);
 void	ft_putstr_len_p(char *s, int *len);
 int		ft_len_hex(unsigned long int x);
 void	print_x(t_flags fl, va_list args, int *len);
-char	*ft_int_to_hex_X(unsigned long int n);
 void	print_X(t_flags fl, va_list args, int *len);
 void	print_pct(int *len);
 
