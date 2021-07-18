@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:00 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/18 12:01:16 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/18 12:11:03 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,17 @@ static void	get_flag_width_precision(const char *format, int *i, int *len);
 {
 	t_flags fl;
 
-	if (*format == '-')
-		fl.minus = 1;
-	if (*format == )
+	if (*format == '-')			//flag
+	{
+		fl.minus == 1;
+		fl.zero == 0;
+	}
+								//width
+
+								
+	if (*format == '.')			//precision
+		fl.precision = 1;
+	
 
 }
 
