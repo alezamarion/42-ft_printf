@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:14 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/17 10:50:12 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/18 12:02:45 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,20 +18,24 @@
 # include "stdlib.h"
 # include "string.h"
 # define CONVERSIONS	"cspdiuxX%"
+# define FLAGS			"-0.0123456789"
 # define ALL_FLAGS		"-0.0123456789cspdiuxX%"
 # define NUMBERS		"0123456789"
 
-typedef struct t_flags
+
+typedef struct t_flags //options
 {
+	int		minus;			//-> 0 no 1 yes
+	int		zero;			//-> 0 no 1 yes + how many
+	int		width;	//		-> 0 no 1 yes + how many 
+	int		precision; //	-> 0 no 1 yes + how many
 	char	type;
 	char	*strNum;
-	int		width;
-	int		precision;
 }	t_flags;
 
 int		ft_printf(const char *format, ...);
 void	ft_putchar_len(char c, int *len);
-int		ft_strchr_01(char *s, char c);
+int		ft_strchr(char *s, char c);
 size_t	ft_strlen(const char *s);
 void	ft_putstr(char *s);
 void	ft_putchar(char c);
@@ -51,5 +55,6 @@ int		ft_len_hex(unsigned long int x);
 void	print_x(t_flags fl, va_list args, int *len);
 void	print_X(t_flags fl, va_list args, int *len);
 void	print_pct(int *len);
+
 
 #endif

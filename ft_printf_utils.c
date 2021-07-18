@@ -6,10 +6,9 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:27 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/17 10:51:40 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/18 12:02:41 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "ft_printf.h"
 
@@ -19,7 +18,7 @@ void	ft_putchar_len(char c, int *len)
 	(*len)++;
 }
 
-int		ft_strchr_01(char *s, char c)
+int		ft_strchr(char *s, char c)
 {
 	int i;
 
@@ -45,7 +44,9 @@ void	print_s(char *c, int *len)
 void 	print_i_d(t_flags fl, va_list args, int *len)
 {
 	fl.strNum = ft_itoa(va_arg(args, int));
+	//if flag x or y or z:
 	ft_putstr_len(fl.strNum, len);
+	//clean flags
 }
 
 void 	print_u(t_flags fl, va_list args, int *len)

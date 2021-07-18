@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:00 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/17 10:47:38 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/18 12:01:16 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,16 +32,28 @@ static void	handle_types(int *len, va_list args, t_flags fl)
 		print_pct(len);
 }
 
-static void	get_specs(const char *format, int *i, int *len, va_list args)
+static void	get_types_and_print(const char *format, int *i, int *len, va_list args)
 {
 	t_flags	fl;
 
-	if (ft_strchr_01(CONVERSIONS, format[*i]))
+	if (ft_strchr(CONVERSIONS, format[*i]))
 	{
 		fl.type = format[(*i)++];
 		handle_types(len, args, fl);
 	}
 }
+
+
+static void	get_flag_width_precision(const char *format, int *i, int *len);
+{
+	t_flags fl;
+
+	if (*format == '-')
+		fl.minus = 1;
+	if (*format == )
+
+}
+
 
 int	ft_printf(const char *format, ...)
 {
@@ -52,14 +64,16 @@ int	ft_printf(const char *format, ...)
 	va_start(args, format);
 	len = 0;
 	i = 0;
-	while (format[i] != '\0')
+	while (format[i])
 	{
 		if (format[i] != '%')
 			ft_putchar_len(format[i++], &len);
 		else
 		{
 			i++;
-			get_specs(format, &i, &len, args);
+			while(format[i] && ft_strchr(FLAGS, format[i]))
+				get_flag_width_precision(format, &i, &len);
+			get_types_and_print(format, &i, &len, args);
 			if (len == -1)
 				return (-1);
 		}
