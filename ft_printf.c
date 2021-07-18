@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:00 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/18 12:11:03 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/18 18:26:33 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,23 +43,26 @@ static void	get_types_and_print(const char *format, int *i, int *len, va_list ar
 	}
 }
 
-
-static void	get_flag_width_precision(const char *format, int *i, int *len);
+static void	get_flag_width_precision(const char *format)
 {
 	t_flags fl;
 
-	if (*format == '-')			//flag
+	if (*format == '-')													//flag
 	{
-		fl.minus == 1;
-		fl.zero == 0;
+		fl.minus = 1;
+		fl.zero = 0;
 	}
-								//width
-
-								
-	if (*format == '.')			//precision
+	if (*format == '0' && fl.minus == 0 && fl.precision == 0)			//zero
+		fl.zero = 1;
+	if (*format == '.')													//precision
 		fl.precision = 1;
-	
-
+	if (ft_strchr(NUMBERS, *format))									//width
+	{
+		if (fl.precision == 1)
+			fl.precision = (fl.precision * 10) + (*format - '0');
+		else
+			fl.width = (fl.width * 10) + (*format - '0');
+	}
 }
 
 
@@ -80,7 +83,10 @@ int	ft_printf(const char *format, ...)
 		{
 			i++;
 			while(format[i] && ft_strchr(FLAGS, format[i]))
-				get_flag_width_precision(format, &i, &len);
+			{
+				get_flag_width_precision(format);
+				i++, len++;
+			}
 			get_types_and_print(format, &i, &len, args);
 			if (len == -1)
 				return (-1);
@@ -96,8 +102,8 @@ int main (void)
     char *s = "Vila 26 bombando";
     int in = 42;
     int dec = 42;
-    unsigned int ui = -300;
-    int hexa = 30000000;
+    unsigned int ui = -3000;
+    int hexa = 300000000;
 
 
     printf("\n   printf -> char: %c, string: %s, int: %i, decimal: %d, unsigned: %u\n", c, s, in, dec, ui);
