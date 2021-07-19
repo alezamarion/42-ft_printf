@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:00 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/18 18:26:33 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/19 16:40:31 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static void	handle_types(int *len, va_list args, t_flags fl)
 		print_pct(len);
 }
 
-static void	get_types_and_print(const char *format, int *i, int *len, va_list args)
+static void	get_types(const char *format, int *i, int *len, va_list args)
 {
 	t_flags	fl;
 
@@ -43,7 +43,7 @@ static void	get_types_and_print(const char *format, int *i, int *len, va_list ar
 	}
 }
 
-static void	get_flag_width_precision(const char *format)
+static void	get_flag_width_precision(const char *format)	// printf("hello %-055.3s", "Galera da 26")
 {
 	t_flags fl;
 
@@ -52,16 +52,16 @@ static void	get_flag_width_precision(const char *format)
 		fl.minus = 1;
 		fl.zero = 0;
 	}
-	if (*format == '0' && fl.minus == 0 && fl.precision == 0)			//zero
+	if (*format == '0' && fl.minus == 0 && fl.width == 0)			    //zero
 		fl.zero = 1;
 	if (*format == '.')													//precision
-		fl.precision = 1;
-	if (ft_strchr(NUMBERS, *format))									//width
+		fl.dot = 1;
+	if (ft_strchr(NUMBERS, *format))									//precision + width
 	{
-		if (fl.precision == 1)
-			fl.precision = (fl.precision * 10) + (*format - '0');
+		if (fl.dot == 1)
+			fl.precision = (fl.precision * 10) + (*format - '0');		//entra como texto, sai como int
 		else
-			fl.width = (fl.width * 10) + (*format - '0');
+			fl.width = (fl.width * 10) + (*format - '0');				//idem
 	}
 }
 
@@ -81,13 +81,14 @@ int	ft_printf(const char *format, ...)
 			ft_putchar_len(format[i++], &len);
 		else
 		{
+			ft_clean_flags(); // <-
 			i++;
 			while(format[i] && ft_strchr(FLAGS, format[i]))
 			{
 				get_flag_width_precision(format);
 				i++, len++;
 			}
-			get_types_and_print(format, &i, &len, args);
+			get_types(format, &i, &len, args);
 			if (len == -1)
 				return (-1);
 		}

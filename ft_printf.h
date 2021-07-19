@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:14 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/18 12:02:45 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/19 16:33:57 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef struct t_flags //options
 	int		minus;			//-> 0 no 1 yes
 	int		zero;			//-> 0 no 1 yes + how many
 	int		width;	//		-> 0 no 1 yes + how many 
+	int		dot;
 	int		precision; //	-> 0 no 1 yes + how many
 	char	type;
 	char	*strNum;
@@ -56,5 +57,6 @@ void	print_x(t_flags fl, va_list args, int *len);
 void	print_X(t_flags fl, va_list args, int *len);
 void	print_pct(int *len);
 
+t_flags	ft_clean_flags(void);
 
 #endif
