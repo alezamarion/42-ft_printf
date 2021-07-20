@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:00 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/19 23:20:56 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/19 23:23:58 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,9 @@ static void	get_types(const char *format, int *i, int *len, va_list args, t_flag
 	}
 }
 
-t_flags	get_flag_width_precision(const char *format, t_flags fl, int *i)	//<-	 printf("hello %-055.3s", "Galera da 26")
+t_flags	get_flag_width_precision(const char *format, t_flags fl, int *i)
 {
-	if (format[*i] == '-')													//flag 1
+	if (format[*i] == '-')
 	{
 		fl.minus = 1;
 		fl.zero = 0;
@@ -69,7 +69,7 @@ t_flags	get_flag_width_precision(const char *format, t_flags fl, int *i)	//<-	 p
 }
 
 
-int	ft_printf(const char *format, ...)	// ft_printf("%c\n", 'C')
+int	ft_printf(const char *format, ...)
 {
 	va_list	args;
 	int		len;
@@ -89,7 +89,7 @@ int	ft_printf(const char *format, ...)	// ft_printf("%c\n", 'C')
 			i++;
 			while(format[i] && ft_strchr(FLAGS, format[i]))
 			{
-				fl = get_flag_width_precision(format, fl, &i); //<-
+				fl = get_flag_width_precision(format, fl, &i);
 				i++, len++;
 			}
 			get_types(format, &i, &len, args, fl);
