@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:00 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/19 16:40:31 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/19 21:04:17 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void	handle_types(int *len, va_list args, t_flags fl)
 {
 	if (fl.type == 'c')
-		print_c(va_arg(args, int), len);
+		print_c(va_arg(args, int), len, fl);
 	if (fl.type == 's')
 		print_s(va_arg(args, char *), len);
 	if (fl.type == 'i' || fl.type == 'd')
@@ -34,7 +34,7 @@ static void	handle_types(int *len, va_list args, t_flags fl)
 
 static void	get_types(const char *format, int *i, int *len, va_list args)
 {
-	t_flags	fl;
+	t_flags fl;
 
 	if (ft_strchr(CONVERSIONS, format[*i]))
 	{
@@ -43,11 +43,9 @@ static void	get_types(const char *format, int *i, int *len, va_list args)
 	}
 }
 
-static void	get_flag_width_precision(const char *format)	// printf("hello %-055.3s", "Galera da 26")
+t_flags	get_flag_width_precision(const char *format, t_flags fl)	//<-	 printf("hello %-055.3s", "Galera da 26")
 {
-	t_flags fl;
-
-	if (*format == '-')													//flag
+	if (*format == '-')													//flag 1
 	{
 		fl.minus = 1;
 		fl.zero = 0;
@@ -59,18 +57,20 @@ static void	get_flag_width_precision(const char *format)	// printf("hello %-055.
 	if (ft_strchr(NUMBERS, *format))									//precision + width
 	{
 		if (fl.dot == 1)
-			fl.precision = (fl.precision * 10) + (*format - '0');		//entra como texto, sai como int
+			fl.precision = (fl.precision * 10) + (*format - '0');		//entra como texto, sai como int 3
 		else
-			fl.width = (fl.width * 10) + (*format - '0');				//idem
+			fl.width = (fl.width * 10) + (*format - '0');				//idem ATOI 55
 	}
+	return (fl);
 }
 
 
-int	ft_printf(const char *format, ...)
+int	ft_printf(const char *format, ...)	// ft_printf("%c\n", 'C')
 {
 	va_list	args;
 	int		len;
 	int		i;
+	t_flags fl;	//<-
 
 	va_start(args, format);
 	len = 0;
@@ -81,11 +81,11 @@ int	ft_printf(const char *format, ...)
 			ft_putchar_len(format[i++], &len);
 		else
 		{
-			ft_clean_flags(); // <-
+			ft_clean_flags();
 			i++;
 			while(format[i] && ft_strchr(FLAGS, format[i]))
 			{
-				get_flag_width_precision(format);
+				fl = get_flag_width_precision(format, fl); //<-
 				i++, len++;
 			}
 			get_types(format, &i, &len, args);
@@ -99,19 +99,28 @@ int	ft_printf(const char *format, ...)
 
 int main (void)
 {
-    char c = 'u';
-    char *s = "Vila 26 bombando";
+	printf("\n   printf: %c\n", 'C');
+	ft_printf("ft_printf: %c\n", 'C');
+
+	printf("\n   printf: %10c\n", 'C');
+	ft_printf("ft_printf: %10c\n", 'C');
+
+	printf("\n   printf: %-10c\n", 'C');
+	ft_printf("ft_printf: %-10c\n", 'C');
+
+    /*
+	char c = 'u';
+	char *s = "Vila 26 bombando";
     int in = 42;
     int dec = 42;
     unsigned int ui = -3000;
     int hexa = 300000000;
-
 
     printf("\n   printf -> char: %c, string: %s, int: %i, decimal: %d, unsigned: %u\n", c, s, in, dec, ui);
     ft_printf("ft_printf -> char: %c, string: %s, int: %i, decimal: %d, unsigned: %u\n\n", c, s, in, dec, ui);
 
     printf("\n   printf -> pointer: %p, hexa 'x': %x, hexa 'X': %X,  %%\n", &s, hexa, hexa);
     ft_printf("ft_printf -> pointer: %p, hexa 'x': %x, hexa 'X': %X,  %%\n\n", &s, hexa, hexa);
-   
+	*/
     return (0);
 }

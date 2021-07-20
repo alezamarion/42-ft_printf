@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:27 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/19 16:34:00 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/19 21:07:24 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,28 @@ int		ft_strchr(char *s, char c)
 	return (0);
 }
 
-void		print_c(char c, int *len)
+void		print_c(char c, int *len, t_flags fl)
 {
-	ft_putchar_len(c, len);
+	if (fl.minus == 0 && fl.width == 0)
+		ft_putchar_len(c, len);
+	else if (fl.minus == 0 && fl. width > 0)
+	{
+		while (fl.width-- > 1)
+		{
+			write(1, " ", 1);
+			len++;
+		}
+		ft_putchar_len(c, len);
+	}
+	else if (fl.minus == 1)
+	{
+		ft_putchar_len(c, len);
+		while (fl.width-- > 1)
+		{
+			write(1, " ", 1);
+			len++;
+		}
+	}
 }
 
 void	print_s(char *c, int *len)
@@ -44,9 +63,7 @@ void	print_s(char *c, int *len)
 void 	print_i_d(t_flags fl, va_list args, int *len)
 {
 	fl.strNum = ft_itoa(va_arg(args, int));
-	//if flag x or y or z:
 	ft_putstr_len(fl.strNum, len);
-	//clean flags
 }
 
 void 	print_u(t_flags fl, va_list args, int *len)

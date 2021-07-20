@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:14 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/19 16:33:57 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/19 20:52:39 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,13 @@
 # define NUMBERS		"0123456789"
 
 
-typedef struct t_flags //options
+typedef struct t_flags
 {
-	int		minus;			//-> 0 no 1 yes
-	int		zero;			//-> 0 no 1 yes + how many
-	int		width;	//		-> 0 no 1 yes + how many 
+	int		minus;
+	int		zero;
+	int		width;
 	int		dot;
-	int		precision; //	-> 0 no 1 yes + how many
+	int		precision;
 	char	type;
 	char	*strNum;
 }	t_flags;
@@ -48,7 +48,7 @@ void	print_i_d(t_flags fl, va_list args, int *len);
 void	print_u(t_flags fl, va_list args, int *len);
 char	*ft_uitoa(unsigned int n);
 int		ft_ulen(unsigned int num);
-void	print_c(char c, int *len);
+void	print_c(char c, int *len, t_flags fl); //<-
 void	print_p(t_flags fl, va_list args, int *len);
 char	*ft_int_to_hex_pxX(unsigned long int n, t_flags fl);
 void	ft_putstr_len_p(char *s, int *len);
