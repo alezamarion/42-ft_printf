@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:00 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/19 23:23:58 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/20 16:46:03 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,7 @@ t_flags	get_flag_width_precision(const char *format, t_flags fl, int *i)
 		{
 			fl.width = (fl.width * 10) + (format[*i] - '0');
 		}
-	}
-	
+	}	
 	return (fl);
 }
 
@@ -85,8 +84,8 @@ int	ft_printf(const char *format, ...)
 			ft_putchar_len(format[i++], &len);
 		else
 		{
-			ft_clean_flags();
 			i++;
+			fl = ft_clean_flags();
 			while(format[i] && ft_strchr(FLAGS, format[i]))
 			{
 				fl = get_flag_width_precision(format, fl, &i);
@@ -103,16 +102,15 @@ int	ft_printf(const char *format, ...)
 
 int main (void)
 {
-	
-	printf("\n   printf: %c\n", 'C');
-	ft_printf("ft_printf: %c\n", 'C');
+	printf("\n   caso 1 printf: %c\n", 'C');
+	ft_printf("caso 1 ft_printf: %c\n", 'C');
 
-	//printf("\n   printf: %12c\n", 'C');
-	//ft_printf("ft_printf: %12c\n\n", 'C');
+	printf("\n   caso2  printf: %10c\n", 'C');
+	ft_printf("caso 2 ft_printf: %10c\n", 'C');
 
-	//printf("\n   printf: %-10c\n", 'C');
-	//ft_printf("ft_printf: %-10c\n", 'C');
-		
+	printf("\n   caso 3 printf: %-10c\n", 'C');
+	ft_printf("caso 3 ft_printf: %-10c\n", 'C');
+
     /*
 	char c = 'u';
 	char *s = "Vila 26 bombando";
