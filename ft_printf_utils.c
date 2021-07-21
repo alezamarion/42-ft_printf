@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:27 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/20 16:45:10 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/20 21:28:45 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,41 @@ void		print_c(char c, int *len, t_flags fl)
 	}
 }
 
-void	print_s(char *c, int *len)
+void	print_s(char *c, int *len, t_flags fl)
 {
-	ft_putstr_len(c, len);
+	if (fl.minus == 0 && fl.width == 0 && fl.precision == 0)
+		ft_putstr_len(c, len);
+	if (fl.minus == 0 && fl.width > 0 && fl.precision == 0)
+	{
+		int num;
+
+		num  = fl.width - (int)ft_strlen(c);
+		while (num > 0)
+		{
+			write(1, " ", 1);
+			num--, len++;
+		}
+		ft_putstr_len(c, len);		
+	}
+	if (fl.minus == 0 && fl.width == 0 && fl.precision > 0)
+	{
+		if (fl.precision > (int)ft_strlen(c))
+			ft_putstr_len(c, len);	
+		else
+		{
+			while (fl.precision > 0)
+			{
+				write(1, &*c, 1);
+				fl.precision--, len++, c++;			
+			}
+		}	
+	}
+	if (fl.minus == 0 && fl.width > 0 && fl.precision > 0)
+	{
+		
+		
+	}
+
 }
 
 void 	print_i_d(t_flags fl, va_list args, int *len)

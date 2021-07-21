@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:14 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/20 16:40:13 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/20 21:28:49 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	ft_putchar(char c);
 void	ft_putnbr(int n);
 char	*ft_itoa(int n);
 void	ft_putstr_len(char *s, int *len);
-void	print_s(char *c, int *len);
+void	print_s(char *c, int *len, t_flags fl);
 void	print_i_d(t_flags fl, va_list args, int *len);
 void	print_u(t_flags fl, va_list args, int *len);
 char	*ft_uitoa(unsigned int n);

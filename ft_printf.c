@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:00 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/20 16:46:03 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/20 21:28:47 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	handle_types(int *len, va_list args, t_flags fl)
 	if (fl.type == 'c')
 		print_c(va_arg(args, int), len, fl);
 	if (fl.type == 's')
-		print_s(va_arg(args, char *), len);
+		print_s(va_arg(args, char *), len, fl);
 	if (fl.type == 'i' || fl.type == 'd')
 		print_i_d(fl, args, len);
 	if (fl.type == 'u')
@@ -102,6 +102,17 @@ int	ft_printf(const char *format, ...)
 
 int main (void)
 {
+	//printf("%s",  "Vila 26\n");
+	//ft_printf("%s",  "Vila 26\n");
+
+	//printf("%5s",  "Vila 26\n");
+	//ft_printf("%5s",  "Vila 26\n");
+
+	printf("%.6s\n",  "Vila 26");
+	ft_printf("%.6s\n",  "Vila 26");
+
+
+	/*
 	printf("\n   caso 1 printf: %c\n", 'C');
 	ft_printf("caso 1 ft_printf: %c\n", 'C');
 
@@ -110,6 +121,7 @@ int main (void)
 
 	printf("\n   caso 3 printf: %-10c\n", 'C');
 	ft_printf("caso 3 ft_printf: %-10c\n", 'C');
+	*/
 
     /*
 	char c = 'u';
