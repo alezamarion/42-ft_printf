@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:27 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/20 22:33:13 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/21 00:22:16 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,18 +104,60 @@ void	print_s(char *c, int *len, t_flags fl)
 			write(1, &*c, 1);
 			fl.precision--, len++, c++;				
 		}
-	if (fl.precision > size && fl.width > size )
-		imprime a string
-			if fl.minus == 0 imprime espaço antes
-			else fl.minus == 1 imprime espaço depois
-	if (fl.precision < size && fl.width > size)
-		corta a string usando a precisão
-			if fl.minus == 0 imprime espaço antes
-			else fl.minus == 1 imprime espaço depois
+	else if ((fl.precision == 0 || fl.precision >= size) && fl.width > size )
+	{
+		if (fl.minus == 0)
+		{
+			while (fl.width > size)
+			{
+				write(1, " ", 1);
+				fl.width--, len++;
+			}
+			ft_putstr_len(c, len);
+		}
+		else
+		{
+			ft_putstr_len(c, len);
+			while (fl.width > size)
+			{
+				write(1, " ", 1);
+				fl.width--, len++;
+			}
+		}
+	}
+	else if (fl.precision < size && (fl.width >= size || fl.width == 0))
+	{
+		if(fl.minus == 0)
+		{
+			while (fl.width - fl.precision > 0)
+			{
+				write(1, " ", 1);
+				fl.width--, len++;
+			}
+			while (fl.precision > 0)
+			{
+				write(1, &*c, 1);
+				fl.precision--, len++, c++;				
+			}
+		}
+		else
+		{
+			while (fl.precision > 0)
+			{
+				write(1, &*c, 1);
+				fl.precision--, len++, c++;				
+			}
+			while (fl.width - fl.precision > 0)
+			{
+				write(1, " ", 1);
+				fl.width--, len++;
+			}
+		}
+	}
 	else
-		ft_putstr_len(c, len); (8 casos)
-}	
-
+		ft_putstr_len(c, len);
+		printf("%s", c);
+}
 
 void 	print_i_d(t_flags fl, va_list args, int *len)
 {

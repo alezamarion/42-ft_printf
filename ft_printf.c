@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:00 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/20 22:19:30 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/21 00:20:42 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,16 +102,34 @@ int	ft_printf(const char *format, ...)
 
 int main (void)
 {
-	//printf("%s",  "Vila 26\n");
-	//ft_printf("%s",  "Vila 26\n");
+	printf("%s\n", "Vila 26");
+	ft_printf("%s\n", "Vila 26");
 
-	//printf("%5s",  "Vila 26\n");
-	//ft_printf("%5s",  "Vila 26\n");
+/*
+	printf("%10s\n", "Vila 26");
+	ft_printf("%10s\n", "Vila 26");
 
-	printf("%3.3s\n",  "Vila 26");
-	ft_printf("%3.3s\n",  "Vila 26");
+	printf("%.4s\n", "Vila 26");
+	ft_printf("%.4s\n", "Vila 26");
 
+	printf("%10.4s\n", "Vila 26");
+	ft_printf("%10.4s\n", "Vila 26");
 
+	printf("%4.10s\n", "Vila 26");
+	ft_printf("%4.10s\n", "Vila 26");
+
+	printf("%-10s\n", "Vila 26");
+	ft_printf("%-10s\n", "Vila 26");
+
+	printf("%-.4s\n", "Vila 26");
+	ft_printf("%-.4s\n", "Vila 26");
+
+	printf("%-10.4s\n", "Vila 26");
+	ft_printf("%-10.4s\n", "Vila 26");
+
+	printf("%-4.10s\n", "Vila 26");
+	ft_printf("%-4.10s\n", "Vila 26");
+*/
 	/*
 	printf("\n   caso 1 printf: %c\n", 'C');
 	ft_printf("caso 1 ft_printf: %c\n", 'C');
