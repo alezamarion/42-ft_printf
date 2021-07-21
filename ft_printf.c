@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:00 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/21 08:12:50 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/21 08:35:19 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,8 +102,12 @@ int	ft_printf(const char *format, ...)
 
 int main (void)
 {
+	printf("\nimpressão sem flags:\n\n");
+
 	printf("%s\n", "Vila 26");
 	ft_printf("%s\n", "Vila 26");
+
+	printf("\nsem a flag '-':\n\n");
 
 	printf("%10s\n", "Vila 26");
 	ft_printf("%10s\n", "Vila 26");
@@ -111,13 +115,14 @@ int main (void)
 	printf("%.4s\n", "Vila 26");
 	ft_printf("%.4s\n", "Vila 26");
 
-<<<<<<< HEAD
 	printf("%10.4s\n", "Vila 26");
 	ft_printf("%10.4s\n", "Vila 26");
 
 	printf("%4.10s\n", "Vila 26");
 	ft_printf("%4.10s\n", "Vila 26");
 
+	printf("\ncom a flag '-':\n\n");
+	
 	printf("%-10s\n", "Vila 26");
 	ft_printf("%-10s\n", "Vila 26");
 
@@ -130,9 +135,11 @@ int main (void)
 	printf("%-4.10s\n", "Vila 26");
 	ft_printf("%-4.10s\n", "Vila 26");
 
-=======
+
+
+
+
 	//este é um comentário
->>>>>>> caf3ae20108506bc8f9a5b8468103e5660a7a090
 	/*
 	printf("\n   caso 1 printf: %c\n", 'C');
 	ft_printf("caso 1 ft_printf: %c\n", 'C');
