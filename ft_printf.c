@@ -111,7 +111,7 @@ int main (void)
 	printf("%3.3s\n",  "Vila 26");
 	ft_printf("%3.3s\n",  "Vila 26");
 
-
+	//este é um comentário
 	/*
 	printf("\n   caso 1 printf: %c\n", 'C');
 	ft_printf("caso 1 ft_printf: %c\n", 'C');
