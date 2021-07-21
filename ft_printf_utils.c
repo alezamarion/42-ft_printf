@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:27 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/21 17:55:19 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/21 19:34:36 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -163,12 +163,24 @@ void 	print_i_d(t_flags fl, va_list args, int *len)
 	}
 	if ((fl.zero == 1 || fl.zero == 0) && (fl.width > size && fl.precision <= size)) //   string
 	{	
-		while (fl.width - size > 0)
+		if (fl.minus == 1)
 		{
-			write(1, " ", 1);
-			fl.width--, len++;
+			ft_putstr_len(fl.strNum, len);			
+			while (fl.width - size > 0)
+			{
+				write(1, " ", 1);
+				fl.width--, len++;
+			}
 		}
-		ft_putstr_len(fl.strNum, len);
+		else
+		{
+			while (fl.width - size > 0)
+			{
+				write(1, " ", 1);
+				fl.width--, len++;
+			}
+			ft_putstr_len(fl.strNum, len);
+		}
 	}	
 }
 
