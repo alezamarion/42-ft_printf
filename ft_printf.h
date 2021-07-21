@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:14 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/21 17:55:25 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/21 19:38:36 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	print_i_d(t_flags fl, va_list args, int *len);
 void	print_u(t_flags fl, va_list args, int *len);
 char	*ft_uitoa(unsigned int n);
 int		ft_ulen(unsigned int num);
-void	print_c(char c, int *len, t_flags fl); //<-
+void	print_c(char c, int *len, t_flags fl);
 void	print_p(t_flags fl, va_list args, int *len);
 char	*ft_int_to_hex_pxX(unsigned long int n, t_flags fl);
 void	ft_putstr_len_p(char *s, int *len);
