@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:14 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/20 21:28:49 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/21 08:23:20 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,9 @@ int		ft_len_hex(unsigned long int x);
 void	print_x(t_flags fl, va_list args, int *len);
 void	print_X(t_flags fl, va_list args, int *len);
 void	print_pct(int *len);
+void	print_s_space_print(char *c, int *len, t_flags fl);
+void	print_s_space_cut(char *c, int *len, t_flags fl);
+
 
 t_flags	ft_clean_flags(void);
 

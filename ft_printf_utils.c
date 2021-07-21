@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:27 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/21 00:22:16 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/21 08:26:51 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,107 +56,83 @@ void		print_c(char c, int *len, t_flags fl)
 		}
 	}
 }
-/*
-void	print_s(char *c, int *len, t_flags fl)
-{
-	if (fl.minus == 0 && fl.width == 0 && fl.precision == 0)
-		ft_putstr_len(c, len);
-	if (fl.minus == 0 && fl.width > 0 && fl.precision == 0)
-	{
-		int num;
-
-		num  = fl.width - (int)ft_strlen(c);
-		while (num > 0)
-		{
-			write(1, " ", 1);
-			num--, len++;
-		}
-		ft_putstr_len(c, len);		
-	}
-	if (fl.minus == 0 && fl.width == 0 && fl.precision > 0)
-	{
-		if (fl.precision >= (int)ft_strlen(c))
-			ft_putstr_len(c, len);	
-		else
-		{
-			while (fl.precision > 0)
-			{
-				write(1, &*c, 1);
-				fl.precision--, len++, c++;			
-			}
-		}	
-	}
-	if (fl.minus == 0 && fl.width > 0 && fl.precision > 0)
-	{
-
-	}
-}
-*/
 
 void	print_s(char *c, int *len, t_flags fl)
 {
 	int size;
 
 	size = (int)ft_strlen(c);
-	if (fl.precision < size && fl.width < size)
+	if ((fl.precision == 0 && fl.width == 0) || (fl.precision >= size && fl.width <= size))
+		ft_putstr_len(c, len); 
+	else if (fl.precision < size && (fl.width == 0 || fl.width < size))
 		while (fl.precision > 0)
 		{
 			write(1, &*c, 1);
 			fl.precision--, len++, c++;				
 		}
-	else if ((fl.precision == 0 || fl.precision >= size) && fl.width > size )
+	else if ((fl.precision == 0 || fl.precision >= size) && fl.width > size ) //imprime espaços + string
+		print_s_space_print(c, len, fl);
+	else if (fl.precision < size && fl.width >= size) //imprime espaços + corta string
+		print_s_space_cut(c, len, fl);
+}
+
+void	print_s_space_print(char *c, int *len, t_flags fl)
+{
+	int size;
+
+	size = (int)ft_strlen(c);
+	if (fl.minus == 0)
 	{
-		if (fl.minus == 0)
+		while (fl.width > size)
 		{
-			while (fl.width > size)
-			{
-				write(1, " ", 1);
-				fl.width--, len++;
-			}
-			ft_putstr_len(c, len);
+			write(1, " ", 1);
+			fl.width--, len++;
 		}
-		else
+		ft_putstr_len(c, len);
+	}
+	else
+	{
+		ft_putstr_len(c, len);
+		while (fl.width > size)
 		{
-			ft_putstr_len(c, len);
-			while (fl.width > size)
-			{
-				write(1, " ", 1);
-				fl.width--, len++;
-			}
+			write(1, " ", 1);
+			fl.width--, len++;
 		}
 	}
-	else if (fl.precision < size && (fl.width >= size || fl.width == 0))
+}
+
+void	print_s_space_cut(char *c, int *len, t_flags fl)
+{
+	int size;
+
+	size = (int)ft_strlen(c);
+
+	if(fl.minus == 0)
 	{
-		if(fl.minus == 0)
+		while (fl.width - fl.precision > 0)
 		{
-			while (fl.width - fl.precision > 0)
-			{
-				write(1, " ", 1);
-				fl.width--, len++;
-			}
-			while (fl.precision > 0)
-			{
-				write(1, &*c, 1);
-				fl.precision--, len++, c++;				
-			}
+			write(1, " ", 1);
+			fl.width--, len++;
 		}
-		else
+		while (fl.precision > 0)
 		{
-			while (fl.precision > 0)
-			{
-				write(1, &*c, 1);
-				fl.precision--, len++, c++;				
-			}
-			while (fl.width - fl.precision > 0)
-			{
-				write(1, " ", 1);
-				fl.width--, len++;
-			}
+			write(1, &*c, 1);
+			fl.precision--, len++, c++;				
 		}
 	}
 	else
-		ft_putstr_len(c, len);
-		printf("%s", c);
+	{
+		while (fl.precision > 0)
+		{
+			write(1, &*c, 1);
+			fl.precision--, len++, c++;				
+		}
+		while (fl.width - fl.precision > 0)
+		{
+			write(1, " ", 1);
+			fl.width--, len++;
+		}
+	}
 }
 
 void 	print_i_d(t_flags fl, va_list args, int *len)
