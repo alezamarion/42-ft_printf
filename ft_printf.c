@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:00 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/21 08:35:19 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/21 17:55:27 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,126 @@ int	ft_printf(const char *format, ...)
 
 int main (void)
 {
+	// TESTES DE INT E D
+	
+	printf("CASOS COM ZERO ANTES DO WIDTH\n");
+	printf("casos de impressão normal:\n");
+	
+	printf("%0i\n", 123456);
+	ft_printf("%0i\n", 123456);
+
+	printf("%0.3i\n", 123456);
+	ft_printf("%0.3i\n", 123456);
+
+	printf("%0.6i\n", 123456);
+	ft_printf("%0.6i\n", 123456);
+
+	printf("%3i\n", 123456);
+	ft_printf("%3i\n", 123456);
+
+	printf("%03.3i\n", 123456);
+	ft_printf("%03.3i\n", 123456);
+
+	printf("%03.6i\n", 123456);
+	ft_printf("%03.6i\n", 123456);
+
+	printf("%06i\n", 123456);
+	ft_printf("%06i\n", 123456);
+
+	printf("%06.3i\n", 123456);
+	ft_printf("%06.3i\n", 123456);
+
+	printf("%06.6i\n", 123456);
+	ft_printf("%06.6i\n", 123456);
+	
+
+	printf("casos precisão-size: imprime zeros + imprime string\n");
+	
+	printf("%0.10i\n", 123456);
+	ft_printf("%0.10i\n", 123456);
+
+	printf("%03.10i\n", 123456);
+	ft_printf("%03.10i\n", 123456);
+
+	printf("%03.10i\n", 123456);
+	ft_printf("%03.10i\n", 123456);
+
+	printf("%06.10i\n", 123456);
+	ft_printf("%06.10i\n", 123456);
+	
+
+	printf("casos precisão-size: imprime espaços + imprime string\n");
+
+	printf("%010.3i\n", 123456); 
+	ft_printf("%010.3i\n", 123456);
+
+	printf("%010.6i\n", 123456);
+	ft_printf("%010.6i\n", 123456);
+	
+
+	printf("CASOS SEM O ZERO ANTES DO WIDTH\n");
+	printf("casos de impressão normal:\n");
+	
+	printf("%i\n", 123456);
+	ft_printf("%i\n", 123456);
+
+	printf("%.3i\n", 123456);
+	ft_printf("%.3i\n", 123456);
+
+	printf("%.6i\n", 123456);
+	ft_printf("%.6i\n", 123456);
+
+	printf("%3i\n", 123456);
+	ft_printf("%3i\n", 123456);
+
+	printf("%3.3i\n", 123456);
+	ft_printf("%3.3i\n", 123456);
+
+	printf("%3.6i\n", 123456);
+	ft_printf("%3.6i\n", 123456);
+
+	printf("%6i\n", 123456);
+	ft_printf("%6i\n", 123456);
+
+	printf("%6.3i\n", 123456);
+	ft_printf("%6.3i\n", 123456);
+
+	printf("%6.6i\n", 123456);
+	ft_printf("%6.6i\n", 123456);
+	
+
+	printf("casos precisão-size: imprime zeros + imprime string\n");
+	
+	printf("%.10i\n", 123456);
+	ft_printf("%.10i\n", 123456);
+
+	printf("%3.10i\n", 123456);
+	ft_printf("%3.10i\n", 123456);
+
+	printf("%3.10i\n", 123456);
+	ft_printf("%3.10i\n", 123456);
+
+	printf("%6.10i\n", 123456);
+	ft_printf("%6.10i\n", 123456);
+	
+
+	printf("casos precisão-size: imprime espaços + imprime string\n");
+
+	printf("%10.3i\n", 123456); 
+	ft_printf("%10.3i\n", 123456);
+
+	printf("%10.6i\n", 123456);
+	ft_printf("%10.6i\n", 123456);
+
+
+//////////
+
+
+
+
+
+	/*
+	TESTES DE STRING
 	printf("\nimpressão sem flags:\n\n");
 
 	printf("%s\n", "Vila 26");
@@ -134,13 +254,10 @@ int main (void)
 
 	printf("%-4.10s\n", "Vila 26");
 	ft_printf("%-4.10s\n", "Vila 26");
+	*/
 
-
-
-
-
-	//este é um comentário
 	/*
+	TESTES DE CHAR
 	printf("\n   caso 1 printf: %c\n", 'C');
 	ft_printf("caso 1 ft_printf: %c\n", 'C');
 
