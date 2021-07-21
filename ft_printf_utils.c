@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:27 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/20 21:28:45 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/20 22:33:13 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void		print_c(char c, int *len, t_flags fl)
 		}
 	}
 }
-
+/*
 void	print_s(char *c, int *len, t_flags fl)
 {
 	if (fl.minus == 0 && fl.width == 0 && fl.precision == 0)
@@ -75,7 +75,7 @@ void	print_s(char *c, int *len, t_flags fl)
 	}
 	if (fl.minus == 0 && fl.width == 0 && fl.precision > 0)
 	{
-		if (fl.precision > (int)ft_strlen(c))
+		if (fl.precision >= (int)ft_strlen(c))
 			ft_putstr_len(c, len);	
 		else
 		{
@@ -88,11 +88,34 @@ void	print_s(char *c, int *len, t_flags fl)
 	}
 	if (fl.minus == 0 && fl.width > 0 && fl.precision > 0)
 	{
-		
-		
-	}
 
+	}
 }
+*/
+
+void	print_s(char *c, int *len, t_flags fl)
+{
+	int size;
+
+	size = (int)ft_strlen(c);
+	if (fl.precision < size && fl.width < size)
+		while (fl.precision > 0)
+		{
+			write(1, &*c, 1);
+			fl.precision--, len++, c++;				
+		}
+	if (fl.precision > size && fl.width > size )
+		imprime a string
+			if fl.minus == 0 imprime espaço antes
+			else fl.minus == 1 imprime espaço depois
+	if (fl.precision < size && fl.width > size)
+		corta a string usando a precisão
+			if fl.minus == 0 imprime espaço antes
+			else fl.minus == 1 imprime espaço depois
+	else
+		ft_putstr_len(c, len); (8 casos)
+}	
+
 
 void 	print_i_d(t_flags fl, va_list args, int *len)
 {

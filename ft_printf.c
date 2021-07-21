@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:00 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/20 21:28:47 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/20 22:19:30 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,8 +108,8 @@ int main (void)
 	//printf("%5s",  "Vila 26\n");
 	//ft_printf("%5s",  "Vila 26\n");
 
-	printf("%.6s\n",  "Vila 26");
-	ft_printf("%.6s\n",  "Vila 26");
+	printf("%3.3s\n",  "Vila 26");
+	ft_printf("%3.3s\n",  "Vila 26");
 
 
 	/*
