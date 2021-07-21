@@ -111,6 +111,7 @@ int main (void)
 	printf("%.4s\n", "Vila 26");
 	ft_printf("%.4s\n", "Vila 26");
 
+<<<<<<< HEAD
 	printf("%10.4s\n", "Vila 26");
 	ft_printf("%10.4s\n", "Vila 26");
 
@@ -129,6 +130,9 @@ int main (void)
 	printf("%-4.10s\n", "Vila 26");
 	ft_printf("%-4.10s\n", "Vila 26");
 
+=======
+	//este é um comentário
+>>>>>>> caf3ae20108506bc8f9a5b8468103e5660a7a090
 	/*
 	printf("\n   caso 1 printf: %c\n", 'C');
 	ft_printf("caso 1 ft_printf: %c\n", 'C');
