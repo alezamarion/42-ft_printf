@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:27 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/21 08:26:51 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/21 08:38:01 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,6 @@ void	print_s_space_cut(char *c, int *len, t_flags fl)
 	int size;
 
 	size = (int)ft_strlen(c);
-
 	if(fl.minus == 0)
 	{
 		while (fl.width - fl.precision > 0)
