@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:27 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/21 19:34:36 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/21 22:01:41 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,31 +108,44 @@ void	print_s_space_cut(char *c, int *len, t_flags fl)
 	size = (int)ft_strlen(c);
 	if(fl.minus == 0)
 	{
-		while (fl.width - fl.precision > 0)
-		{
-			write(1, " ", 1);
-			fl.width--, len++;
-		}
-		while (fl.precision > 0)
-		{
-			write(1, &*c, 1);
-			fl.precision--, len++, c++;				
-		}
+		print_s_space_cut_right(c, len, fl);
 	}
 	else
 	{
-		while (fl.precision > 0)
-		{
-			write(1, &*c, 1);
-			fl.precision--, len++, c++;				
-		}
-		while (fl.width - fl.precision > 0)
-		{
-			write(1, " ", 1);
-			fl.width--, len++;
-		}
+		print_s_space_cut_left(c, len, fl);
 	}
 }
+
+void	print_s_space_cut_right(char *c, int *len, t_flags fl)
+{
+	while (fl.width - fl.precision > 0)
+	{
+		write(1, " ", 1);
+		fl.width--, len++;
+	}
+	while (fl.precision > 0)
+	{
+		write(1, &*c, 1);
+		fl.precision--, len++, c++;				
+	}
+}
+
+void	print_s_space_cut_left(char *c, int *len, t_flags fl)
+{
+	while (fl.precision > 0)
+	{
+		write(1, &*c, 1);
+		fl.precision--, len++, c++;				
+	}
+	while (fl.width - fl.precision > 0)
+	{
+		write(1, " ", 1);
+		fl.width--, len++;
+	}
+}
+
+
+
 
 /*
 void 	print_i_d(t_flags fl, va_list args, int *len)

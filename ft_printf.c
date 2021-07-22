@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:00 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/21 19:33:51 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/21 21:49:39 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,8 @@ int	ft_printf(const char *format, ...)
 int main (void)
 {
 	// TESTES DE INT E D
-	/*
+/*
+	// TESTES SEM FLAG - //
 	printf("CASOS COM ZERO ANTES DO WIDTH E SEM FLAG '-'\n");
 	printf("CASOS COM ZERO ANTES DO WIDTH E SEM FLAG '-'\n");
 	//1
@@ -210,10 +211,12 @@ int main (void)
 
 	printf("%10.6i\n", 123456);
 	ft_printf("%10.6i\n", 123456);
-*/
 
+*/
 //////////
 
+/*
+	// TESTES COM FLAG - //
 	printf("CASOS COM ZERO ANTES DO WIDTH E COM FLAG '-'\n");
 	printf("CASOS COM ZERO ANTES DO WIDTH E COM FLAG '-'\n");
 	printf("CASOS COM ZERO ANTES DO WIDTH E COM FLAG '-'\n");
@@ -322,10 +325,10 @@ int main (void)
 
 	printf("%-10.6i\n", 123456);
 	ft_printf("%-10.6i\n", 123456);
-
-
-	/*
-	TESTES DE STRING
+	
+*/
+	
+	//TESTES DE STRING
 	printf("\nimpressão sem flags:\n\n");
 
 	printf("%s\n", "Vila 26");
@@ -358,7 +361,7 @@ int main (void)
 
 	printf("%-4.10s\n", "Vila 26");
 	ft_printf("%-4.10s\n", "Vila 26");
-	*/
+	
 
 	/*
 	TESTES DE CHAR
