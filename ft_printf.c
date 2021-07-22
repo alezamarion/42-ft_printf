@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:00 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/21 21:49:39 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/21 22:13:13 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -215,7 +215,7 @@ int main (void)
 */
 //////////
 
-/*
+
 	// TESTES COM FLAG - //
 	printf("CASOS COM ZERO ANTES DO WIDTH E COM FLAG '-'\n");
 	printf("CASOS COM ZERO ANTES DO WIDTH E COM FLAG '-'\n");
@@ -326,8 +326,8 @@ int main (void)
 	printf("%-10.6i\n", 123456);
 	ft_printf("%-10.6i\n", 123456);
 	
-*/
-	
+
+	/*
 	//TESTES DE STRING
 	printf("\nimpressão sem flags:\n\n");
 
@@ -361,7 +361,7 @@ int main (void)
 
 	printf("%-4.10s\n", "Vila 26");
 	ft_printf("%-4.10s\n", "Vila 26");
-	
+	*/
 
 	/*
 	TESTES DE CHAR
