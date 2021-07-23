@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:27 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/22 22:48:49 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/22 23:47:43 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -206,12 +206,12 @@ void 	print_u(t_flags fl, va_list args, int *len)
 		}
 		ft_putstr_len(fl.strNum, len);
 	}
+	else if (fl.zero == 1 && fl.width > size && fl.precision == 0)		//caso 3: imprime zeros (width-size) + string (1) %014u
+		print_u_zero_string(fl, len, size);
 	else if (fl.width > size && fl.precision <= size)	//caso 4: imprime espaços (width-size) + string (5)
 		print_u_space_string(fl, len, size);
-	else if (fl.width > size && fl.precision == 0)		//caso 3: imprime zeros (width-size) + string (1)
-		print_u_zero_string(fl, len, size);
-	else												
-		ft_putstr_len(fl.strNum, len); // caso 1: igual (18)
+	else												// caso 1: igual (18)			
+		ft_putstr_len(fl.strNum, len); 
 }
 
 void 	print_u_space_string(t_flags fl, int *len, int size)
@@ -220,19 +220,11 @@ void 	print_u_space_string(t_flags fl, int *len, int size)
 		if (fl.minus == 1)
 		{
 			ft_putstr_len(fl.strNum, len);
-			while (fl.width - size > 0)
-			{
-				write(1, " ", 1);
-				fl.width--, len++;
-			}
+			print_s_space(fl, size, len);
 		}
 		else
 		{
-			while (fl.width - size > 0)
-			{
-				write(1, " ", 1);
-				fl.width--, len++;
-			}
+			print_s_space(fl, size, len);
 			ft_putstr_len(fl.strNum, len);
 		}
 	}
@@ -240,15 +232,24 @@ void 	print_u_space_string(t_flags fl, int *len, int size)
 
 void 	print_u_zero_string(t_flags fl, int *len, int size)
 {
-	if ((fl.zero == 1 || fl.zero == 0) && fl.minus == 0)
+	
+	if (fl.minus == 0)
 	{
-		print_s_space(fl, size, len);
+		while (fl.width - size > 0)
+		{
+			write(1, "0", 1);
+			fl.width--, len++;
+		}
 		ft_putstr_len(fl.strNum, len);
 	}
 	else if (fl.minus == 1)
 	{
 		ft_putstr_len(fl.strNum, len);
-		print_s_space(fl, size, len);
+		while (fl.width - size > 0)
+		{
+			write(1, " ", 1);
+			fl.width--, len++;
+		}
 	}
 }
 

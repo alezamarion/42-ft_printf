@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:00 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/22 22:29:52 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/22 23:51:13 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ int	ft_printf(const char *format, ...)
 int main (void)
 {
 	//TESTES DE UNSIGNED INT
-/*
+
 	printf("TESTES PARA FLAG ZERO COM O ZERO ANTES DO WIDTH\n");
 
 	printf("%u\n", 123456789);
@@ -172,9 +172,9 @@ int main (void)
 
 	printf("%9.14u\n", 123456789);
 	ft_printf("%9.14u\n", 123456789);
-*/
 
-/*	printf("TESTES PARA FLAG - COM O ZERO ANTES DO WIDTH\n");
+/*
+	printf("TESTES PARA FLAG - COM O ZERO ANTES DO WIDTH\n");
 
 	printf("%-u\n", 123456789);
 	ft_printf("%-u\n", 123456789);
@@ -214,7 +214,7 @@ int main (void)
 
 	printf("%-09.14u\n", 123456789);
 	ft_printf("%-09.14u\n", 123456789);
- */
+*/
 
 	printf(".............................................\n\n\n\n");
 	printf("TESTES PARA FLAG - SEM O ZERO ANTES DO WIDTH\n");
