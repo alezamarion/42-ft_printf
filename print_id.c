@@ -6,41 +6,41 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 15:07:45 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/23 15:37:10 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/23 19:00:03 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void 	print_i_d(t_flags fl, va_list args, int *len)
+void	print_i_d(t_flags fl, va_list args, int *len)
 {
-	int size;
-		
+	int	size;
+
 	fl.strNum = ft_itoa(va_arg(args, int));
 	size = (int)ft_strlen(fl.strNum);
-	if ((fl.zero == 1 || fl.zero == 0) && (fl.width == 0 || fl.width <= size) && (fl.precision == 0 || fl.precision <= size))
+	if (fl.width <= size && fl.precision <= size)
 		ft_putstr_len(fl.strNum, len);
-	if ((fl.zero == 1 || fl.zero == 0) && (fl.precision > size)) //000string
+	if (fl.precision > size)
 	{
 		print_i_d_zero(fl, size, len);
 		ft_putstr_len(fl.strNum, len);
 	}
-	if ((fl.zero == 1 || fl.zero == 0) && (fl.width > size && fl.precision <= size)) //   string
+	if (fl.width > size && fl.precision <= size)
 	{	
 		if (fl.minus == 1)
 		{
 			ft_putstr_len(fl.strNum, len);
-			print_space(fl, size, len);		
+			print_space(fl, size, len);
 		}
 		else
 		{
-			print_space(fl, size, len);		
+			print_space(fl, size, len);
 			ft_putstr_len(fl.strNum, len);
 		}
 	}	
 }
 
-void 	print_space(t_flags fl, int size, int *len)
+void	print_space(t_flags fl, int size, int *len)
 {
 	while (fl.width - size > 0)
 	{
@@ -49,7 +49,7 @@ void 	print_space(t_flags fl, int size, int *len)
 	}
 }
 
-void 	print_i_d_zero(t_flags fl, int size, int *len)
+void	print_i_d_zero(t_flags fl, int size, int *len)
 {
 	while (fl.precision - size > 0)
 	{

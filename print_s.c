@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 15:05:51 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/23 15:32:42 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/23 18:52:50 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,28 @@
 
 void	print_s(char *c, int *len, t_flags fl)
 {
-	int size;
+	int	size;
 
 	size = (int)ft_strlen(c);
-	if ((fl.precision == 0 && fl.width == 0) || (fl.precision >= size && fl.width <= size))
-		ft_putstr_len(c, len); 
-	else if (fl.precision < size && (fl.width == 0 || fl.width < size))
+	if ((fl.precision < size && fl.precision > 0) && fl.width < size)
+	{
 		while (fl.precision > 0)
 		{
 			write(1, &*c, 1);
-			fl.precision--, len++, c++;				
+			fl.precision--, len++, c++;
 		}
-	else if ((fl.precision == 0 || fl.precision >= size) && fl.width > size ) //imprime espaços + string
+	}
+	else if ((fl.precision == 0 || fl.precision >= size) && fl.width > size)
 		print_s_space_print(c, len, fl);
-	else if (fl.precision < size && fl.width >= size) //imprime espaços + corta string
+	else if (fl.precision < size && fl.width >= size)
 		print_s_space_cut(c, len, fl);
+	else
+		ft_putstr_len(c, len);
 }
 
 void	print_s_space_print(char *c, int *len, t_flags fl)
 {
-	int size;
+	int	size;
 
 	size = (int)ft_strlen(c);
 	if (fl.minus == 0)
@@ -58,10 +60,10 @@ void	print_s_space_print(char *c, int *len, t_flags fl)
 
 void	print_s_space_cut(char *c, int *len, t_flags fl)
 {
-	int size;
+	int	size;
 
 	size = (int)ft_strlen(c);
-	if(fl.minus == 0)
+	if (fl.minus == 0)
 		print_s_space_cut_right(c, len, fl);
 	else
 		print_s_space_cut_left(c, len, fl);
@@ -77,7 +79,7 @@ void	print_s_space_cut_right(char *c, int *len, t_flags fl)
 	while (fl.precision > 0)
 	{
 		write(1, &*c, 1);
-		fl.precision--, len++, c++;				
+		fl.precision--, len++, c++;
 	}
 }
 
@@ -86,7 +88,7 @@ void	print_s_space_cut_left(char *c, int *len, t_flags fl)
 	while (fl.precision > 0)
 	{
 		write(1, &*c, 1);
-		fl.precision--, len++, c++;				
+		fl.precision--, len++, c++;
 	}
 	while (fl.width - fl.precision > 0)
 	{

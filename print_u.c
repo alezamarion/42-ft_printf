@@ -6,19 +6,19 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 15:11:44 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/23 17:49:19 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/23 19:05:59 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void 	print_u(t_flags fl, va_list args, int *len)
-{																									
-	int size;																						
-																									
-	fl.strNum = ft_uitoa(va_arg(args, unsigned int));												
-	size = (int)ft_strlen(fl.strNum);																
-	if (fl.precision > size)											//caso 1: imprime zeros (precisão-size) + imprime string (8)
+void	print_u(t_flags fl, va_list args, int *len)
+{
+	int	size;
+
+	fl.strNum = ft_uitoa(va_arg(args, unsigned int));
+	size = (int)ft_strlen(fl.strNum);
+	if (fl.precision > size)
 	{
 		while (fl.precision - size > 0)
 		{
@@ -27,15 +27,15 @@ void 	print_u(t_flags fl, va_list args, int *len)
 		}
 		ft_putstr_len(fl.strNum, len);
 	}
-	else if (fl.zero == 1 && fl.width > size && fl.precision == 0)		//caso 2: imprime zeros (width-size) + string (1) %014u
+	else if (fl.zero == 1 && fl.width > size && fl.precision == 0)
 		print_u_zero_string(fl, len, size);
-	else if (fl.width > size && fl.precision <= size)					//caso 3: imprime espaços (width-size) + string (5)
+	else if (fl.width > size && fl.precision <= size)
 		print_u_space_string(fl, len, size);
-	else															   // caso 4: igual (18)			
-		ft_putstr_len(fl.strNum, len); 
+	else
+		ft_putstr_len(fl.strNum, len);
 }
 
-void 	print_u_space_string(t_flags fl, int *len, int size)
+void	print_u_space_string(t_flags fl, int *len, int size)
 {
 	{
 		if (fl.minus == 1)
@@ -51,9 +51,8 @@ void 	print_u_space_string(t_flags fl, int *len, int size)
 	}
 }
 
-void 	print_u_zero_string(t_flags fl, int *len, int size)
-{
-	
+void	print_u_zero_string(t_flags fl, int *len, int size)
+{	
 	if (fl.minus == 0)
 	{
 		while (fl.width - size > 0)
@@ -66,7 +65,7 @@ void 	print_u_zero_string(t_flags fl, int *len, int size)
 	else if (fl.minus == 1)
 	{
 		ft_putstr_len(fl.strNum, len);
-		print_space(fl, size, len);		
+		print_space(fl, size, len);
 	}
 }
 

@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:00 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/23 15:22:26 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/23 19:25:33 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,8 @@ static void	handle_types(int *len, va_list args, t_flags fl)
 		print_u(fl, args, len);
 	if (fl.type == 'p')
 		print_p(fl, args, len);
-	if (fl.type == 'x')
-		print_x(fl, args, len);
-	if (fl.type == 'X')
-		print_X(fl, args, len);
+	if (fl.type == 'x' || fl.type == 'X')
+		print_xX(fl, args, len);
 	if (fl.type == '%')
 		print_pct(len);
 }
@@ -92,7 +90,7 @@ int	ft_printf(const char *format, ...)
 
 int main (void)
 {
-/*	// TESTES DE x E X
+	// TESTES DE x E X
 	printf("----------TESTES DE x SEM FLAG - E SEM OPÇÃO 0--------\n");
 	printf("%x\n", 123456789);
 	ft_printf("%x\n", 123456789);
@@ -118,8 +116,8 @@ int main (void)
 
 	printf("%7x\n", 123456789);
 	ft_printf("%7x\n", 123456789);
-*/
-/*
+
+
 	printf("----------TESTES DE x SEM FLAG - E COM  OPÇÃO 0--------\n");
 	printf("%0x\n", 123456789);
 	ft_printf("%0x\n", 123456789);
@@ -133,7 +131,7 @@ int main (void)
 	printf("%07x\n", 123456789);
 	ft_printf("%07x\n", 123456789);
 
-	printf("----------TESTES DE x COM FLAG - E COM OPÇÃO 0--------\n");
+/*	printf("----------TESTES DE x COM FLAG - E COM OPÇÃO 0--------\n");
 	printf("%-0x\n", 123456789);
 	ft_printf("%-0x\n", 123456789);
 
@@ -147,10 +145,10 @@ int main (void)
 	ft_printf("%-07x\n", 123456789);
 */
 
-/*
+
 	// TESTES DE PONTEIRO
-    char    *string = "Hello";
-	printf("----------TESTES DE PONTEIRO SEM FLAG - E SEM OPÇÃO 0--------\n");
+    //char    *string = "Hello";
+/*	printf("----------TESTES DE PONTEIRO SEM FLAG - E SEM OPÇÃO 0--------\n");
     printf("%p\n", &string);
    	ft_printf("%p\n", &string);
 
@@ -328,8 +326,8 @@ int main (void)
 	printf("%-09.14u\n", 123456789);
 	ft_printf("%-09.14u\n", 123456789);
 */
-
-/*	printf(".............................................\n\n\n\n");
+/*
+	printf(".............................................\n\n\n\n");
 	printf("TESTES PARA FLAG - SEM O ZERO ANTES DO WIDTH\n");
 	printf("%-u\n", 123456789);
 	ft_printf("%-u\n", 123456789);
@@ -595,8 +593,8 @@ int main (void)
 	ft_printf("%-10.6i\n", 123456);
 */	
 
-	
-/*	//TESTES DE STRING
+/*	
+	//TESTES DE STRING
 	printf("\nimpressão sem flags:\n\n");
 
 	printf("%s\n", "Vila 26");
@@ -629,20 +627,20 @@ int main (void)
 
 	printf("%-4.10s\n", "Vila 26");
 	ft_printf("%-4.10s\n", "Vila 26");
-	
+*/	
 
 	
-	//TESTES DE CHAR
-	//printf("\n   caso 1 printf: %c\n", 'C');
-	//ft_printf("caso 1 ft_printf: %c\n", 'C');
+/*	//TESTES DE CHAR
+	printf("\n   caso 1 printf: %c\n", 'C');
+	ft_printf("caso 1 ft_printf: %c\n", 'C');
 
-	//printf("\n   caso2  printf: %10c\n", 'C');
-	//ft_printf("caso 2 ft_printf: %10c\n", 'C');
+	printf("\n   caso2  printf: %10c\n", 'C');
+	ft_printf("caso 2 ft_printf: %10c\n", 'C');
 
-	//printf("\n   caso 3 printf: %-10c\n", 'C');
-	//ft_printf("caso 3 ft_printf: %-10c\n", 'C');
-	
-*/
+	printf("\n   caso 3 printf: %-10c\n", 'C');
+	ft_printf("caso 3 ft_printf: %-10c\n", 'C');
+*/	
+
   /* 
 	char c = 'u';
 	char *s = "Vila 26 bombando";
