@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:00 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/23 13:50:38 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/23 14:32:14 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,9 +92,63 @@ int	ft_printf(const char *format, ...)
 
 int main (void)
 {
+	// TESTES DE x E X
+/*	printf("----------TESTES DE x SEM FLAG - E SEM OPÇÃO 0--------\n");
+	printf("%x\n", 123456789);
+	ft_printf("%x\n", 123456789);
+
+	printf("%15x\n", 123456789); 
+	ft_printf("%15x\n", 123456789); //vai até 15 de width sem crashar
+
+	printf("%3x\n", 123456789);
+	ft_printf("%3x\n", 123456789);
+
+	printf("%7x\n", 123456789);
+	ft_printf("%7x\n", 123456789);
+
+	printf("----------TESTES DE x COM FLAG - E SEM OPÇÃO 0--------\n");
+	printf("%-x\n", 123456789);
+	ft_printf("%-x\n", 123456789);
+
+	printf("%-20x\n", 123456789);
+	ft_printf("%-20x\n", 123456789);
+
+	printf("%-3x\n", 123456789);
+	ft_printf("%-3x\n", 123456789);
+
+	printf("%7x\n", 123456789);
+	ft_printf("%7x\n", 123456789);
+*/
+/*	printf("----------TESTES DE x SEM FLAG - E COM  OPÇÃO 0--------\n");
+	printf("%0x\n", 123456789);
+	ft_printf("%0x\n", 123456789);
+
+	printf("%015x\n", 123456789);
+	ft_printf("%015x\n", 123456789);
+
+	printf("%03x\n", 123456789);
+	ft_printf("%03x\n", 123456789);
+
+	printf("%07x\n", 123456789);
+	ft_printf("%07x\n", 123456789);
+
+	printf("----------TESTES DE x COM FLAG - E COM OPÇÃO 0--------\n");
+	printf("%-0x\n", 123456789);
+	ft_printf("%-0x\n", 123456789);
+
+	printf("%-015x\n", 123456789);
+	ft_printf("%-015x\n", 123456789);
+
+	printf("%-03x\n", 123456789);
+	ft_printf("%-03x\n", 123456789);
+
+	printf("%-07x\n", 123456789);
+	ft_printf("%-07x\n", 123456789);
+*/
+
+
 	// TESTES DE PONTEIRO
- 
-    char    *string = "Hello";
+    //char    *string = "Hello";
 /*	printf("----------TESTES DE PONTEIRO SEM FLAG - E SEM OPÇÃO 0--------\n");
     printf("%p\n", &string);
    	ft_printf("%p\n", &string);
@@ -121,7 +175,7 @@ int main (void)
     printf("%-14p\n", &string);
    	ft_printf("%-14p\n", &string);
 */
-
+/*
 	printf("----------TESTES DE PONTEIRO SEM FLAG - E COM OPÇÃO 0--------\n");
 	printf("%0p\n", &string);
    	ft_printf("%0p\n", &string);
@@ -147,7 +201,7 @@ int main (void)
 
 	printf("%-014p\n", &string);
    	ft_printf("%-014p\n", &string);
-
+*/
 
 /*
 	//TESTES DE UNSIGNED INT
