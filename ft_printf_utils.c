@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:27 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/21 22:54:41 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/22 21:36:55 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -180,7 +180,6 @@ void 	print_s_space(t_flags fl, int size, int *len)
 		write(1, " ", 1);
 		fl.width--, len++;
 	}
-
 }
 
 void 	print_s_zero(t_flags fl, int size, int *len)
@@ -192,28 +191,78 @@ void 	print_s_zero(t_flags fl, int size, int *len)
 	}
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 void 	print_u(t_flags fl, va_list args, int *len)
-{
-	fl.strNum = ft_uitoa(va_arg(args, unsigned int));
-	ft_putstr_len(fl.strNum, len);	
+{																										// flag - num 2 width 4 precisao 4
+	int size;																							// caso 1: igual (18)
+																										// caso 2: imprime zeros (precisão-size) + imprime string (8)
+	fl.strNum = ft_uitoa(va_arg(args, unsigned int));													// caso 3: imprime zeros (width-size) + string (1)
+	size = (int)ft_strlen(fl.strNum);																	// caso 4: imprime espaços (width-size) + string (5)
+	if (fl.precision > size)							//caso 2: imprime zeros (precisão-size) + imprime string (8)
+	{
+		while (fl.precision - size > 0)
+		{
+			write(1, "0", 1);
+			fl.precision--, len++;
+		}
+		ft_putstr_len(fl.strNum, len);
+	}
+	else if (fl.width > size && fl.precision <= size)	//caso 4: imprime espaços (width-size) + string (5)
+	{
+		if (fl.minus == 1)
+		{
+			ft_putstr_len(fl.strNum, len);
+			while (fl.width - size > 0)
+			{
+				write(1, " ", 1);
+				fl.width--, len++;
+			}
+		}
+		else
+		{
+			while (fl.width - size > 0)
+			{
+				write(1, " ", 1);
+				fl.width--, len++;
+			}
+			ft_putstr_len(fl.strNum, len);
+		}
+	}
+	else if (fl.width > size && fl.precision == 0)		//caso 3: imprime zeros (width-size) + string (1)
+	{
+		if (fl.zero == 1 && fl.minus == 0)
+		{
+			while (fl.width - size > 0)
+			{
+				write(1, "0", 1);
+				fl.width--, len++;
+			}
+			ft_putstr_len(fl.strNum, len);
+		}
+		else if (fl.zero == 0 && fl.minus == 0)
+		{
+			while (fl.width - size > 0)
+			{
+				write(1, " ", 1);
+				fl.width--, len++;
+			}
+			ft_putstr_len(fl.strNum, len);
+		}
+		else if (fl.minus == 1)
+		{
+			ft_putstr_len(fl.strNum, len);
+			while (fl.width - size > 0)
+			{
+				write(1, " ", 1);
+				fl.width--, len++;
+			}		
+		}
+	}
+	else												// caso 1: igual (18)
+		ft_putstr_len(fl.strNum, len);
 }
+
+
+
 
 void	print_p(t_flags fl, va_list args, int *len)
 {

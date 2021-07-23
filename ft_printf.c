@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:00 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/21 22:56:03 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/22 21:36:21 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,9 +89,174 @@ int	ft_printf(const char *format, ...)
 	return (len);
 }
 
-/*
+
 int main (void)
 {
+	//TESTES DE UNSIGNED INT
+/*
+	printf("TESTES PARA FLAG ZERO COM O ZERO ANTES DO WIDTH\n");
+
+	printf("%u\n", 123456789);
+	ft_printf("%u\n", 123456789);
+
+	printf("%0u\n", 123456789);
+	ft_printf("%0u\n", 123456789);
+
+	printf("%0.3u\n", 123456789);
+	ft_printf("%0.3u\n", 123456789);
+
+	printf("%0.9u\n", 123456789);
+	ft_printf("%0.9u\n", 123456789);
+
+	printf("%0.14u\n", 123456789);
+	ft_printf("%0.14u\n", 123456789);
+
+	printf("%014u\n", 123456789);
+	ft_printf("%014u\n", 123456789);
+
+	printf("%014.3u\n", 123456789);
+	ft_printf("%014.3u\n", 123456789);
+
+	printf("%014.9u\n", 123456789);
+	ft_printf("%014.9u\n", 123456789);
+
+	printf("%014.14u\n", 123456789);
+	ft_printf("%014.14u\n", 123456789);
+
+	printf("%09u\n", 123456789);
+	ft_printf("%09u\n", 123456789);
+
+	printf("%09.3u\n", 123456789);
+	ft_printf("%09.3u\n", 123456789);
+
+	printf("%09.9u\n", 123456789);
+	ft_printf("%09.9u\n", 123456789);
+
+	printf("%09.14u\n", 123456789);
+	ft_printf("%09.14u\n", 123456789);
+ 
+	printf(".............................................\n\n\n\n");
+	printf("TESTES PARA FLAG ZERO SEM O ZERO ANTES DO WIDTH\n");
+	printf("%u\n", 123456789);
+	ft_printf("%u\n", 123456789);
+
+	printf("%.3u\n", 123456789);
+	ft_printf("%.3u\n", 123456789);
+
+	printf("%.9u\n", 123456789);
+	ft_printf("%.9u\n", 123456789);
+
+	printf("%.14u\n", 123456789);
+	ft_printf("%.14u\n", 123456789);
+
+	printf("%14u\n", 123456789);
+	ft_printf("%14u\n", 123456789);
+
+	printf("%14.3u\n", 123456789);
+	ft_printf("%14.3u\n", 123456789);
+
+	printf("%14.9u\n", 123456789);
+	ft_printf("%14.9u\n", 123456789);
+
+	printf("%14.14u\n", 123456789);
+	ft_printf("%14.14u\n", 123456789);
+
+	printf("%9u\n", 123456789);
+	ft_printf("%9u\n", 123456789);
+
+	printf("%9.3u\n", 123456789);
+	ft_printf("%9.3u\n", 123456789);
+
+	printf("%9.9u\n", 123456789);
+	ft_printf("%9.9u\n", 123456789);
+
+	printf("%9.14u\n", 123456789);
+	ft_printf("%9.14u\n", 123456789);
+*/
+
+/*	printf("TESTES PARA FLAG - COM O ZERO ANTES DO WIDTH\n");
+
+	printf("%-u\n", 123456789);
+	ft_printf("%-u\n", 123456789);
+
+	printf("%-0u\n", 123456789);
+	ft_printf("%-0u\n", 123456789);
+
+	printf("%-0.3u\n", 123456789);
+	ft_printf("%-0.3u\n", 123456789);
+
+	printf("%-0.9u\n", 123456789);
+	ft_printf("%-0.9u\n", 123456789);
+
+	printf("%-0.14u\n", 123456789);
+	ft_printf("%-0.14u\n", 123456789);
+
+	printf("%-014u\n", 123456789);
+	ft_printf("%-014u\n", 123456789);
+
+	printf("%-014.3u\n", 123456789);
+	ft_printf("%-014.3u\n", 123456789);
+
+	printf("%-014.9u\n", 123456789);
+	ft_printf("%-014.9u\n", 123456789);
+
+	printf("%-014.14u\n", 123456789);
+	ft_printf("%-014.14u\n", 123456789);
+
+	printf("%-09u\n", 123456789);
+	ft_printf("%-09u\n", 123456789);
+
+	printf("%-09.3u\n", 123456789);
+	ft_printf("%-09.3u\n", 123456789);
+
+	printf("%-09.9u\n", 123456789);
+	ft_printf("%-09.9u\n", 123456789);
+
+	printf("%-09.14u\n", 123456789);
+	ft_printf("%-09.14u\n", 123456789);
+ */
+
+	printf(".............................................\n\n\n\n");
+	printf("TESTES PARA FLAG - SEM O ZERO ANTES DO WIDTH\n");
+	printf("%-u\n", 123456789);
+	ft_printf("%-u\n", 123456789);
+
+	printf("%-.3u\n", 123456789);
+	ft_printf("%-.3u\n", 123456789);
+
+	printf("%-.9u\n", 123456789);
+	ft_printf("%-.9u\n", 123456789);
+
+	printf("%-.14u\n", 123456789);
+	ft_printf("%-.14u\n", 123456789);
+
+	printf("%-14u\n", 123456789);
+	ft_printf("%-14u\n", 123456789);
+
+	printf("%-14.3u\n", 123456789);
+	ft_printf("%-14.3u\n", 123456789);
+
+	printf("%-14.9u\n", 123456789);
+	ft_printf("%-14.9u\n", 123456789);
+
+	printf("%-14.14u\n", 123456789);
+	ft_printf("%-14.14u\n", 123456789);
+
+	printf("%-9u\n", 123456789);
+	ft_printf("%-9u\n", 123456789);
+
+	printf("%-9.3u\n", 123456789);
+	ft_printf("%-9.3u\n", 123456789);
+
+	printf("%-9.9u\n", 123456789);
+	ft_printf("%-9.9u\n", 123456789);
+
+	printf("%-9.14u\n", 123456789);
+	ft_printf("%-9.14u\n", 123456789);
+
+
+/*
+
 	// TESTES DE INT E D
 
 	// TESTES SEM FLAG - //
@@ -378,7 +543,6 @@ int main (void)
 
     printf("\n   printf -> pointer: %p, hexa 'x': %x, hexa 'X': %X,  %%\n", &s, hexa, hexa);
     ft_printf("ft_printf -> pointer: %p, hexa 'x': %x, hexa 'X': %X,  %%\n\n", &s, hexa, hexa);
-	
+*/	
     return (0);
 }
-*/
