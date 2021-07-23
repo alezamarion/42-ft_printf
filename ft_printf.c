@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:00 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/23 13:12:20 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/23 13:50:38 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,25 +93,61 @@ int	ft_printf(const char *format, ...)
 int main (void)
 {
 	// TESTES DE PONTEIRO
+ 
     char    *string = "Hello";
-	printf("----------TESTES DE PONTEIRO SEM FLAG 0 E SEM OPÇÃO 0--------\n");
+/*	printf("----------TESTES DE PONTEIRO SEM FLAG - E SEM OPÇÃO 0--------\n");
+    printf("%p\n", &string);
+   	ft_printf("%p\n", &string);
 
     printf("%20p\n", &string);
    	ft_printf("%20p\n", &string);
 
+    printf("%3p\n", &string);
+   	ft_printf("%3p\n", &string);
+
+    printf("%14p\n", &string);
+   	ft_printf("%14p\n", &string);
+
+	printf("----------TESTES DE PONTEIRO COM FLAG - E SEM OPÇÃO 0--------\n");
+    printf("%-p\n", &string);
+   	ft_printf("%-p\n", &string);
+
     printf("%-20p\n", &string);
    	ft_printf("%-20p\n", &string);
 
-    printf("%1p\n", &string);
-   	ft_printf("%1p\n", &string);
+    printf("%-3p\n", &string);
+   	ft_printf("%-3p\n", &string);
 
-    printf("%1p\n", &string);
-   	ft_printf("%1p\n", &string);
+    printf("%-14p\n", &string);
+   	ft_printf("%-14p\n", &string);
+*/
 
-    printf("%1p\n", &string);
-   	ft_printf("%1p\n", &string);
+	printf("----------TESTES DE PONTEIRO SEM FLAG - E COM OPÇÃO 0--------\n");
+	printf("%0p\n", &string);
+   	ft_printf("%0p\n", &string);
 
-	
+	printf("%020p\n", &string);
+   	ft_printf("%020p\n", &string);
+
+	printf("%03p\n", &string);
+   	ft_printf("%03p\n", &string);
+
+	printf("%014p\n", &string);
+   	ft_printf("%014p\n", &string);
+
+	printf("----------TESTES DE PONTEIRO COM FLAG - E COM OPÇÃO 0--------\n");
+	printf("%-0p\n", &string);
+   	ft_printf("%-0p\n", &string);
+
+	printf("%-020p\n", &string);
+   	ft_printf("%-020p\n", &string);
+
+	printf("%-03p\n", &string);
+   	ft_printf("%-03p\n", &string);
+
+	printf("%-014p\n", &string);
+   	ft_printf("%-014p\n", &string);
+
 
 /*
 	//TESTES DE UNSIGNED INT
