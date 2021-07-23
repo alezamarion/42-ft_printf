@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 15:11:44 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/23 15:37:30 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/23 17:49:19 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,4 +68,40 @@ void 	print_u_zero_string(t_flags fl, int *len, int size)
 		ft_putstr_len(fl.strNum, len);
 		print_space(fl, size, len);		
 	}
+}
+
+int	ft_ulen(unsigned int num)
+{
+	size_t	len;
+
+	if (num <= 0)
+		len = 1;
+	else
+		len = 0;
+	while (num != 0)
+	{
+		num = num / 10;
+		len++;
+	}
+	return (len);
+}
+
+char	*ft_uitoa(unsigned int n)
+{
+	int		len;
+	char	*result;
+
+	len = ft_ulen(n);
+	result = (char *)malloc(sizeof(char) * len - 1);
+	if (result == NULL)
+		return (0);
+	result[len] = '\0';
+	len--;
+	while (len >= 0)
+	{
+		result[len] = '0' + (n % 10);
+		n = n / 10;
+		len--;
+	}
+	return (result);
 }

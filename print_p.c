@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 15:14:31 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/23 15:38:01 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/23 17:48:17 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,17 @@ void	print_p(t_flags fl, va_list args, int *len)
 	}
 	else
 		ft_putstr_len_p(fl.strNum, len);
+}
+
+void	ft_putstr_len_p(char *s, int *len)
+{
+	int i;
+
+	write(1, "0x", 2);
+	if (s != NULL)
+	{
+		i = 0;
+		while (s[i])
+			ft_putchar_len(s[i++], len);
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:27 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/23 15:22:30 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/23 17:50:43 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,60 +34,6 @@ int		ft_strchr(char *s, char c)
 void print_pct(int *len)
 {
 	ft_putstr_len("%", len);
-}
-void	ft_putstr_len_p(char *s, int *len)
-{
-	int i;
-
-	write(1, "0x", 2);
-	if (s != NULL)
-	{
-		i = 0;
-		while (s[i])
-			ft_putchar_len(s[i++], len);
-	}
-}
-
-int		ft_len_hex(unsigned long int x)
-{
-	int len;
-	
-	len  = 0;
-	while (x)
-	{
-		x = x / 16;
-		len++;
-	}
-	return (len);
-}
-
-char	*ft_int_to_hex_pxX(unsigned long int n, t_flags fl)
-{ 
-	int len;
-	char *result;
-	int temp;
-
-	len = ft_len_hex(n);
-	result = (char *)malloc(len + 1);
-	if (result == NULL)
-		return (0);
-	result[len--] = '\0';
-	while (len >= 0)
-	{
-		temp = 0;
-		temp = n % 16;
-        if (temp < 10) 
-            result[len--] = temp + 48;
-        else 
-		{
-			if (fl.type == 'x' || fl.type == 'p')
-            	result[len--] = temp + 87;
-			else
-				result[len--] = temp + 55;
-		}
-		n = n / 16;
-    }
-	return (result);	
 }
 
 size_t	ft_strlen(const char *s)
@@ -190,42 +136,6 @@ char	*ft_itoa(int n)
 	}
 	if (sign == -1)
 		result[0] = '-';
-	return (result);
-}
-
-int	ft_ulen(unsigned int num)
-{
-	size_t	len;
-
-	if (num <= 0)
-		len = 1;
-	else
-		len = 0;
-	while (num != 0)
-	{
-		num = num / 10;
-		len++;
-	}
-	return (len);
-}
-
-char	*ft_uitoa(unsigned int n)
-{
-	int		len;
-	char	*result;
-
-	len = ft_ulen(n);
-	result = (char *)malloc(sizeof(char) * len - 1);
-	if (result == NULL)
-		return (0);
-	result[len] = '\0';
-	len--;
-	while (len >= 0)
-	{
-		result[len] = '0' + (n % 10);
-		n = n / 10;
-		len--;
-	}
 	return (result);
 }
 
