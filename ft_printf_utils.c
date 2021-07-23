@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:27 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/22 23:47:43 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/22 23:55:05 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -197,20 +197,20 @@ void 	print_u(t_flags fl, va_list args, int *len)
 																									
 	fl.strNum = ft_uitoa(va_arg(args, unsigned int));												
 	size = (int)ft_strlen(fl.strNum);																
-	if (fl.precision > size)							//caso 2: imprime zeros (precisão-size) + imprime string (8)
+	if (fl.precision > size)											//caso 1: imprime zeros (precisão-size) + imprime string (8)
 	{
 		while (fl.precision - size > 0)
 		{
 			write(1, "0", 1);
 			fl.precision--, len++;
-		}
+		}wor
 		ft_putstr_len(fl.strNum, len);
 	}
-	else if (fl.zero == 1 && fl.width > size && fl.precision == 0)		//caso 3: imprime zeros (width-size) + string (1) %014u
+	else if (fl.zero == 1 && fl.width > size && fl.precision == 0)		//caso 2: imprime zeros (width-size) + string (1) %014u
 		print_u_zero_string(fl, len, size);
-	else if (fl.width > size && fl.precision <= size)	//caso 4: imprime espaços (width-size) + string (5)
+	else if (fl.width > size && fl.precision <= size)					//caso 3: imprime espaços (width-size) + string (5)
 		print_u_space_string(fl, len, size);
-	else												// caso 1: igual (18)			
+	else															   // caso 4: igual (18)			
 		ft_putstr_len(fl.strNum, len); 
 }
 
