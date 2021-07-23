@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:14 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/22 17:40:03 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/22 22:45:58 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,10 @@ void	print_s_space_cut_left(char *c, int *len, t_flags fl);
 
 void 	print_s_space(t_flags fl, int size, int *len);
 void 	print_s_zero(t_flags fl, int size, int *len);
+
+void 	print_u_space_string(t_flags fl, int *len, int size);
+void 	print_u_zero_string(t_flags fl, int *len, int size);
+
 
 
 t_flags	ft_clean_flags(void);
