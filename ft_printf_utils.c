@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:27 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/23 14:27:19 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/23 15:02:48 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,28 +33,27 @@ int		ft_strchr(char *s, char c)
 
 void		print_c(char c, int *len, t_flags fl)
 {
-	if (fl.minus == 0 && fl.width == 0)
+	if (fl.minus == 0 && fl. width > 0)
 	{
-		ft_putchar_len(c, len);	
-	}
-	else if (fl.minus == 0 && fl. width > 0)
-	{
-		while (fl.width-- > 1)
+		while (fl.width > 1)
 		{
 			write(1, " ", 1);
-			len++;
+			fl.width--,len++;
 		}
 		ft_putchar_len(c, len);
 	}
 	else if (fl.minus == 1)
 	{
 		ft_putchar_len(c, len);
-		while (fl.width-- > 1)
+		while (fl.width > 1)
 		{
 			write(1, " ", 1);
-			len++;
+			fl.width--, len++;
 		}
 	}
+	else
+		ft_putchar_len(c, len);	
+
 }
 
 
@@ -246,11 +245,7 @@ void 	print_u_zero_string(t_flags fl, int *len, int size)
 	else if (fl.minus == 1)
 	{
 		ft_putstr_len(fl.strNum, len);
-		while (fl.width - size > 0)
-		{
-			write(1, " ", 1);
-			fl.width--, len++;
-		}
+		print_s_space(fl, size, len);		
 	}
 }
 
@@ -273,21 +268,13 @@ void	print_p(t_flags fl, va_list args, int *len)
 	{
 		if(fl.minus == 0)
 		{
-			while (fl.width - size > 0)
-			{
-				write(1, " ", 1);
-				fl.width--, len++;
-			}
+			print_s_space(fl, size, len);		
 			ft_putstr_len_p(fl.strNum, len);
 		}
 		else if (fl.minus == 1)
 		{
 			ft_putstr_len_p(fl.strNum, len);
-			while (fl.width - size > 0)
-			{
-				write(1, " ", 1);
-				fl.width--, len++;
-			}
+			print_s_space(fl, size, len);		
 		}
 	}
 	else if (fl.zero == 1 && fl.width > size)
@@ -306,11 +293,7 @@ void	print_p(t_flags fl, va_list args, int *len)
 		else if (fl.minus == 1)
 		{
 			ft_putstr_len_p(fl.strNum, len);
-			while (fl.width - size > 0)
-			{
-				write(1, " ", 1);
-				fl.width--, len++;
-			}
+			print_s_space(fl, size, len);		
 		}
 	}
 	else
@@ -330,16 +313,12 @@ void	print_x(t_flags fl, va_list args, int *len)
 	int size;																						
 																									
 	fl.strNum = ft_int_to_hex_pxX(va_arg(args, unsigned long int), fl);
-	size = (int)ft_strlen(fl.strNum);
+	size = (int)ft_strlen(fl.strNum);																
 	if (fl.minus == 0 && fl.width > size)
 	{
 		if (fl.zero == 0)
 		{
-			while (fl.width - size > 0)
-			{
-				write(1, " ", 1);
-				fl.width--, len++;
-			}
+			print_s_space(fl, size, len);		
 			ft_putstr_len(fl.strNum, len);
 		}
 		if (fl.zero == 1)
@@ -355,11 +334,7 @@ void	print_x(t_flags fl, va_list args, int *len)
 	else if (fl.minus == 1 && fl.width > size)
 	{
 		ft_putstr_len(fl.strNum, len);		
-		while (fl.width - size > 0)
-		{
-			write(1, " ", 1);
-			fl.width--, len++;
-		}
+			print_s_space(fl, size, len);		
 	}
 	else
 		ft_putstr_len(fl.strNum, len);		

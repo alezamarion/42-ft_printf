@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:00 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/23 14:32:14 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/23 15:01:23 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,13 +92,13 @@ int	ft_printf(const char *format, ...)
 
 int main (void)
 {
-	// TESTES DE x E X
-/*	printf("----------TESTES DE x SEM FLAG - E SEM OPÇÃO 0--------\n");
+/*	// TESTES DE x E X
+	printf("----------TESTES DE x SEM FLAG - E SEM OPÇÃO 0--------\n");
 	printf("%x\n", 123456789);
 	ft_printf("%x\n", 123456789);
 
 	printf("%15x\n", 123456789); 
-	ft_printf("%15x\n", 123456789); //vai até 15 de width sem crashar
+	ft_printf("%15x\n", 123456789); //vai até 15 de width sem crashar <-------------------------
 
 	printf("%3x\n", 123456789);
 	ft_printf("%3x\n", 123456789);
@@ -119,7 +119,8 @@ int main (void)
 	printf("%7x\n", 123456789);
 	ft_printf("%7x\n", 123456789);
 */
-/*	printf("----------TESTES DE x SEM FLAG - E COM  OPÇÃO 0--------\n");
+/*
+	printf("----------TESTES DE x SEM FLAG - E COM  OPÇÃO 0--------\n");
 	printf("%0x\n", 123456789);
 	ft_printf("%0x\n", 123456789);
 
@@ -203,9 +204,9 @@ int main (void)
    	ft_printf("%-014p\n", &string);
 */
 
-/*
-	//TESTES DE UNSIGNED INT
 
+	//TESTES DE UNSIGNED INT
+/*
 	printf("TESTES PARA FLAG ZERO COM O ZERO ANTES DO WIDTH\n");
 
 	printf("%u\n", 123456789);
@@ -481,8 +482,8 @@ int main (void)
 */
 
 //////////
-/*
 
+/*
 	// TESTES COM FLAG - //
 	printf("CASOS COM ZERO ANTES DO WIDTH E COM FLAG '-'\n");
 	printf("CASOS COM ZERO ANTES DO WIDTH E COM FLAG '-'\n");
@@ -538,8 +539,8 @@ int main (void)
 
 	printf("%-010.6i\n", 123456);
 	ft_printf("%-010.6i\n", 123456);
-	
-
+*/	
+/*
 	printf("CASOS SEM O ZERO ANTES DO WIDTH E COM FLAG '-'\n");
 	//1
 	printf("casos de impressão normal:\n");
@@ -594,7 +595,7 @@ int main (void)
 	ft_printf("%-10.6i\n", 123456);
 	
 */
-	/*
+/*	
 	//TESTES DE STRING
 	printf("\nimpressão sem flags:\n\n");
 
@@ -628,21 +629,21 @@ int main (void)
 
 	printf("%-4.10s\n", "Vila 26");
 	ft_printf("%-4.10s\n", "Vila 26");
-	*/
+*/	
 
-	/*
+	
 	//TESTES DE CHAR
-	printf("\n   caso 1 printf: %c\n", 'C');
-	ft_printf("caso 1 ft_printf: %c\n", 'C');
+	//printf("\n   caso 1 printf: %c\n", 'C');
+	//ft_printf("caso 1 ft_printf: %c\n", 'C');
 
 	printf("\n   caso2  printf: %10c\n", 'C');
 	ft_printf("caso 2 ft_printf: %10c\n", 'C');
 
-	printf("\n   caso 3 printf: %-10c\n", 'C');
+	//printf("\n   caso 3 printf: %-10c\n", 'C');
 	//ft_printf("caso 3 ft_printf: %-10c\n", 'C');
-	*/
+	
 
-   /* 
+  /* 
 	char c = 'u';
 	char *s = "Vila 26 bombando";
     int in = 42;
@@ -655,6 +656,6 @@ int main (void)
 
     printf("\n   printf -> pointer: %p, hexa 'x': %x, hexa 'X': %X,  %%\n", &s, hexa, hexa);
     ft_printf("ft_printf -> pointer: %p, hexa 'x': %x, hexa 'X': %X,  %%\n\n", &s, hexa, hexa);
-	*/
+*/	
     return (0);
 }
