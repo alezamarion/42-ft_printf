@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:00 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/23 19:25:33 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/23 20:24:58 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ int	ft_printf(const char *format, ...)
 
 int main (void)
 {
-	// TESTES DE x E X
+/*	// TESTES DE x E X
 	printf("----------TESTES DE x SEM FLAG - E SEM OPÇÃO 0--------\n");
 	printf("%x\n", 123456789);
 	ft_printf("%x\n", 123456789);
@@ -130,7 +130,7 @@ int main (void)
 
 	printf("%07x\n", 123456789);
 	ft_printf("%07x\n", 123456789);
-
+*/
 /*	printf("----------TESTES DE x COM FLAG - E COM OPÇÃO 0--------\n");
 	printf("%-0x\n", 123456789);
 	ft_printf("%-0x\n", 123456789);
@@ -144,8 +144,6 @@ int main (void)
 	printf("%-07x\n", 123456789);
 	ft_printf("%-07x\n", 123456789);
 */
-
-
 	// TESTES DE PONTEIRO
     //char    *string = "Hello";
 /*	printf("----------TESTES DE PONTEIRO SEM FLAG - E SEM OPÇÃO 0--------\n");
