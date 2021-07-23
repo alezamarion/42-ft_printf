@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 15:07:45 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/23 15:22:06 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/23 15:37:10 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void 	print_i_d(t_flags fl, va_list args, int *len)
 		ft_putstr_len(fl.strNum, len);
 	if ((fl.zero == 1 || fl.zero == 0) && (fl.precision > size)) //000string
 	{
-		print_s_zero(fl, size, len);
+		print_i_d_zero(fl, size, len);
 		ft_putstr_len(fl.strNum, len);
 	}
 	if ((fl.zero == 1 || fl.zero == 0) && (fl.width > size && fl.precision <= size)) //   string
@@ -30,17 +30,17 @@ void 	print_i_d(t_flags fl, va_list args, int *len)
 		if (fl.minus == 1)
 		{
 			ft_putstr_len(fl.strNum, len);
-			print_s_space(fl, size, len);		
+			print_space(fl, size, len);		
 		}
 		else
 		{
-			print_s_space(fl, size, len);		
+			print_space(fl, size, len);		
 			ft_putstr_len(fl.strNum, len);
 		}
 	}	
 }
 
-void 	print_s_space(t_flags fl, int size, int *len)
+void 	print_space(t_flags fl, int size, int *len)
 {
 	while (fl.width - size > 0)
 	{
@@ -49,7 +49,7 @@ void 	print_s_space(t_flags fl, int size, int *len)
 	}
 }
 
-void 	print_s_zero(t_flags fl, int size, int *len)
+void 	print_i_d_zero(t_flags fl, int size, int *len)
 {
 	while (fl.precision - size > 0)
 	{

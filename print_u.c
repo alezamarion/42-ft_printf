@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 15:11:44 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/23 15:22:16 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/23 15:37:30 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,11 @@ void 	print_u_space_string(t_flags fl, int *len, int size)
 		if (fl.minus == 1)
 		{
 			ft_putstr_len(fl.strNum, len);
-			print_s_space(fl, size, len);
+			print_space(fl, size, len);
 		}
 		else
 		{
-			print_s_space(fl, size, len);
+			print_space(fl, size, len);
 			ft_putstr_len(fl.strNum, len);
 		}
 	}
@@ -66,6 +66,6 @@ void 	print_u_zero_string(t_flags fl, int *len, int size)
 	else if (fl.minus == 1)
 	{
 		ft_putstr_len(fl.strNum, len);
-		print_s_space(fl, size, len);		
+		print_space(fl, size, len);		
 	}
 }

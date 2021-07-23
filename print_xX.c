@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 15:17:05 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/23 15:22:18 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/23 15:38:20 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	print_x(t_flags fl, va_list args, int *len)
 	{
 		if (fl.zero == 0)
 		{
-			print_s_space(fl, size, len);		
+			print_space(fl, size, len);		
 			ft_putstr_len(fl.strNum, len);
 		}
 		if (fl.zero == 1)
@@ -38,7 +38,7 @@ void	print_x(t_flags fl, va_list args, int *len)
 	else if (fl.minus == 1 && fl.width > size)
 	{
 		ft_putstr_len(fl.strNum, len);		
-			print_s_space(fl, size, len);		
+			print_space(fl, size, len);		
 	}
 	else
 		ft_putstr_len(fl.strNum, len);		
