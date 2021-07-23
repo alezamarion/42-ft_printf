@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:27 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/23 13:02:05 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/23 13:14:20 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -268,7 +268,7 @@ void	print_p(t_flags fl, va_list args, int *len)
 																									
 	fl.strNum = ft_int_to_hex_pxX(va_arg(args, unsigned long int), fl);
 	size = (int)ft_strlen(fl.strNum);																
-
+	size = size + 2;
 	if (fl.zero == 0 && fl.width > size)
 	{
 		if(fl.minus == 0)
@@ -290,7 +290,7 @@ void	print_p(t_flags fl, va_list args, int *len)
 			}
 		}
 	}
-	if (fl.zero == 1 && fl.width > size)
+	else if (fl.zero == 1 && fl.width > size)
 	{
 		if (fl.minus == 0)
 		{
@@ -312,9 +312,9 @@ void	print_p(t_flags fl, va_list args, int *len)
 				fl.width--, len++;
 			}
 		}
+	}
 	else
 		ft_putstr_len_p(fl.strNum, len);
-	}
 }
 
 

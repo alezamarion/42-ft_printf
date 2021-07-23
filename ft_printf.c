@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:00 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/23 12:37:46 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/23 13:12:20 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,8 +93,23 @@ int	ft_printf(const char *format, ...)
 int main (void)
 {
 	// TESTES DE PONTEIRO
+    char    *string = "Hello";
+	printf("----------TESTES DE PONTEIRO SEM FLAG 0 E SEM OPÇÃO 0--------\n");
 
+    printf("%20p\n", &string);
+   	ft_printf("%20p\n", &string);
 
+    printf("%-20p\n", &string);
+   	ft_printf("%-20p\n", &string);
+
+    printf("%1p\n", &string);
+   	ft_printf("%1p\n", &string);
+
+    printf("%1p\n", &string);
+   	ft_printf("%1p\n", &string);
+
+    printf("%1p\n", &string);
+   	ft_printf("%1p\n", &string);
 
 	
 
