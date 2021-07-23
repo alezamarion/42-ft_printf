@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:00 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/22 23:51:13 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/23 12:37:46 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,13 @@ int	ft_printf(const char *format, ...)
 
 int main (void)
 {
+	// TESTES DE PONTEIRO
+
+
+
+	
+
+/*
 	//TESTES DE UNSIGNED INT
 
 	printf("TESTES PARA FLAG ZERO COM O ZERO ANTES DO WIDTH\n");
@@ -172,7 +179,7 @@ int main (void)
 
 	printf("%9.14u\n", 123456789);
 	ft_printf("%9.14u\n", 123456789);
-
+*/
 /*
 	printf("TESTES PARA FLAG - COM O ZERO ANTES DO WIDTH\n");
 
@@ -215,7 +222,7 @@ int main (void)
 	printf("%-09.14u\n", 123456789);
 	ft_printf("%-09.14u\n", 123456789);
 */
-
+/*
 	printf(".............................................\n\n\n\n");
 	printf("TESTES PARA FLAG - SEM O ZERO ANTES DO WIDTH\n");
 	printf("%-u\n", 123456789);
@@ -253,7 +260,7 @@ int main (void)
 
 	printf("%-9.14u\n", 123456789);
 	ft_printf("%-9.14u\n", 123456789);
-
+*/
 
 /*
 
@@ -519,7 +526,7 @@ int main (void)
 	*/
 
 	/*
-	TESTES DE CHAR
+	//TESTES DE CHAR
 	printf("\n   caso 1 printf: %c\n", 'C');
 	ft_printf("caso 1 ft_printf: %c\n", 'C');
 
@@ -527,10 +534,10 @@ int main (void)
 	ft_printf("caso 2 ft_printf: %10c\n", 'C');
 
 	printf("\n   caso 3 printf: %-10c\n", 'C');
-	ft_printf("caso 3 ft_printf: %-10c\n", 'C');
+	//ft_printf("caso 3 ft_printf: %-10c\n", 'C');
 	*/
 
-    /*
+   /* 
 	char c = 'u';
 	char *s = "Vila 26 bombando";
     int in = 42;
@@ -543,6 +550,6 @@ int main (void)
 
     printf("\n   printf -> pointer: %p, hexa 'x': %x, hexa 'X': %X,  %%\n", &s, hexa, hexa);
     ft_printf("ft_printf -> pointer: %p, hexa 'x': %x, hexa 'X': %X,  %%\n\n", &s, hexa, hexa);
-*/	
+	*/
     return (0);
 }

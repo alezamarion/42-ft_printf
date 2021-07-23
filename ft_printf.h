@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:14 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/22 22:45:58 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/23 12:32:00 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef struct t_flags
 	char	*strNum;
 }	t_flags;
 
+int	ft_printf(const char *format, ...);
 int		ft_printf(const char *format, ...);
 void	ft_putchar_len(char c, int *len);
 int		ft_strchr(char *s, char c);
@@ -66,8 +67,6 @@ void 	print_s_zero(t_flags fl, int size, int *len);
 
 void 	print_u_space_string(t_flags fl, int *len, int size);
 void 	print_u_zero_string(t_flags fl, int *len, int size);
-
-
 
 t_flags	ft_clean_flags(void);
 

@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:27 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/22 23:55:05 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/23 13:02:05 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ void		print_c(char c, int *len, t_flags fl)
 		}
 	}
 }
+
 
 void	print_s(char *c, int *len, t_flags fl)
 {
@@ -203,7 +204,7 @@ void 	print_u(t_flags fl, va_list args, int *len)
 		{
 			write(1, "0", 1);
 			fl.precision--, len++;
-		}wor
+		}
 		ft_putstr_len(fl.strNum, len);
 	}
 	else if (fl.zero == 1 && fl.width > size && fl.precision == 0)		//caso 2: imprime zeros (width-size) + string (1) %014u
@@ -253,12 +254,69 @@ void 	print_u_zero_string(t_flags fl, int *len, int size)
 	}
 }
 
-
-void	print_p(t_flags fl, va_list args, int *len)
+/*
+void	ft_print_p(t_flags fl, va_list args, int *len)
 {
 	fl.strNum = ft_int_to_hex_pxX(va_arg(args, unsigned long int), fl);
 	ft_putstr_len_p(fl.strNum, len);
 }
+*/
+
+void	print_p(t_flags fl, va_list args, int *len)
+{
+	int size;																						
+																									
+	fl.strNum = ft_int_to_hex_pxX(va_arg(args, unsigned long int), fl);
+	size = (int)ft_strlen(fl.strNum);																
+
+	if (fl.zero == 0 && fl.width > size)
+	{
+		if(fl.minus == 0)
+		{
+			while (fl.width - size > 0)
+			{
+				write(1, " ", 1);
+				fl.width--, len++;
+			}
+			ft_putstr_len_p(fl.strNum, len);
+		}
+		else if (fl.minus == 1)
+		{
+			ft_putstr_len_p(fl.strNum, len);
+			while (fl.width - size > 0)
+			{
+				write(1, " ", 1);
+				fl.width--, len++;
+			}
+		}
+	}
+	if (fl.zero == 1 && fl.width > size)
+	{
+		if (fl.minus == 0)
+		{
+			write(1, "0x", 2);
+			while (fl.width - size > 0)
+			{
+				write(1, "0", 1);
+				fl.width--, len++;
+			}
+			ft_putstr_len(fl.strNum, len);
+			// print 0x + width-size zeros + string
+		}
+		else if (fl.minus == 1)
+		{
+			ft_putstr_len_p(fl.strNum, len);
+			while (fl.width - size > 0)
+			{
+				write(1, " ", 1);
+				fl.width--, len++;
+			}
+		}
+	else
+		ft_putstr_len_p(fl.strNum, len);
+	}
+}
+
 
 void	print_x(t_flags fl, va_list args, int *len)
 {
