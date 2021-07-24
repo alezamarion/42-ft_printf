@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:00 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/23 20:24:58 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/23 22:56:01 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,9 +144,9 @@ int main (void)
 	printf("%-07x\n", 123456789);
 	ft_printf("%-07x\n", 123456789);
 */
-	// TESTES DE PONTEIRO
-    //char    *string = "Hello";
-/*	printf("----------TESTES DE PONTEIRO SEM FLAG - E SEM OPÇÃO 0--------\n");
+/*	// TESTES DE PONTEIRO
+	char    *string = "Hello";
+	printf("----------TESTES DE PONTEIRO SEM FLAG - E SEM OPÇÃO 0--------\n");
     printf("%p\n", &string);
    	ft_printf("%p\n", &string);
 
