@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:00 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/24 21:44:51 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/24 22:13:29 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static void	handle_types(const char c, int *len, va_list args, t_flags fl)
 	if (c == 'x' || c == 'X')
 		print_xX(fl, args, len, c);
 	if (c == '%')
-		print_pct(len);		
+		print_pct(len);
 }
 
 t_flags	get_flag_width_precision(const char *format, t_flags fl, int *i)
@@ -66,9 +66,8 @@ int	ft_printf(const char *format, ...)
 			ft_putchar_len(format[i++], &len);
 		else
 		{
-			i++;
 			fl = ft_clean_flags ();
-			while (format[i] && ft_strchr(FLAGS, format[i]))
+			while (format[++i] && ft_strchr(FLAGS, format[i]))
 			{
 				fl = get_flag_width_precision(format, fl, &i);
 				i++, len++;
@@ -80,10 +79,24 @@ int	ft_printf(const char *format, ...)
 	return (len);
 }
 
+/*
+void print_sizes(int printf_len, int ft_printf_len)
+{
+    if (printf_len != ft_printf_len)
+        printf("Diff KO: diferent sizes. Expected %i, but got %i\n", printf_len, ft_printf_len);
+    else
+        printf("Diff OK: equal sizes. Expected %i, got %i\n", printf_len, ft_printf_len);
+}
+
 
 int main (void)
 {
-	
+
+    int printf_len = printf("%s\n", "Vila 26");
+    int ft_printf_len = ft_printf("%s\n", "Vila 26");
+    print_sizes(printf_len, ft_printf_len);
+*/
+/*	
 	int len = printf("%s","Hello\n");
     printf("%i\n", len);
 
@@ -95,7 +108,7 @@ int main (void)
 
 	int len3 = ft_printf("%s", "Hello Vila 26\n");
     ft_printf("%i\n\n\n\n", len3);
-	
+*/	
 /*	// TESTES DE x E X
 	printf("----------TESTES DE x SEM FLAG - E SEM OPÇÃO 0--------\n");
 	printf("%x\n", 123456789);
@@ -609,7 +622,7 @@ int main (void)
 	len = ft_printf("Vila 26");
 	ft_printf("ft_printf len: %i\n", len);
 */
-
+/*
 	printf("\nsem a flag '-':\n\n");
 
 	printf("%s\n", "Vila 26");
@@ -640,7 +653,7 @@ int main (void)
 
 	printf("%-4.10s\n", "Vila 26");
 	ft_printf("%-4.10s\n", "Vila 26");
-
+*/
 /*	
 	//TESTES DE CHAR
 	printf("\n   caso 1 printf: %c\n", 'C');
@@ -667,5 +680,5 @@ int main (void)
     printf("\n   printf -> pointer: %p, hexa 'x': %x, hexa 'X': %X,  %%\n", &s, hexa, hexa);
     ft_printf("ft_printf -> pointer: %p, hexa 'x': %x, hexa 'X': %X,  %%\n\n", &s, hexa, hexa);
 */	
-    return (0);
-}
+ //   return (0);
+//}
