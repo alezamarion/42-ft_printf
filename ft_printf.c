@@ -6,37 +6,30 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:00 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/23 22:56:01 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/24 21:44:51 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	handle_types(int *len, va_list args, t_flags fl)
-{
-	if (fl.type == 'c')
-		print_c(va_arg(args, int), len, fl);
-	if (fl.type == 's')
-		print_s(va_arg(args, char *), len, fl);
-	if (fl.type == 'i' || fl.type == 'd')
-		print_i_d(fl, args, len);
-	if (fl.type == 'u')
-		print_u(fl, args, len);
-	if (fl.type == 'p')
-		print_p(fl, args, len);
-	if (fl.type == 'x' || fl.type == 'X')
-		print_xX(fl, args, len);
-	if (fl.type == '%')
-		print_pct(len);
-}
+#include "ft_printf.h"
 
-static void	get_types(const char *format, int *i, int *len, va_list args, t_flags fl)
+static void	handle_types(const char c, int *len, va_list args, t_flags fl)
 {
-	if (ft_strchr(CONVERSIONS, format[*i]))
-	{
-		fl.type = format[(*i)++];
-		handle_types(len, args, fl);
-	}
+	if (c == 'c')
+		print_c(va_arg(args, int), len, fl);
+	if (c == 's')
+		print_s(va_arg(args, char *), len, fl);
+	if (c == 'i' || c == 'd')
+		print_i_d(fl, args, len);
+	if (c == 'u')
+		print_u(fl, args, len);
+	if (c == 'p')
+		print_p(fl, args, len, c);
+	if (c == 'x' || c == 'X')
+		print_xX(fl, args, len, c);
+	if (c == '%')
+		print_pct(len);		
 }
 
 t_flags	get_flag_width_precision(const char *format, t_flags fl, int *i)
@@ -80,7 +73,7 @@ int	ft_printf(const char *format, ...)
 				fl = get_flag_width_precision(format, fl, &i);
 				i++, len++;
 			}
-			get_types(format, &i, &len, args, fl);
+			handle_types(format[i++], &len, args, fl);
 		}
 	}
 	va_end(args);
@@ -90,6 +83,19 @@ int	ft_printf(const char *format, ...)
 
 int main (void)
 {
+	
+	int len = printf("%s","Hello\n");
+    printf("%i\n", len);
+
+	int len1 = ft_printf("%s","Hello\n");
+    ft_printf("%i\n", len1);
+
+	int len2 = printf("%s","Hello Vila 26\n");
+    printf("%i\n", len2);
+
+	int len3 = ft_printf("%s", "Hello Vila 26\n");
+    ft_printf("%i\n\n\n\n", len3);
+	
 /*	// TESTES DE x E X
 	printf("----------TESTES DE x SEM FLAG - E SEM OPÇÃO 0--------\n");
 	printf("%x\n", 123456789);
@@ -324,8 +330,8 @@ int main (void)
 	printf("%-09.14u\n", 123456789);
 	ft_printf("%-09.14u\n", 123456789);
 */
-/*
-	printf(".............................................\n\n\n\n");
+
+/*	printf(".............................................\n\n\n\n");
 	printf("TESTES PARA FLAG - SEM O ZERO ANTES DO WIDTH\n");
 	printf("%-u\n", 123456789);
 	ft_printf("%-u\n", 123456789);
@@ -362,14 +368,14 @@ int main (void)
 
 	printf("%-9.14u\n", 123456789);
 	ft_printf("%-9.14u\n", 123456789);
+
 */
 
-/*
 
 	// TESTES DE INT E D
 
 	// TESTES SEM FLAG - //
-	printf("CASOS COM ZERO ANTES DO WIDTH E SEM FLAG '-'\n");
+/*	printf("CASOS COM ZERO ANTES DO WIDTH E SEM FLAG '-'\n");
 	printf("CASOS COM ZERO ANTES DO WIDTH E SEM FLAG '-'\n");
 	//1
 	printf("casos de impressão normal:\n");
@@ -475,8 +481,8 @@ int main (void)
 
 	printf("%10.6i\n", 123456);
 	ft_printf("%10.6i\n", 123456);
-*/
 
+*/
 //////////
 
 /*
@@ -591,14 +597,23 @@ int main (void)
 	ft_printf("%-10.6i\n", 123456);
 */	
 
-/*	
+	
 	//TESTES DE STRING
-	printf("\nimpressão sem flags:\n\n");
+/*	printf("\nimpressão sem flags:\n\n");
+
+	int len;
+	len = printf("Vila 26");
+	printf("printf len: %i\n", len);
+	
+	len = 0;
+	len = ft_printf("Vila 26");
+	ft_printf("ft_printf len: %i\n", len);
+*/
+
+	printf("\nsem a flag '-':\n\n");
 
 	printf("%s\n", "Vila 26");
 	ft_printf("%s\n", "Vila 26");
-
-	printf("\nsem a flag '-':\n\n");
 
 	printf("%10s\n", "Vila 26");
 	ft_printf("%10s\n", "Vila 26");
@@ -625,10 +640,9 @@ int main (void)
 
 	printf("%-4.10s\n", "Vila 26");
 	ft_printf("%-4.10s\n", "Vila 26");
-*/	
 
-	
-/*	//TESTES DE CHAR
+/*	
+	//TESTES DE CHAR
 	printf("\n   caso 1 printf: %c\n", 'C');
 	ft_printf("caso 1 ft_printf: %c\n", 'C');
 
@@ -639,7 +653,7 @@ int main (void)
 	ft_printf("caso 3 ft_printf: %-10c\n", 'C');
 */	
 
-  /* 
+/*   
 	char c = 'u';
 	char *s = "Vila 26 bombando";
     int in = 42;

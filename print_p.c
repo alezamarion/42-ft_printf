@@ -6,17 +6,17 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 15:14:31 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/23 22:18:25 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/24 21:41:43 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	print_p(t_flags fl, va_list args, int *len)
+void	print_p(t_flags fl, va_list args, int *len, const char c)
 {
 	int	size;
 
-	fl.strNum = ft_int_to_hex_pxX(va_arg(args, unsigned long int), fl);
+	fl.strNum = ft_int_to_hex_pxX(va_arg(args, unsigned long int), c);
 	size = (int)ft_strlen(fl.strNum);
 	size = size + 2;
 	if (fl.zero == 0 && fl.width > size)

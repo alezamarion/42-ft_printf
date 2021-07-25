@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:14 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/23 20:25:05 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/24 21:40:50 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <stdio.h>
 # include "stdlib.h"
 # include "string.h"
-# define CONVERSIONS	"cspdiuxX%"
 # define FLAGS			"-0.0123456789"
 # define NUMBERS		"0123456789"
 
@@ -28,7 +27,6 @@ typedef struct t_flags
 	int		width;
 	int		dot;
 	int		precision;
-	char	type;
 	char	*strNum;
 }	t_flags;
 
@@ -73,15 +71,15 @@ int		ft_ulen(unsigned int num);
 char	*ft_uitoa(unsigned int n);
 
 //print_p
-void	print_p(t_flags fl, va_list args, int *len);
+void	print_p(t_flags fl, va_list args, int *len, const char c);
 void	print_p_no_zero(t_flags fl, int *len, int size);
 void	print_p_zero(t_flags fl, int *len, int size);
 void	ft_putstr_len_p(char *s, int *len);
 
 //print_xX
-void	print_xX(t_flags fl, va_list args, int *len);
+void	print_xX(t_flags fl, va_list args, int *len, const char c);
 void	print_xX_right_aligned(t_flags fl, int *len, int size);
 int		ft_len_hex(unsigned long int x);
-char	*ft_int_to_hex_pxX(unsigned long int n, t_flags fl);
+char	*ft_int_to_hex_pxX(unsigned long int n, const char c);
 
 #endif
