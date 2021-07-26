@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 15:17:05 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/25 18:39:43 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/25 22:47:16 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,8 @@ char	*ft_int_to_hex_pxX(unsigned long int n, const char c)
 	int		temp;
 
 	len = ft_len_hex(n);
+	if (n == 0)
+		len++;
 	result = (char *)malloc(len + 1);
 	if (result == NULL)
 		return (0);

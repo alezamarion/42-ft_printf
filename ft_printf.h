@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:14 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/25 21:14:07 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/25 22:21:32 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include "string.h"
 # define FLAGS			"-0.0123456789"
 # define NUMBERS		"0123456789"
+# define TYPES			"csidupxX%"
 
 typedef struct t_flags
 {

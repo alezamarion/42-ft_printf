@@ -6,11 +6,9 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:00 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/25 21:12:48 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/25 22:55:35 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "ft_printf.h"
 
 #include "ft_printf.h"
 
@@ -30,6 +28,8 @@ static void	handle_types(const char c, int *len, va_list args, t_flags fl)
 		print_xX(fl, args, len, c);
 	if (c == '%')
 		print_pct(len);
+	if (ft_strchr(TYPES, c) == 0)
+		(*len) = -1;						//<- appinha
 }
 
 t_flags	get_flag_width_precision(const char *format, t_flags fl, int *i)
@@ -73,6 +73,8 @@ int	ft_printf(const char *format, ...)
 				i++, len++;
 			}
 			handle_types(format[i++], &len, args, fl);
+			if (len == -1)								//<- appinha
+				return (-1);							// <- appinha
 		}
 	}
 	va_end(args);
@@ -83,12 +85,21 @@ int	ft_printf(const char *format, ...)
 /*
 int main(void)
 {
-	printf("%s\n", );
-    ft_printf(NULL);
-   //ft_printf("%s", NULL);
+	printf(" %p \n", 1);
+	printf(" %p \n", 15);
 
-}
+	ft_printf(" %p \n", 1);
+	ft_printf(" %p \n", 15);
 */
+/*
+	ft_printf(" %p ", -1);  
+
+	//printf("%s\n", );
+    //ft_printf(NULL);
+   //ft_printf("%s", NULL);
+*/
+}
+
 
 
 /*
