@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:00 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/25 22:55:35 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/25 23:07:01 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,9 +97,9 @@ int main(void)
 	//printf("%s\n", );
     //ft_printf(NULL);
    //ft_printf("%s", NULL);
-*/
-}
 
+}
+*/
 
 
 /*
