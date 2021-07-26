@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 15:11:44 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/24 21:41:49 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/24 22:35:53 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void	print_u(t_flags fl, va_list args, int *len)
 		print_u_space_string(fl, len, size);
 	else
 		ft_putstr_len(fl.strNum, len);
+	free(fl.strNum);
 }
 
 void	print_u_space_string(t_flags fl, int *len, int size)

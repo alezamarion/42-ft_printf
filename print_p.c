@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 15:14:31 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/24 21:41:43 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/24 22:35:49 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	print_p(t_flags fl, va_list args, int *len, const char c)
 		print_p_zero(fl, len, size);
 	else
 		ft_putstr_len_p(fl.strNum, len);
+	free(fl.strNum);
 }
 
 void	print_p_no_zero(t_flags fl, int *len, int size)

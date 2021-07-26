@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 15:07:45 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/24 21:41:40 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/24 22:35:47 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,8 @@ void	print_i_d(t_flags fl, va_list args, int *len)
 			print_space(fl, size, len);
 			ft_putstr_len(fl.strNum, len);
 		}
-	}	
+	}
+	free(fl.strNum);	
 }
 
 void	print_space(t_flags fl, int size, int *len)

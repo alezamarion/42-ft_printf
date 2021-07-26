@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:14 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/24 21:40:50 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/25 21:14:07 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ typedef struct t_flags
 	int		precision;
 	char	*strNum;
 }	t_flags;
+
+int	ft_printf(const char *format, ...);
 
 // utils
 void	ft_putchar_len(char c, int *len);

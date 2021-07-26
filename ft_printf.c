@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:00 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/24 22:13:29 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/25 21:12:48 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,18 @@ int	ft_printf(const char *format, ...)
 	return (len);
 }
 
+
+/*
+int main(void)
+{
+	printf("%s\n", );
+    ft_printf(NULL);
+   //ft_printf("%s", NULL);
+
+}
+*/
+
+
 /*
 void print_sizes(int printf_len, int ft_printf_len)
 {
@@ -87,11 +99,13 @@ void print_sizes(int printf_len, int ft_printf_len)
     else
         printf("Diff OK: equal sizes. Expected %i, got %i\n", printf_len, ft_printf_len);
 }
+*/
 
+//int main (void)
+//{
 
-int main (void)
-{
-
+  //  ft_printf("%x", 0);
+/*
     int printf_len = printf("%s\n", "Vila 26");
     int ft_printf_len = ft_printf("%s\n", "Vila 26");
     print_sizes(printf_len, ft_printf_len);
