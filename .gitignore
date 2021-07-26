@@ -3,3 +3,5 @@ a.out
 variadic.c
 notas_printf.c
 gitignore
+ft_printf_tester
+printfTester
