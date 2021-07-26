@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 15:17:05 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/25 22:47:16 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/26 18:55:12 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,9 +63,9 @@ int	ft_len_hex(unsigned long int x)
 
 char	*ft_int_to_hex_pxX(unsigned long int n, const char c)
 {
-	int		len;
-	char	*result;
-	int		temp;
+	int						len;
+	char					*result;
+	unsigned long int		temp;
 
 	len = ft_len_hex(n);
 	if (n == 0)

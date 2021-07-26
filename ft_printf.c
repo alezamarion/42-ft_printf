@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:00 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/25 23:07:01 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/26 19:00:46 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,18 +29,20 @@ static void	handle_types(const char c, int *len, va_list args, t_flags fl)
 	if (c == '%')
 		print_pct(len);
 	if (ft_strchr(TYPES, c) == 0)
-		(*len) = -1;						//<- appinha
+		(*len) = -1;
 }
 
 t_flags	get_flag_width_precision(const char *format, t_flags fl, int *i)
 {
 	if (format[*i] == '-')
 		fl.minus = 1;
-	if (format[*i] == '0' && fl.minus == 0 && fl.width == 0)
+	else if (format[*i] == '0' && fl.minus == 0 && fl.width == 0)
 		fl.zero = 1;
-	if (format[*i] == '.')
+	else if (format[*i] == '.')
+	{
 		fl.dot = 1;
-	if (ft_strchr(NUMBERS, format[*i]))
+	}
+	else if (ft_strchr(NUMBERS, format[*i]))
 	{
 		if (fl.dot == 1)
 			fl.precision = (fl.precision * 10) + (format[*i] - '0');
@@ -65,12 +67,13 @@ int	ft_printf(const char *format, ...)
 		if (format[i] != '%')
 			ft_putchar_len(format[i++], &len);
 		else
-		{
+		{ 	
+			i++;
 			fl = ft_clean_flags ();
-			while (format[++i] && ft_strchr(FLAGS, format[i]))
+			while (format[i] && ft_strchr(FLAGS, format[i]))
 			{
 				fl = get_flag_width_precision(format, fl, &i);
-				i++, len++;
+				i++; len++;
 			}
 			handle_types(format[i++], &len, args, fl);
 			if (len == -1)								//<- appinha
@@ -80,6 +83,40 @@ int	ft_printf(const char *format, ...)
 	va_end(args);
 	return (len);
 }
+
+int main (void)
+{
+
+	printf(" %x \n", 9223372036854775807);
+	ft_printf(" %x \n", 9223372036854775807);
+
+
+/*
+	int len = ft_printf("%p\n", -1);
+	ft_printf("\n%i", len);
+    int len = ft_printf("%s", NULL);
+    printf("\n%i\n", len); 
+*/
+/*	printf("casos precisão-size: imprime zeros + imprime string\n");	
+	printf("%.5i---------------\n", 42);
+	ft_printf("%.5i\n", 42);
+*/
+/*	ft_printf(" %p \n", -1);
+	ft_printf(" %p \n", 1);
+	ft_printf(" %p \n", 15);
+	ft_printf(" %p \n", 16);
+	ft_printf(" %p \n", 17);
+
+ft_printf("Bla %.2ii bla %.5isbla bla %.ix bla %.i", 127, 42, 1023, 0);
+*/
+//Bla 127i bla 00042sbla bla 1023x bla % appinha
+
+//Bla 127i bla 42sbla bla 3ff bla %      nosso  
+
+
+	return (0);
+}
+
 
 
 /*

@@ -6,18 +6,20 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 15:07:45 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/24 22:35:47 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/26 14:18:35 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	print_i_d(t_flags fl, va_list args, int *len)
+void	print_i_d(t_flags fl, va_list args, int *len) 
 {
 	int	size;
 
 	fl.strNum = ft_itoa(va_arg(args, int));
 	size = (int)ft_strlen(fl.strNum);
+	//printf("fl.dot: %i",fl.dot);
+	//printf("fl.precision: %i",fl.precision);
 	if (fl.width <= size && fl.precision <= size)
 		ft_putstr_len(fl.strNum, len);
 	if (fl.precision > size)
