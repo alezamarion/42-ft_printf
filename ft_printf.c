@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:00 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/26 19:00:46 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/26 22:58:48 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,14 +83,16 @@ int	ft_printf(const char *format, ...)
 	va_end(args);
 	return (len);
 }
-
+/*
 int main (void)
 {
 
-	printf(" %x \n", 9223372036854775807);
-	ft_printf(" %x \n", 9223372036854775807);
+	printf(" %x \n", LONG_MAX);
+	ft_printf(" %x \n", LONG_MAX);
 
-
+    return (0);
+}
+*/
 /*
 	int len = ft_printf("%p\n", -1);
 	ft_printf("\n%i", len);
@@ -113,11 +115,11 @@ ft_printf("Bla %.2ii bla %.5isbla bla %.ix bla %.i", 127, 42, 1023, 0);
 
 //Bla 127i bla 42sbla bla 3ff bla %      nosso  
 
-
+/*
 	return (0);
 }
 
-
+*/
 
 /*
 int main(void)
@@ -742,5 +744,3 @@ void print_sizes(int printf_len, int ft_printf_len)
     printf("\n   printf -> pointer: %p, hexa 'x': %x, hexa 'X': %X,  %%\n", &s, hexa, hexa);
     ft_printf("ft_printf -> pointer: %p, hexa 'x': %x, hexa 'X': %X,  %%\n\n", &s, hexa, hexa);
 */	
- //   return (0);
-//}

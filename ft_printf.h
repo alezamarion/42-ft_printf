@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:14 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/26 14:03:21 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/26 22:46:08 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,15 @@
 # include <stdio.h>
 # include "stdlib.h"
 # include "string.h"
+# include <limits.h>
+
 # define FLAGS			"-0.0123456789"
 # define NUMBERS		"0123456789"
 # define TYPES			"csidupxX%"
+
+
+# define HEXALOW    "0123456789abcdef"
+# define HEXAUPP    "0123456789ABCDEF" 
 
 typedef struct t_flags
 {
@@ -29,6 +35,10 @@ typedef struct t_flags
 	int		dot;
 	int		precision;
 	char	*strNum;
+
+	unsigned long long int    ulli;
+    long long int            lli;
+	
 }	t_flags;
 
 int	ft_printf(const char *format, ...);
@@ -78,11 +88,28 @@ void	print_p(t_flags fl, va_list args, int *len, const char c);
 void	print_p_no_zero(t_flags fl, int *len, int size);
 void	print_p_zero(t_flags fl, int *len, int size);
 void	ft_putstr_len_p(char *s, int *len);
+char	*ft_int_to_hex_p(unsigned long int n, const char c);
+
 
 //print_xX
-void	print_xX(t_flags fl, va_list args, int *len, const char c);
+//void	print_xX(t_flags fl, va_list args, int *len, const char c);
+
+void    print_xX(t_flags fl, va_list args, int *len, const char c);
+
+
 void	print_xX_right_aligned(t_flags fl, int *len, int size);
 int		ft_len_hex(unsigned long int x);
 char	*ft_int_to_hex_pxX(unsigned long int n, const char c);
+
+char    *ft_ullitoa_base(unsigned long long int n, char *base);
+
+int	return_hex_len(int num);
+
+
+//char		*ft_dtox(unsigned long int n, const char *base, char c);
+//static char	*ft_trata_str(char *str, char c);
+
+
+
 
 #endif

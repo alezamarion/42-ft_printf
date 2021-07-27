@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 15:14:31 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/26 18:23:45 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/26 20:33:28 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	print_p(t_flags fl, va_list args, int *len, const char c)
 {
 	int	size;
 	
-	fl.strNum = ft_int_to_hex_pxX(va_arg(args, unsigned long int), c);  // "0"; 
+	fl.strNum = ft_int_to_hex_p(va_arg(args, unsigned long int), c);  // "0"; 0x45aalja
 	size = (int)ft_strlen(fl.strNum);
 	size = size + 2;
 	if (fl.zero == 0 && fl.width > size)
@@ -72,4 +72,35 @@ void	ft_putstr_len_p(char *s, int *len)
 		while (s[i])
 			ft_putchar_len(s[i++], len);
 	}
+}
+
+char	*ft_int_to_hex_p(unsigned long int n, const char c)
+{
+	int						len;
+	char					*result;
+	unsigned long int		temp;
+
+	len = ft_len_hex(n);
+	if (n == 0)
+		len++;
+	result = (char *)malloc(len + 1);
+	if (result == NULL)
+		return (0);
+	result[len--] = '\0';
+	while (len >= 0)
+	{
+		temp = 0;
+		temp = n % 16;
+		if (temp < 10)
+			result[len--] = temp + 48;
+		else
+		{
+			if (c == 'x' || c == 'p')
+				result[len--] = temp + 87;
+			else
+				result[len--] = temp + 55;
+		}
+		n = n / 16;
+	}
+	return (result);
 }
