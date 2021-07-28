@@ -6,13 +6,13 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:00 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/26 22:58:48 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/27 23:29:22 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	handle_types(const char c, int *len, va_list args, t_flags fl)
+int	handle_types(const char c, int *len, va_list args, t_flags fl)
 {
 	if (c == 'c')
 		print_c(va_arg(args, int), len, fl);
@@ -30,6 +30,7 @@ static void	handle_types(const char c, int *len, va_list args, t_flags fl)
 		print_pct(len);
 	if (ft_strchr(TYPES, c) == 0)
 		(*len) = -1;
+	return (*len);
 }
 
 t_flags	get_flag_width_precision(const char *format, t_flags fl, int *i)
@@ -65,7 +66,7 @@ int	ft_printf(const char *format, ...)
 	while (format[i])
 	{
 		if (format[i] != '%')
-			ft_putchar_len(format[i++], &len);
+			ft_putchar_len(format[i++], &len);   // espaço len1 + c len2 + espaço len3 + espaço len4
 		else
 		{ 	
 			i++;
@@ -73,7 +74,7 @@ int	ft_printf(const char *format, ...)
 			while (format[i] && ft_strchr(FLAGS, format[i]))
 			{
 				fl = get_flag_width_precision(format, fl, &i);
-				i++; len++;
+				i++;
 			}
 			handle_types(format[i++], &len, args, fl);
 			if (len == -1)								//<- appinha
@@ -83,16 +84,132 @@ int	ft_printf(const char *format, ...)
 	va_end(args);
 	return (len);
 }
-/*
+
+
 int main (void)
 {
+	//categoria -s
+	printf("\n\n");
+	int len1, len2;
+	len1 = printf(" %-1s %-2s ", "", "-");
+	len2 = printf(" %-2s %-3s %-4s %-5s ", " - ", "", "4", "");
+	printf("\nlen   printf: %i %i\n", len1, len2);
 
-	printf(" %x \n", LONG_MAX);
-	ft_printf(" %x \n", LONG_MAX);
+	int len11, len22;
+	len11 = ft_printf(" %-1s %-2s ", "", "-");
+	len22 = ft_printf(" %-2s %-3s %-4s %-5s ", " - ", "", "4", "");
+	printf("\nlen ft_printf: %i %i\n\n\n\n", len11, len22);
 
-    return (0);
+	//categoria -p
+	printf("\n\n");
+	int len3, len4;
+	len3 = printf(" %-4p ", 17);
+	len4 = printf(" %-9p %-10p ", LONG_MIN, LONG_MAX);
+	printf("\nlen   printf: %i %i\n", len1, len2);
+
+	int len33, len44;
+	len11 = ft_printf(" %-4p ", 17);
+	len22 = ft_printf(" %-9p %-10p ", LONG_MIN, LONG_MAX);
+	printf("\nlen ft_printf: %i %i\n\n\n\n", len11, len22);
+
+	return (0);
 }
+
+/*
+//int len2;
+	int len1, len2, len3, len4, len5, len6, len7, len8, len9;
+	len1 = printf("%-1c", '0');
+	len2 = printf(" %-2c ", '0');	//	0 + espaço
+	len3 = printf(" %-3c", '0' - 256);
+	len4 = printf("%-4c ", '0' + 256);
+	len5 = printf(" %-1c %-2c %-3c ", '0', 0, '1');
+	len6 = printf(" %-1c %-2c %-3c ", ' ', ' ', ' ');
+	len7 = printf(" %-1c %-2c %-3c ", '1', '2', '3');
+	len8 = printf(" %-1c %-2c %-3c ", '2', '1', 0);
+	len9 = printf(" %-1c %-2c %-3c ", 0, '1', '2');
+//	printf("  printf len %i", len2);
+	printf("\n\nlen    printf: %i %i %i %i %i %i %i %i", len1, len2, len3, len4, len5, len6, len7, len8);
+
+	printf("\n\n");
+//int len22;	
+	int len11, len22, len33, len44, len55, len66, len77, len88, len99;
+	len11 = ft_printf("%-1c", '0');
+	len22 = ft_printf(" %-2c ", '0');
+	len33 = ft_printf(" %-3c", '0' - 256);
+	len44 = ft_printf("%-4c ", '0' + 256);
+	len55 = ft_printf(" %-1c %-2c %-3c ", '0', 0, '1');
+	len66 = ft_printf(" %-1c %-2c %-3c ", ' ', ' ', ' ');
+	len77 = ft_printf(" %-1c %-2c %-3c ", '1', '2', '3');
+	len88 = ft_printf(" %-1c %-2c %-3c ", '2', '1', 0);
+	len99 = printf(" %-1c %-2c %-3c ", 0, '1', '2');
+	//printf("ft_printf len %i\n\n\n", len22);
+	printf("\n\nlen ft_printf: %i %i %i %i %i %i %i %i\n\n\n\n\n\n\n", len11, len22, len33, len44, len55, len66, len77, len88);
 */
+
+/*	int len1 = printf(" %-2c ", '0');
+	printf("\nlen printf %i\n", len1);
+
+	int len2 = printf(" %-3c \n", '0' - 256);
+	printf("len prinf %i\n", len2);
+
+	printf("\nft_printf: \n");
+	int lena = ft_printf(" %-2c ", '0');
+	printf("\nlen ft_printf %i\n", lena);
+
+	int lenb = printf(" %-3c \n", '0' - 256);
+	printf("len ft_printf %i\n", lenb);
+*/
+/*
+	printf("--------------------2\n");
+	printf(" %-s \n", "-");
+	printf(" %-1s %-2s \n", "", "-");
+	printf("\nft_printf: \n");
+	ft_printf(" %-s \n", "-");
+	ft_printf(" %-1s %-2s \n", "", "-");
+
+	printf("--------------------3\n");
+	printf(" %-4p \n", 17);
+	printf(" %-9p %-10p \n", LONG_MIN, LONG_MAX);	
+	printf("\nft_printf: \n");
+	ft_printf(" %-4p \n", 17);
+	ft_printf(" %-9p %-10p \n", LONG_MIN, LONG_MAX);	
+
+
+	printf("--------------------4\n");
+	printf(" %-1d \n", 99);
+	printf(" %-2d \n", 100);
+	printf(" %-3d \n", 101);
+	printf(" %-1d \n", -9);
+	printf("\nft_printf: \n");
+	ft_printf(" %-1d \n", 99);
+	ft_printf(" %-2d \n", 100);
+	ft_printf(" %-3d \n", 101);
+	ft_printf(" %-1d \n", -9);
+
+	printf("--------------------5\n");
+	printf(" %-3i \n", 101);
+	printf(" %-1i \n", -9);
+	printf("\nft_printf: \n");
+	ft_printf(" %-3i \n", 101);
+	ft_printf(" %-1i \n", -9);
+
+	printf("--------------------6\n");
+	printf(" %-11i \n", LONG_MAX);
+	printf(" %-12i \n", LONG_MIN);
+	printf("\nft_printf: \n");
+	ft_printf(" %-11i \n", LONG_MAX);
+	ft_printf(" %-12i \n", LONG_MIN);
+
+	printf("--------------------7\n");
+	printf(" %-3u \n", 101);
+	printf(" %-1u \n", -9);
+	printf("\nft_printf: \n");
+	ft_printf(" %-3u \n", 101);
+	ft_printf(" %-1u \n", -9);
+*/
+//    return (0);
+//}
+
 /*
 	int len = ft_printf("%p\n", -1);
 	ft_printf("\n%i", len);
@@ -115,11 +232,10 @@ ft_printf("Bla %.2ii bla %.5isbla bla %.ix bla %.i", 127, 42, 1023, 0);
 
 //Bla 127i bla 42sbla bla 3ff bla %      nosso  
 
-/*
-	return (0);
-}
 
-*/
+//	return (0);
+//}
+
 
 /*
 int main(void)

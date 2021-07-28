@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 15:05:51 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/26 18:29:03 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/27 23:25:15 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,8 @@ void	print_s(char *c, int *len, t_flags fl)
 {
 	int	size;
 
-	//if (c == NULL)
-	//	ft_putstr_len("(null)", len);
-	//	return ;
+	if (c == NULL)
+		c = "(null)";
 	size = (int)ft_strlen(c);
 	if ((fl.precision < size && fl.precision > 0) && fl.width < size)
 	{
