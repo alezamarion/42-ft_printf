@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 15:17:05 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/27 21:26:20 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/29 18:28:20 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void    print_xX(t_flags fl, va_list args, int *len, const char c)
     free(fl.strNum);
 }
 
-int	return_hex_len(int num)
+int	return_hex_len(int num) //quem chama?
 {
 	int len;
 
@@ -58,13 +58,13 @@ void	print_xX_right_aligned(t_flags fl, int *len, int size)
 		while (fl.width - size > 0)
 		{
 			write(1, "0", 1);
-			fl.width--, len++;
+			fl.width--, (*len)++;
 		}
 		ft_putstr_len(fl.strNum, len);
 	}
 }
 
-int	ft_len_hex(unsigned long int x)
+int	ft_len_hex(unsigned long int x) //quem chama?
 {
 	int	len;
 
@@ -101,36 +101,3 @@ char        *ft_ullitoa_base(unsigned long long int n, char *base)
         a[0] = '0';
     return (a);
 }
-
-
-/*
-char	*ft_int_to_hex_pxX(unsigned long int n, const char c)
-{
-	int						size;
-	char					*result;
-	unsigned long int		temp;
-
-	if (n == 0)
-		size++;
-	result = (char *)malloc(size + 1);
-	if (result == NULL)
-		return (0);
-	result[size] = '\0';
-	while (size >= 0)
-	{
-		temp = 0;
-		temp = n % 16;
-		if (temp < 10)
-			result[size--] = temp + 48;
-		else
-		{
-			if (c == 'x' || c == 'p')
-				result[size--] = temp + 87;
-			else
-				result[size--] = temp + 55;
-		}
-		n = n / 16;
-	}
-	return (result);
-}
-*/

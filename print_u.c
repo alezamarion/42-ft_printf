@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 15:11:44 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/27 21:26:48 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/29 18:23:47 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	print_u(t_flags fl, va_list args, int *len)
 		while (fl.precision - size > 0)
 		{
 			write(1, "0", 1);
-			fl.precision--, len++;
+			fl.precision--, (*len)++;
 		}
 		ft_putstr_len(fl.strNum, len);
 	}
@@ -38,17 +38,15 @@ void	print_u(t_flags fl, va_list args, int *len)
 
 void	print_u_space_string(t_flags fl, int *len, int size)
 {
+	if (fl.minus == 1)
 	{
-		if (fl.minus == 1)
-		{
-			ft_putstr_len(fl.strNum, len);
-			print_space(fl, size, len);
-		}
-		else
-		{
-			print_space(fl, size, len);
-			ft_putstr_len(fl.strNum, len);
-		}
+		ft_putstr_len(fl.strNum, len);
+		print_space(fl, size, len);
+	}
+	else
+	{
+		print_space(fl, size, len);
+		ft_putstr_len(fl.strNum, len);
 	}
 }
 
@@ -59,7 +57,7 @@ void	print_u_zero_string(t_flags fl, int *len, int size)
 		while (fl.width - size > 0)
 		{
 			write(1, "0", 1);
-			fl.width--, len++;
+			fl.width--, (*len)++;
 		}
 		ft_putstr_len(fl.strNum, len);
 	}

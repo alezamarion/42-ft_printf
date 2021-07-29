@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 20:03:26 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/27 21:43:09 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/29 18:21:07 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,4 @@ void	ft_putstr_len(char *s, int *len)
 		while (s[i])
 			ft_putchar_len(s[i++], len);
 	}
-}
-
-void	print_pct(int *len)
-{
-	ft_putstr_len("%", len);
 }

@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 15:14:31 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/27 21:28:58 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/29 18:24:33 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,11 @@ void	print_p_zero(t_flags fl, int *len, int size)
 {
 	if (fl.minus == 0)
 	{
-		write(1, "0x", 2);
+		ft_putstr_len("0x", len);
 		while (fl.width - size > 0)
 		{
 			write(1, "0", 1);
-			fl.width--, len++;
+			fl.width--, (*len)++;
 		}
 		ft_putstr_len(fl.strNum, len);
 	}
