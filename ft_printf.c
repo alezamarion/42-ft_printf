@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:00 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/30 17:12:27 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/30 17:57:14 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,8 +86,9 @@ int	ft_printf(const char *format, ...)
 }
 
 
-int main (void)
-{
+//int main (void)
+//{
+	/*
 	int len1, len2, len3, len4;
 	len1 = printf(" %-1d ", 0);
 	len2 = printf(" %-2d ", -1);
@@ -103,6 +104,12 @@ int main (void)
 	len33 = ft_printf(" %-2d ", 11);
 	len44 = ft_printf(" %-3d ", -11);
 	printf("\nlen ft_printf: %i %i %i %i\n", len11, len22, len33, len44);
+
+
+		printf(" %.s ", "-");
+		printf("\n-----------\n");
+		ft_printf(" %.s ", "-");
+
 
 
 
@@ -131,7 +138,7 @@ int main (void)
 //	len22= ft_printf(" %05d ", -15);
 //	len33 = ft_printf(" %012d ", INT_MIN);
 //	printf("\nlen ft_printf %i\n\n\n", len33);
-
+*/
 /*
 	//categoria -s
 	printf("\n\n");
@@ -147,8 +154,8 @@ int main (void)
 
 */	//categoria -p
 
-	return (0);
-}
+// 	return (0);
+// }
 
 
 
