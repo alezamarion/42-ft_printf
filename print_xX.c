@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 15:17:05 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/29 18:28:20 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/29 21:22:46 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,19 +33,6 @@ void    print_xX(t_flags fl, va_list args, int *len, const char c)
     free(fl.strNum);
 }
 
-int	return_hex_len(int num) //quem chama?
-{
-	int len;
-
-	len  = 0;
-	while (num)
-	{
-		num = num / 16;
-		len++;
-	}
-	return (len);	
-}
-
 void	print_xX_right_aligned(t_flags fl, int *len, int size)
 {
 	if (fl.zero == 0)
@@ -64,7 +51,7 @@ void	print_xX_right_aligned(t_flags fl, int *len, int size)
 	}
 }
 
-int	ft_len_hex(unsigned long int x) //quem chama?
+int	ft_len_hex(unsigned long int x)
 {
 	int	len;
 

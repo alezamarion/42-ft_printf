@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 15:07:45 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/29 18:21:34 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/29 23:27:26 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,29 @@
 
 void	print_i_d(t_flags fl, va_list args, int *len) 
 {
-	int	size;
+	int number;
 
-	fl.strNum = ft_itoa(va_arg(args, int));
+	number = va_arg(args, int);
+	if (number > 0)
+		print_id_positive(fl, number, len);
+	else	
+		print_id_negative(fl, number, len);
+}
+
+void	print_id_positive(t_flags fl, int number, int *len)
+{
+	int size;
+
+	fl.strNum = ft_itoa(number);
 	size = (int)ft_strlen(fl.strNum);
 	if (fl.width <= size && fl.precision <= size)
 		ft_putstr_len(fl.strNum, len);
-	if (fl.precision > size)
+	if ( (fl.width > size && fl.precision == 0) || fl.precision > size)
 	{
 		print_i_d_zero(fl, size, len);
 		ft_putstr_len(fl.strNum, len);
 	}
-	if (fl.width > size && fl.precision <= size)
+	if ((fl.width > size && fl.precision != 0) && fl.precision <= size )
 	{	
 		if (fl.minus == 1)
 		{
@@ -41,6 +52,67 @@ void	print_i_d(t_flags fl, va_list args, int *len)
 	free(fl.strNum);
 }
 
+
+void	print_id_negative(t_flags fl, int number, int *len)
+{
+	int size;
+
+	fl.strNum = ft_itoa(number);
+	size = (int)ft_strlen(fl.strNum);
+	if (fl.width <= size && fl.precision <= size)
+		ft_putstr_len(fl.strNum, len);
+	if ( (fl.width > size && fl.precision == 0) || fl.precision > size)
+	{
+		print_i_d_zero(fl, size, len);
+		ft_putstr_len(fl.strNum, len);
+	}
+	if ((fl.width > size && fl.precision != 0) && fl.precision <= size )
+	{	
+		if (fl.minus == 1)
+		{
+			ft_putstr_len(fl.strNum, len);
+			print_space(fl, size, len);
+		}
+		else
+		{
+			print_space(fl, size, len);
+			ft_putstr_len(fl.strNum, len);
+		}
+	}
+	free(fl.strNum);
+}
+
+
+/*
+void	print_i_d(t_flags fl, va_list args, int *len) 
+{
+	int	size;
+
+	fl.strNum = ft_itoa(va_arg(args, int));
+	size = (int)ft_strlen(fl.strNum);
+	if (fl.width <= size && fl.precision <= size)
+		ft_putstr_len(fl.strNum, len);
+	if ( (fl.width > size && fl.precision == 0) || fl.precision > size)
+	{
+		print_i_d_zero(fl, size, len);
+		ft_putstr_len(fl.strNum, len);
+	}
+	if ((fl.width > size && fl.precision != 0) && fl.precision <= size )
+	{	
+		if (fl.minus == 1)
+		{
+			ft_putstr_len(fl.strNum, len);
+			print_space(fl, size, len);
+		}
+		else
+		{
+			print_space(fl, size, len);
+			ft_putstr_len(fl.strNum, len);
+		}
+	}
+	free(fl.strNum);
+}
+*/
 void	print_space(t_flags fl, int size, int *len)
 {
 	while (fl.width - size > 0)
@@ -52,9 +124,51 @@ void	print_space(t_flags fl, int size, int *len)
 
 void	print_i_d_zero(t_flags fl, int size, int *len)
 {
-	while (fl.precision - size > 0)
+	if (fl.precision > 0)
 	{
-		write(1, "0", 1);
-		fl.precision--, (*len)++;
+		while (fl.precision - size > 0)
+		{
+			write(1, "0", 1);
+			fl.precision--, (*len)++;
+		}
+	}
+	else								// imprime zeros quando o width > zero
+	{
+		while (fl.width - size > 0)
+		{
+			write(1, "0", 1);
+			fl.width--, (*len)++;
+		}
 	}
 }
+
+
+
+
+
+
+
+
+/*
+
+	int	size;
+
+	fl.strNum = ft_itoa(va_arg(args, int));
+	size = (int)ft_strlen(fl.strNum);
+	if (strchr(strNum, "-"))
+		print_negative
+	else
+		print_positive
+
+
+usa o strchr: se tiver o "-"
+	imprime o traço
+	imprime os zeros
+	imprime o número sem o traço
+
+
+
+
+
+
+*/

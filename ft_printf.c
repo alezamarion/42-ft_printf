@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:00 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/29 18:28:52 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/29 23:11:57 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,59 +86,50 @@ int	ft_printf(const char *format, ...)
 }
 
 
-//int main (void)
-//{
+int main (void)
+{
 
 
+	// TEST(23, print(" %011d ", LONG_MAX));
+	// TEST(25, print(" %013d ", UINT_MAX));
+	// TEST(26, print(" %014d ", ULONG_MAX));
+
+
+	printf("\n\n");
+
+	int len1, len2, len4;
+	len1 = printf(" %04d ", 9);
+	len2 = printf(" %05d ", -15);
+//	len3 = printf(" %05d ", -15);
+	len4 = printf(" %012d ", INT_MIN);
+	printf("\nlen   printf %i %i %i \n", len1, len2, len4);
+	
+	printf("\n\n");
+
+	int len11, len22, len44;
+	len11 = ft_printf(" %04d ", 9);
+	len22 = ft_printf(" %05d ", -15);
+//	len33 = ft_printf(" %05d ", -15);
+	len44 = ft_printf(" %012d ", INT_MIN);
+	printf("\nlen ft_printf %i %i %i \n\n\n", len11, len22, len44);
+
+/*
 	//categoria -s
-	// printf("\n\n");
-	// int len1, len2;
-	// len1 = printf(" %-1s %-2s ", "", "-");
-	// len2 = printf(" %-2s %-3s %-4s %-5s ", " - ", "", "4", "");
-	// printf("\nlen   printf: %i %i\n", len1, len2);
+	printf("\n\n");
+	int len1;
+	len1 = printf(" %-1s %-2s ", "", "-");
+//	len2 = printf(" %-2s %-3s %-4s %-5s ", " - ", "", "4", "");
+	printf("\nlen   printf: %i \n", len1);
 
-	// int len11, len22;
-	// len11 = ft_printf(" %-1s %-2s ", "", "-");
-	// len22 = ft_printf(" %-2s %-3s %-4s %-5s ", " - ", "", "4", "");
-	// printf("\nlen ft_printf: %i %i\n\n\n\n", len11, len22);
+	int len11;
+	len11 = ft_printf(" %-1s %-2s ", "", "-");
+//	len22 = ft_printf(" %-2s %-3s %-4s %-5s ", " - ", "", "4", "");
+	printf("\nlen ft_printf: %i \n\n\n\n", len11);
 
-	//categoria -p
-/*  printf("\n\n");
-	int len3, len4;
-	len3 = printf(" %-4p ", 17);
-	len4 = printf(" %-9p %-10p ", LONG_MIN, LONG_MAX);
-	printf("\nlen   printf: %i %i\n", len3, len4);
+*/	//categoria -p
 
-	int len33, len44;
-	len33 = ft_printf(" %-4p ", 17);
-	len44 = ft_printf(" %-9p %-10p ", LONG_MIN, LONG_MAX);
-	printf("\nlen ft_printf: %i %i\n\n\n\n", len33, len44);
-
-*/
-
-//	printf("\n\n");
-//int len4;
-//	int len1, len2, len3, len4;
-//	len1 = printf(" %04d ", 9);
-//	len2 = printf(" %03d ", 15);
-//	len3 = printf(" %04d ", 16);
-//	len4 = printf(" %05d ", 17);
-//	printf("\nlen   printf %i\n", len4);
-
-//	printf("\nlen   printf %i %i %i %i\n", len1, len2, len3, len4);
-//	printf("\n\n");
-//int len44;
-//	int len11, len22, len33, len44;
-//	len11 = ft_printf(" %04d ", 9);
-//	len22 = ft_printf(" %03d ", 15);
-//	len33 = ft_printf(" %04d ", 16);
-//	len44 = ft_printf(" %05d ", 17);
-//	printf("\nlen   printf %i\n", len44);
-
-//	printf("\nlen ft_printf %i %i %i %i\n\n\n", len11, len22, len33, len44);
-
-//	return (0);
-//}
+	return (0);
+}
 
 
 

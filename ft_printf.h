@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:14 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/29 18:28:23 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/29 23:23:30 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,8 @@ int	return_hex_len(int num);
 //static char	*ft_trata_str(char *str, char c);
 
 
+void	print_id_positive(t_flags fl, int number, int *len);
+void	print_id_negative(t_flags fl, int number, int *len);
 
 
 #endif
