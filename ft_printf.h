@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:14 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/29 23:23:30 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/30 09:12:35 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	ft_putchar(char c);
 //utils_2
 void	ft_putnbr(int n);
 int		ft_len(int num);
-int		ft_to_positive(int num);
+//int		ft_to_positive(int num);
 char	*ft_itoa(int n);
 
 //utils_3

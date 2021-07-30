@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:00 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/29 23:11:57 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/30 17:12:27 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,30 +88,49 @@ int	ft_printf(const char *format, ...)
 
 int main (void)
 {
+	int len1, len2, len3, len4;
+	len1 = printf(" %-1d ", 0);
+	len2 = printf(" %-2d ", -1);
+	len3 = printf(" %-2d ", 11);
+	len4 = printf(" %-3d ", -11);
+	printf("\nlen   printf: %i %i %i %i\n", len1, len2, len3, len4);
+
+	printf("\n");
+
+	int len11, len22, len33, len44;
+	len11 = ft_printf(" %-1d ", 0);
+	len22 = ft_printf(" %-2d ", -1);
+	len33 = ft_printf(" %-2d ", 11);
+	len44 = ft_printf(" %-3d ", -11);
+	printf("\nlen ft_printf: %i %i %i %i\n", len11, len22, len33, len44);
 
 
-	// TEST(23, print(" %011d ", LONG_MAX));
-	// TEST(25, print(" %013d ", UINT_MAX));
-	// TEST(26, print(" %014d ", ULONG_MAX));
 
 
-	printf("\n\n");
+	// TEST(51, print(" %-9d ", INT_MAX));
+	// TEST(52, print(" %-10d ", INT_MIN));
+	// TEST(53, print(" %-11d ", LONG_MAX));
+	// TEST(54, print(" %-12d ", LONG_MIN));
+	// TEST(55, print(" %-13d ", UINT_MAX));
+	// TEST(56, print(" %-14d ", ULONG_MAX));
 
-	int len1, len2, len4;
-	len1 = printf(" %04d ", 9);
-	len2 = printf(" %05d ", -15);
-//	len3 = printf(" %05d ", -15);
-	len4 = printf(" %012d ", INT_MIN);
-	printf("\nlen   printf %i %i %i \n", len1, len2, len4);
+
+
+//	printf("\n\n");
+//int len3;
+	//int len1, len2, len3;
+	//len1 = printf(" %04d ", 9);
+	//len2 = printf(" %05d ", -15);
+//	len3 = printf(" %012d ", INT_MIN);
+//	printf("\nlen   printf %i \n", len3);
 	
-	printf("\n\n");
-
-	int len11, len22, len44;
-	len11 = ft_printf(" %04d ", 9);
-	len22 = ft_printf(" %05d ", -15);
-//	len33 = ft_printf(" %05d ", -15);
-	len44 = ft_printf(" %012d ", INT_MIN);
-	printf("\nlen ft_printf %i %i %i \n\n\n", len11, len22, len44);
+//	printf("\n\n");
+//int len33;
+//	int len11, len22, len33;
+//	len11 = ft_printf(" %04d ", 9);
+//	len22= ft_printf(" %05d ", -15);
+//	len33 = ft_printf(" %012d ", INT_MIN);
+//	printf("\nlen ft_printf %i\n\n\n", len33);
 
 /*
 	//categoria -s
