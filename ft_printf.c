@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:00 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/31 23:23:15 by azamario         ###   ########.fr       */
+/*   Updated: 2021/08/01 18:03:33 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,40 +86,59 @@ int	ft_printf(const char *format, ...)
 }
 
 /*
+int main(void)
+{
+	//	PAULO: TESTES MANDATÓRIOS ASSINALADOS COMO ERRADOS QUE ESTÃO CERTOS
+	int len1, len2, len3,len4, len5, len6;
+	len1 = printf("%u", 0);
+		printf("\n"); 
+  	len2 = printf("%u to the power of %u is %u", 2, 32, (unsigned int)4294967295);
+		printf("\n");
+	len3 = printf("%u%u%u%u", (unsigned int)429896724, 0, 32, (unsigned int)4294967295);
+		printf("\n");
+	printf("len  printf: %i %i %i", len1, len2, len3);
+		printf("\n");
+   
+   printf("\n");
+   
+   	len4 = ft_printf("%u", 0);
+		printf("\n");
+  	len5 = ft_printf("%u to the power of %u is %u", 2, 32, (unsigned int)4294967295);
+ 		printf("\n");
+  	len6 = ft_printf("%u%u%u%u", (unsigned int)429896724, 0, 32, (unsigned int)4294967295);
+		printf("\n");
+	printf("len ft_printf: %i %i %i", len4, len5, len6);
+
+   return (0);
+}
+*/
+
+
+
+
+/*
 int main (void)
 {
 	//	d e i:
 	printf("--------------------------------------------\n\n");
 
-	int len1, len2, len3, len4, len5, len6, len7, len8, len9, len10;
+	int len1, len2, len3, len4, len5;
 	len1 = printf(" %.2d ", -1);
-	len2 = printf(" %.2d ", 1);
-	len3 = printf(" %.3d ", 11);
-	len4 = printf(" %.4d ", 15);
-	len5 = printf(" %.5d ", 16);
-	len6 = printf(" %.6d ", 17);
-	len7 = printf(" %.3d ", -11);
-	len8 = printf(" %.4d ", -14);
-	len9 = printf(" %.3d ", -99);
-	len10 = printf(" %.4d ", -101);
-
-
-	printf("\nlen printf: %i %i %i %i %i %i %i %i %i %i", len1, len2, len3, len4, len5, len6, len7, len8, len9, len10);
+	len2 = printf(" %.3d ", -11);
+	len3 = printf(" %.4d ", -14);
+	len4 = printf(" %.3d ", -99);
+	len5 = printf(" %.4d ", -101);
+	printf("\nlen printf: %i %i %i %i %i", len1, len2, len3, len4, len5);
 	
 	printf("\n\n");
 
-	int len11, len22, len33, len44, len55, len66, len77, len88, len99, len1010;
+	int len11, len22, len33, len44, len55;
 	len11 = ft_printf(" %.2d ", -1);
-	len22 = ft_printf(" %.2d ", 1);
-	len33 = ft_printf(" %.3d ", 11);
-	len44 = ft_printf(" %.4d ", 15);
-	len55 = ft_printf(" %.5d ", 16);
-	len66 = ft_printf(" %.6d ", 17);
-	len77 = ft_printf(" %.3d ", -11);
-	len88 = ft_printf(" %.4d ", -14);
-	len99 = ft_printf(" %.3d ", -99);
-	len1010 = ft_printf(" %.4d ", -101);
-	printf("\nlen ft_printf: %i %i %i %i %i %i %i %i %i %i\n", len11, len22, len33, len44, len55, len66, len77, len88, len99, len1010);
+	len22 = ft_printf(" %.3d ", -11);
+	len33 = ft_printf(" %.4d ", -14);
+	len44 = ft_printf(" %.3d ", -99);
+	len55 = ft_printf(" %.4d ", -101);
+	printf("\nlen printf: %i %i %i %i %i", len11, len22, len33, len44, len55);
 
 	return (0);
 }
