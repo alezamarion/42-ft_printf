@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 15:05:51 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/30 17:58:37 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/31 22:15:07 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ void	print_s(char *c, int *len, t_flags fl)
 		print_s_space_print(c, len, fl);
 	else if (fl.precision < size && fl.width >= size)
 		print_s_space_cut(c, len, fl);
+	else if (fl.dot == 1 && fl.precision == 0)
+		write(1, "", 0);
 	else
 		ft_putstr_len(c, len);
 }

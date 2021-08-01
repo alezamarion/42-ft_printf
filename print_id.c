@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 15:07:45 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/31 16:19:36 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/31 23:18:14 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,14 @@ void	print_i_d(t_flags fl, va_list args, int *len)
 	number = va_arg(args, int);
 	if (number >= 0)
 		print_id_positive(fl, number, len);
-	else	
+	else
+	{
+		number *= -1;
 		print_id_negative(fl, number, len);
+	}	
 }
 
-void	print_id_positive(t_flags fl, int number, int *len)    		// (" %-4d ", -14)
+void	print_id_positive(t_flags fl, int number, int *len)    		// (" %.2d ", -1)
 {
 	int size;
 
@@ -48,6 +51,11 @@ void	print_id_positive(t_flags fl, int number, int *len)    		// (" %-4d ", -14)
 			print_space(fl, size, len);
 			ft_putstr_len(fl.strNum, len);
 		}
+	}
+	if (fl.minus == 1 && fl.precision == 0 && fl.width > size)
+	{
+		ft_putstr_len(fl.strNum, len);
+		print_space(fl, size, len);
 	}
 	free(fl.strNum);
 }
@@ -86,6 +94,12 @@ void	print_id_negative(t_flags fl, int number, int *len) // 	printf(" %.2d ", -1
 			ft_putchar_len('-', len);
 			ft_putstr_len(fl.strNum, len);
 		}
+	}
+	if (fl.minus == 1 && fl.precision == 0 && fl.width > size)
+	{
+		ft_putchar_len('-', len);
+		ft_putstr_len(fl.strNum, len);
+		print_space(fl, size, len);
 	}
 	if (number != -2147483648)
 		free(fl.strNum);

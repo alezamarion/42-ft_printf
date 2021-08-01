@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 20:04:51 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/30 16:56:56 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/31 23:20:47 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ void	ft_putnbr(int n)
 	}
 }
 
-/*
 int	ft_len(int num)
 {
 	size_t	len;
@@ -46,9 +45,7 @@ int	ft_len(int num)
 	}
 	return (len);
 }
-*/
 
-/*
 int	ft_to_positive(int num)
 {
 	if (num < 0)
@@ -56,9 +53,7 @@ int	ft_to_positive(int num)
 	else
 		return (num);
 }
-*/
 
-/*
 char	*ft_itoa(int n)
 {
 	int		sign;
@@ -83,44 +78,5 @@ char	*ft_itoa(int n)
 	}
 	if (sign == -1)
 		result[0] = '-';
-	return (result);
-}
-*/
-
-int	ft_len(int num)
-{
-	size_t	len;
-
-	if (num <= 0)
-		len = 1;
-	else
-		len = 0;
-	while (num != 0)
-	{
-		num = num / 10;
-		len++;
-	}
-	return (len);
-}
-
-char	*ft_itoa(int n)
-{
-	int		len;
-	char	*result;
-	 
-	if (n < 0)
-		n *= -1;
-	len = ft_len(n);
-	result = (char *)malloc(sizeof(char) * len + 1);
-	if (result == NULL)
-		return (0);
-	result[len] = '\0';
-	len--;
-	while (len >= 0)
-	{
-		result[len] = '0' + (n % 10);
-		n = (n / 10);
-		len--;
-	}
 	return (result);
 }
