@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:00 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/30 17:57:14 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/31 21:33:09 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,11 @@ int	handle_types(const char c, int *len, va_list args, t_flags fl)
 	return (*len);
 }
 
-t_flags	get_flag_width_precision(const char *format, t_flags fl, int *i)
+t_flags	get_flag_width_precision(const char *format, t_flags fl, int *i) 
 {
 	if (format[*i] == '-')
 		fl.minus = 1;
-	else if (format[*i] == '0' && fl.minus == 0 && fl.width == 0)
+	else if (format[*i] == '0' && fl.minus == 0 && fl.width == 0 && fl.dot == 0)
 		fl.zero = 1;
 	else if (format[*i] == '.')
 	{
@@ -66,7 +66,7 @@ int	ft_printf(const char *format, ...)
 	while (format[i])
 	{
 		if (format[i] != '%')
-			ft_putchar_len(format[i++], &len);   // espaço len1 + c len2 + espaço len3 + espaço len4
+			ft_putchar_len(format[i++], &len);			//(" %.10x ", LONG_MAX)
 		else
 		{ 	
 			i++;
@@ -85,9 +85,165 @@ int	ft_printf(const char *format, ...)
 	return (len);
 }
 
+/*
+int main (void)
+{
+	int len1, len2;
+	len1 = printf(" %.10x ", LONG_MAX);
+//	len2 = printf(" %.11x ", LONG_MIN);	
+	printf("\nlen printf: %i",len1);
+	printf("\n\n");			
 
-//int main (void)
-//{
+	int len4, len5;
+	len4 = ft_printf(" %.10x ", LONG_MAX);
+	//len5 = ft_printf(" %.11x ", LONG_MIN);
+	printf("\nlen ft_printf: %i",len4);
+	printf("\n\n");			
+
+	return (0);
+}
+*/
+	//	categoria -
+	//	erros em s, d e i:
+
+	//	s:
+/*
+		printf("\n\n");
+	int len1, len2, len11, len22;
+	len1 = printf(" %-1s %-2s ", "", "-");
+	len2 = printf(" %-2s %-3s %-4s %-5s ", " - ", "", "4", "");
+	printf("\nlen printf: %i %i", len1, len2);
+		printf("\n\n");
+	len11 = ft_printf(" %-1s %-2s ", "", "-");
+	len22 = ft_printf(" %-2s %-3s %-4s %-5s ", " - ", "", "4", "");
+	printf("\nlen ft_printf: %i %i", len11, len22);
+		printf("\n\n");
+*/
+
+	//	d e i:
+/*		printf("\n");
+	int len1, len2, len3, len4; //, len5, len6, len7, len8, len9, len10;
+	len1 = printf(" %-1d ", 0);
+	len2 = printf(" %-2d ", -1);
+	len3 = printf(" %-2d ", 11);
+	len4 = printf(" %-4d ", -14);
+*/	// len5 = printf(" %-9d ", INT_MAX);
+	// len6 = printf(" %-10d ", INT_MIN);
+	// len7 = printf(" %-11d ", LONG_MAX);
+	// len8 = printf(" %-12d ", LONG_MIN);
+	// len9 = printf(" %-13d ", UINT_MAX);
+	// len10 = printf(" %-14d ", ULONG_MAX);
+/*	printf("\nlen printf: %i %i %i %i", len1, len2, len3, len4);
+
+		printf("\n\n");
+
+	int len11, len22, len33, len44;
+	len11 = ft_printf(" %-1d ", 0);
+	len22 = ft_printf(" %-2d ", -1);
+	len33 = ft_printf(" %-2d ", 11);
+	len44 = ft_printf(" %-4d ", -14);
+*///	len55 = ft_printf(" %-9d ", INT_MAX);
+//	len66 = ft_printf(" %-10d ", INT_MIN);
+//	len77 = ft_printf(" %-11d ", LONG_MAX);
+	// len88 = ft_printf(" %-12d ", LONG_MIN);
+	// len99 = ft_printf(" %-13d ", UINT_MAX);
+	// len1010 = ft_printf(" %-14d ", ULONG_MAX);
+//	printf("\nlen ft_printf: %i %i %i %i", len11, len22, len33, len44);
+//		printf("\n\n");
+
+//-----------------------------------------------------------------------------------------------------------------//
+
+	//	categoria .
+	//	erros em s, d, i, x e X:
+
+	//	. s:
+/*	int len1, len2;
+	len1 = printf(" %.s ", "-");
+	len2 = ft_printf(" %.s ", "-");
+		printf("\n");
+	printf("len printf: %i, len ft_printf: %i", len1, len2);
+		printf("\n\n");
+*/
+/*
+	//	. d e i:
+		printf("\n\n");
+	int len1, len2, len3, len4, len5, len6, len7, len8, len9, len10, len11, len12;
+	len1 = printf(" %.2d ", -1);
+	len2 = printf(" %.2d ", 1);
+	len3 = printf(" %.4d ", 15);
+	len4 = printf(" %.4d ", -14);
+	len5 = printf(" %.3d ", -99);
+	len6 = printf(" %.4d ", -101);
+	len7 = printf(" %.10d ", LONG_MAX);
+	len8 = printf(" %.11d ", LONG_MIN);
+	len9 = printf(" %.12d ", UINT_MAX);
+	len10 = printf(" %.13d ", ULONG_MAX);
+	len11 = printf(" %.14d ", 9223372036854775807LL);
+		printf("\n\n");
+	len12 = printf(" %.8d %.9d %.10d %.11d %.12d %.13d %.14d", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42);
+	printf("\nlen printf: %i %i %i %i %i %i %i %i %i %i %i %i", len1, len2, len3, len4, len5, len6, len7, len8, len9, len10, len11, len12);
+
+	printf("\n\n");
+	
+	int len13, len14, len15, len16, len17, len18, len19, len20, len21, len22, len23, len24;
+	len13 = ft_printf(" %.2d ", -1);
+	len14 = ft_printf(" %.2d ", 1);
+	len15 = ft_printf(" %.4d ", 15);
+	len16 = ft_printf(" %.4d ", -14);
+	len17 = ft_printf(" %.3d ", -99);
+	len18 = ft_printf(" %.4d ", -101);
+	len19 = ft_printf(" %.10d ", LONG_MAX);
+	len20 = ft_printf(" %.11d ", LONG_MIN);
+	len21 = ft_printf(" %.12d ", UINT_MAX);
+	len22 = ft_printf(" %.13d ", ULONG_MAX);
+	len23 = ft_printf(" %.14d ", 9223372036854775807LL);
+		printf("\n\n");
+	len24 = ft_printf(" %.8d %.9d %.10d %.11d %.12d %.13d %.14d", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42);
+	printf("\nlen ft_printf: %i %i %i %i %i %i %i %i %i %i %i %i", len13, len14, len15, len16, len17, len18, len19, len20, len21, len22, len23, len24);
+		printf("\n\n");
+*/
+/*
+	//	. x e X:
+	int len1, len2, len3, len4, len5, len6, len7, len8, len9, len10, len11;
+	len1 = printf(" %.2x ", 1);
+	len2 = printf(" %.1x ", 9);
+	len3 = printf(" %.6x ", 17);
+	len4 = printf(" %.3x ", 101);
+	len5 = printf(" %.9x ", INT_MIN);
+	len6 = printf(" %.10x ", LONG_MAX);
+	len7 = printf(" %.11x ", LONG_MIN);
+	len8 = printf(" %.12x ", UINT_MAX);
+	len9 = printf(" %.13x ", ULONG_MAX);
+	len10 = printf(" %.14x ", 9223372036854775807LL);
+		printf("\n\n");
+	len11 = printf(" %.8x %.9x %.10x %.11x %.12x %.13x %.14x", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42);
+	printf("\n\nlen printf: %i %i %i %i %i %i %i %i %i %i %i", len1, len2, len3, len4, len5, len6, len7, len8, len9, len10, len11);
+
+		printf("\n\n");
+
+	int len13, len14, len15, len16, len17, len18, len19, len20, len21, len22, len23;
+	len13 = ft_printf(" %.2x ", 1);
+	len14 = ft_printf(" %.1x ", 9);
+	len15 = ft_printf(" %.6x ", 17);
+	len16 = ft_printf(" %.3x ", 101);
+	len17 = ft_printf(" %.9x ", INT_MIN);
+	len18 = ft_printf(" %.10x ", LONG_MAX);
+	len19 = ft_printf(" %.11x ", LONG_MIN);
+	len20 = ft_printf(" %.12x ", UINT_MAX);
+	len21 = ft_printf(" %.13x ", ULONG_MAX);
+	len22 = ft_printf(" %.14x ", 9223372036854775807LL);
+		printf("\n\n");
+	len23 = ft_printf(" %.8x %.9x %.10x %.11x %.12x %.13x %.14x", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42);
+	printf("\n\nlen ft_printf: %i %i %i %i %i %i %i %i %i %i %i", len13, len14, len15, len16, len17, len18, len19, len20, len21, len22, len23);
+
+*/
+//	return (0);
+//}
+
+//-----------------------------------------------------------------------------------------------------------------//
+
+
+
 	/*
 	int len1, len2, len3, len4;
 	len1 = printf(" %-1d ", 0);

@@ -9,7 +9,7 @@ OBJECTS = $(subst .c,.o,$(SRCS))
 all: $(NAME)
 
 $(NAME): $(SRCS)
-	@gcc -Wall -Wextra -Werror -c $(SRCS)
+	@clang -Wall -Wextra -Werror -c $(SRCS)
 	@ar rc $(NAME) $(OBJECTS)
 	@ranlib $(NAME)
 

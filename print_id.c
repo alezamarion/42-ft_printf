@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 15:07:45 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/30 16:57:00 by azamario         ###   ########.fr       */
+/*   Updated: 2021/07/31 16:19:36 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	print_i_d(t_flags fl, va_list args, int *len)
 		print_id_negative(fl, number, len);
 }
 
-void	print_id_positive(t_flags fl, int number, int *len)
+void	print_id_positive(t_flags fl, int number, int *len)    		// (" %-4d ", -14)
 {
 	int size;
 
@@ -53,7 +53,7 @@ void	print_id_positive(t_flags fl, int number, int *len)
 }
 
 
-void	print_id_negative(t_flags fl, int number, int *len)
+void	print_id_negative(t_flags fl, int number, int *len) // 	printf(" %.2d ", -1);
 {
 	int size;
 	if (number == -2147483648)
