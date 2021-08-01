@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 15:11:44 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/29 18:23:47 by azamario         ###   ########.fr       */
+/*   Updated: 2021/08/01 19:08:50 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ char	*ft_uitoa(unsigned int n)
 	char	*result;
 
 	len = ft_ulen(n);
-	result = (char *)malloc(sizeof(char) * len - 1);
+	result = (char *)malloc(sizeof(char) * len + 1);
 	if (result == NULL)
 		return (0);
 	result[len] = '\0';

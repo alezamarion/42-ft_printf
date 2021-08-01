@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:00 by azamario          #+#    #+#             */
-/*   Updated: 2021/08/01 18:03:33 by azamario         ###   ########.fr       */
+/*   Updated: 2021/08/01 19:10:12 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,10 +85,14 @@ int	ft_printf(const char *format, ...)
 	return (len);
 }
 
+
+
 /*
 int main(void)
 {
 	//	PAULO: TESTES MANDATÓRIOS ASSINALADOS COMO ERRADOS QUE ESTÃO CERTOS
+
+	   printf("\n");
 	int len1, len2, len3,len4, len5, len6;
 	len1 = printf("%u", 0);
 		printf("\n"); 
@@ -100,7 +104,6 @@ int main(void)
 		printf("\n");
    
    printf("\n");
-   
    	len4 = ft_printf("%u", 0);
 		printf("\n");
   	len5 = ft_printf("%u to the power of %u is %u", 2, 32, (unsigned int)4294967295);
@@ -108,12 +111,32 @@ int main(void)
   	len6 = ft_printf("%u%u%u%u", (unsigned int)429896724, 0, 32, (unsigned int)4294967295);
 		printf("\n");
 	printf("len ft_printf: %i %i %i", len4, len5, len6);
+	   printf("\n\n");
 
    return (0);
 }
 */
 
+/*
+int main (void)
+{
+	//	s:
 
+	// 	printf("\n\n");
+	// int len1, len2, len11, len22;
+	// len1 = printf(" %-1s %-2s ", "", "-");
+	// len2 = printf(" %-2s %-3s %-4s %-5s ", " - ", "", "4", "");
+	// printf("\nlen printf: %i %i", len1, len2);
+		printf("\n\n");
+	int len11, len22;
+	len11 = ft_printf(" %-1s %-2s ", "", "-");
+	len22 = ft_printf(" %-2s %-3s %-4s %-5s ", " - ", "", "4", "");
+	printf("\nlen ft_printf: %i %i", len11, len22);
+		printf("\n\n");
+
+	return (0);
+}
+*/
 
 
 /*
@@ -161,19 +184,6 @@ int main (void)
 	//	categoria -
 	//	erros em s, d e i:
 
-	//	s:
-/*
-		printf("\n\n");
-	int len1, len2, len11, len22;
-	len1 = printf(" %-1s %-2s ", "", "-");
-	len2 = printf(" %-2s %-3s %-4s %-5s ", " - ", "", "4", "");
-	printf("\nlen printf: %i %i", len1, len2);
-		printf("\n\n");
-	len11 = ft_printf(" %-1s %-2s ", "", "-");
-	len22 = ft_printf(" %-2s %-3s %-4s %-5s ", " - ", "", "4", "");
-	printf("\nlen ft_printf: %i %i", len11, len22);
-		printf("\n\n");
-*/
 
 	// len5 = printf(" %-9d ", INT_MAX);
 	// len6 = printf(" %-10d ", INT_MIN);
