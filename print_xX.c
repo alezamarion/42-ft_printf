@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 15:17:05 by azamario          #+#    #+#             */
-/*   Updated: 2021/08/01 22:13:36 by azamario         ###   ########.fr       */
+/*   Updated: 2021/08/02 14:21:36 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,9 @@ void    print_xX(t_flags fl, va_list args, int *len, const char c)
     else if (c == 'x')
         fl.strNum = ft_ullitoa_base(fl.ulli, HEXALOW);
     size = (int)ft_strlen(fl.strNum);
-    if ((fl.width == 0 || fl.width <= size) && (fl.precision == 0 || fl.precision <= size))
+	if (fl.ulli == 0 && fl.dot == 1 && fl.precision == 0)
+		write(1, "", 0);
+    else if ((fl.width == 0 || fl.width <= size) && (fl.precision == 0 || fl.precision <= size))
         ft_putstr_len(fl.strNum, len);
     else if ((fl.width == 0 || fl.width <= size) && (fl.precision  > size))		//(" %.10x ", LONG_MAX)
   	{
