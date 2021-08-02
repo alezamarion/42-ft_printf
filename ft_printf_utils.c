@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:27 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/29 18:21:12 by azamario         ###   ########.fr       */
+/*   Updated: 2021/08/02 07:47:10 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ size_t	ft_strlen(const char *s)
 	size_t	i;
 
 	i = 0;
+	
 	while (*(s++))
 		i++;
 	return (i);

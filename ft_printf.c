@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:00 by azamario          #+#    #+#             */
-/*   Updated: 2021/08/01 22:22:44 by azamario         ###   ########.fr       */
+/*   Updated: 2021/08/02 09:30:05 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,43 @@ int	ft_printf(const char *format, ...)
 	va_end(args);
 	return (len);
 }
+
+/*
+int main (void)
+{
+	char *str = NULL;
+	int len1, len2;
+	printf("\n\n");
+	   len1 = printf("%7s", str);
+	   	printf("\n");
+	   len2 = ft_printf("%7s", str);
+	  printf("printf len %i, ft_ len: %i", len1, len2);
+}
+*/
+
+/*
+int main (void)
+{
+printf("\n\n");
+
+	char *null_str = NULL;
+	int len1, len2, len3, len4, len5, len6;
+   len1 = printf("%1s", "a");
+   len2 = printf("%3s", "-42");
+   len3 = printf("%6s", null_str);
+	printf("len    printf: %i %i %i", len1, len2, len3);
+printf("\n\n");
+
+   len4 = ft_printf("%1s", "a");
+   len5 = ft_printf("%3s", "-42");
+   len6 = ft_printf("%6s", null_str);
+	printf("len ft_printf: %i %i %i", len4, len5, len6);
+
+
+printf("\n\n");
+
+}
+*/
 /*
 int main (void)
 {
@@ -139,7 +176,7 @@ int main(void)
 }
 */
 
-
+/*
 int main (void)
 {
 	//	s:
@@ -159,7 +196,7 @@ int main (void)
 	return (0);
 }
 
-
+*/
 
 /*
 int main (void)
