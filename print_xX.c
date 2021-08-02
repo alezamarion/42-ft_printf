@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 15:17:05 by azamario          #+#    #+#             */
-/*   Updated: 2021/08/01 15:53:02 by azamario         ###   ########.fr       */
+/*   Updated: 2021/08/01 22:13:36 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,8 +100,6 @@ void    print_xX(t_flags fl, va_list args, int *len, const char c)
 }
 
 
-
-
 /*
 void    print_xX(t_flags fl, va_list args, int *len, const char c)  // ft_printf("%-15.5x", 10); se precison > imprime zero antes | se zero + precision, imprime espaços no lugar do zero
 {
@@ -143,7 +141,6 @@ void	print_xX_right_aligned(t_flags fl, int *len, int size)
 	}
 }
 */
-
 
 
 int	ft_len_hex(unsigned long int x)

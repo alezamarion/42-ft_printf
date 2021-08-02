@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:00 by azamario          #+#    #+#             */
-/*   Updated: 2021/08/01 19:10:12 by azamario         ###   ########.fr       */
+/*   Updated: 2021/08/01 22:22:44 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,9 +84,31 @@ int	ft_printf(const char *format, ...)
 	va_end(args);
 	return (len);
 }
+/*
+int main (void)
+{
+	//TESTES DO PAULO ERRADOS: x e X
+
+	int len1, len3, len5, len7;
+	printf("\n\n");
+	len1 = printf("%01.0x", 0);
+//	len2 = printf("%03.0x", 0);
+	len3 = printf("%042.2X", 42000);
+//	len4 = printf("%0014.2X%020X%0002.X%000.5X", -1, 3, 30, -1);
+	printf("len    printf: %i %i", len1, len3);
+	printf("\n\n");
+
+	len5 = ft_printf("%01.0x", 0);
+//	len6 = ft_printf("%03.0x", 0);
+	len7 = ft_printf("%042.2X", 42000);
+//	len8 = ft_printf("%0014.2X%020X%0002.X%000.5X", -1, 3, 30, -1);
+	printf("len ft_printf: %i %i", len5, len7);
+
+	printf("\n\n");
 
 
-
+}
+*/
 /*
 int main(void)
 {
@@ -117,18 +139,18 @@ int main(void)
 }
 */
 
-/*
+
 int main (void)
 {
 	//	s:
 
-	// 	printf("\n\n");
-	// int len1, len2, len11, len22;
-	// len1 = printf(" %-1s %-2s ", "", "-");
-	// len2 = printf(" %-2s %-3s %-4s %-5s ", " - ", "", "4", "");
-	// printf("\nlen printf: %i %i", len1, len2);
 		printf("\n\n");
-	int len11, len22;
+	int len1, len2, len11, len22;
+	len1 = printf(" %-1s %-2s ", "", "-");
+	len2 = printf(" %-2s %-3s %-4s %-5s ", " - ", "", "4", "");
+	printf("\nlen printf: %i %i", len1, len2);
+		printf("\n\n");
+//	int len11, len22;
 	len11 = ft_printf(" %-1s %-2s ", "", "-");
 	len22 = ft_printf(" %-2s %-3s %-4s %-5s ", " - ", "", "4", "");
 	printf("\nlen ft_printf: %i %i", len11, len22);
@@ -136,7 +158,7 @@ int main (void)
 
 	return (0);
 }
-*/
+
 
 
 /*
