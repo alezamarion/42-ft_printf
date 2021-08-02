@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 15:11:44 by azamario          #+#    #+#             */
-/*   Updated: 2021/08/01 19:08:50 by azamario         ###   ########.fr       */
+/*   Updated: 2021/08/02 12:04:46 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ void	print_u(t_flags fl, va_list args, int *len)
 		print_u_zero_string(fl, len, size);
 	else if (fl.width > size && fl.precision <= size)
 		print_u_space_string(fl, len, size);
+	else if (fl.dot == 1 && fl.precision == 0 && fl.width == 0)
+		write(1, "", 0);
 	else
 		ft_putstr_len(fl.strNum, len);
 	free(fl.strNum);

@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 15:07:45 by azamario          #+#    #+#             */
-/*   Updated: 2021/08/02 09:37:25 by azamario         ###   ########.fr       */
+/*   Updated: 2021/08/02 10:10:40 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,11 @@ void	print_id_positive(t_flags fl, int number, int *len)    		// (" %.2d ", -1)
 		{
 			ft_putstr_len(fl.strNum, len);
 			print_space(fl, size, len);
+		}
+		if (fl.dot == 0 && fl.zero == 0)
+		{
+			print_space(fl, size, len);
+			ft_putstr_len(fl.strNum, len);
 		}
 		else
 		{

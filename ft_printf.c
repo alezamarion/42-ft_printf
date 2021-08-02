@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:00 by azamario          #+#    #+#             */
-/*   Updated: 2021/08/02 09:30:05 by azamario         ###   ########.fr       */
+/*   Updated: 2021/08/02 12:01:32 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,94 @@ int	ft_printf(const char *format, ...)
 	va_end(args);
 	return (len);
 }
+
+/*
+int main (void)
+{
+	printf("\n\n");
+ 
+   printf("%.0u", 0);
+ 	printf("\n");
+   printf("%.u", 0);
+	printf("\n");
+   printf("%.0uis a big number", 0);
+ 	printf("\n");
+   printf("%u%.5u%.0u%.u%.9u", 5, 55, 2, 0, 42);
+
+	printf("\n\n");
+
+   ft_printf("%.0u", 0);
+ 	printf("\n");
+   ft_printf("%.u", 0);
+	printf("\n");
+   ft_printf("%.0uis a big number", 0);
+ 	printf("\n");
+   ft_printf("%u%.5u%.0u%.u%.9u", 5, 55, 2, 0, 42);
+
+	printf("\n\n");
+
+} 
+*/
+/*
+int main(void)
+{
+	int len1, len2;
+	len1 = printf("%-1d", 0);
+	printf("\n");
+	len2 = ft_printf("%-1d", 0);
+	printf("printf: %i, ft_: %i", len1, len2);
+}
+*/
+/*
+int main (void)
+{
+	printf("\n");
+ 												printf("%10d", 42);
+ 	printf("\n"); 
+//    printf("%20d", -42000);
+// 	printf("\n");
+												printf("wait for it... %50d", 42);
+	printf("\n");
+   												printf("%30d", 2147483647);
+ 	printf("\n");
+//    printf("%12d", (int)-2147483648);
+//  	printf("\n");
+//    printf("%12d, %20d, %2d, %42d", (int)-2147483648, 3, 30, -1);
+// 	printf("\n");
+//    printf("%12d, %d, %2d, %42d", (int)-2147483648, 3, 30, -1);
+// 	printf("\n");
+//    printf("%14d%20d%2d%d", (int)-2147483648, 3, 30, -1);
+// 	printf("\n");
+//    printf("%20d is how many tests are going to be made", 8000);
+// 	printf("\n");
+
+
+	printf("\n");
+ 												ft_printf("%10d", 42);
+ 	printf("\n"); 
+//    printf("%20d", -42000);
+// 	printf("\n");
+												ft_printf("wait for it... %50d", 42);
+	printf("\n");
+   												ft_printf("%30d", 2147483647);
+ 	printf("\n");
+//    printf("%12d", (int)-2147483648);
+//  	printf("\n");
+//    printf("%12d, %20d, %2d, %42d", (int)-2147483648, 3, 30, -1);
+// 	printf("\n");
+//    printf("%12d, %d, %2d, %42d", (int)-2147483648, 3, 30, -1);
+// 	printf("\n");
+//    printf("%14d%20d%2d%d", (int)-2147483648, 3, 30, -1);
+// 	printf("\n");
+//    printf("%20d is how many tests are going to be made", 8000);
+// 	printf("\n");
+
+}
+*/
+
+
+
+
 
 /*
 int main (void)
