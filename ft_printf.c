@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:00 by azamario          #+#    #+#             */
-/*   Updated: 2021/08/02 14:21:50 by azamario         ###   ########.fr       */
+/*   Updated: 2021/08/02 20:51:19 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	handle_types(const char c, int *len, va_list args, t_flags fl)
 	return (*len);
 }
 
-t_flags	get_flag_width_precision(const char *format, t_flags fl, int *i) 
+t_flags	get_flag_width_precision(const char *format, t_flags fl, int *i)
 {
 	if (format[*i] == '-')
 		fl.minus = 1;
@@ -48,7 +48,7 @@ t_flags	get_flag_width_precision(const char *format, t_flags fl, int *i)
 		if (fl.dot == 1)
 			fl.precision = (fl.precision * 10) + (format[*i] - '0');
 		else
-			fl.width = (fl.width * 10) + (format[*i] - '0');	
+			fl.width = (fl.width * 10) + (format[*i] - '0');
 	}
 	return (fl);
 }
@@ -66,9 +66,9 @@ int	ft_printf(const char *format, ...)
 	while (format[i])
 	{
 		if (format[i] != '%')
-			ft_putchar_len(format[i++], &len);			//(" %.10x ", LONG_MAX)
+			ft_putchar_len(format[i++], &len);
 		else
-		{ 	
+		{
 			i++;
 			fl = ft_clean_flags ();
 			while (format[i] && ft_strchr(FLAGS, format[i]))
@@ -77,13 +77,14 @@ int	ft_printf(const char *format, ...)
 				i++;
 			}
 			handle_types(format[i++], &len, args, fl);
-			if (len == -1)								//<- appinha
-				return (-1);							// <- appinha
+			if (len == -1)
+				return (-1);
 		}
 	}
 	va_end(args);
 	return (len);
 }
+
 
 /*
 int main (void)
@@ -92,16 +93,16 @@ int main (void)
    printf("%.0xis a big number", 0);
 	printf("\n");
    printf("the number is %.x", 0);
-// 	printf("\n");
-//    printf("%x%.5x%.0x%.x%.9x", 5, 55, 2, 0, 42);
+ 	printf("\n");
+    printf("%x%.5x%.0x%.x%.9x", 5, 55, 2, 0, 42);
 
 	printf("\n\n");
  
    ft_printf("%.0xis a big number", 0);
 	printf("\n");
    ft_printf("the number is %.x", 0);
-// 	printf("\n");
-//    ft_printf("%x%.5x%.0x%.x%.9x", 5, 55, 2, 0, 42);
+ 	printf("\n");
+    ft_printf("%x%.5x%.0x%.x%.9x", 5, 55, 2, 0, 42);
 
 	printf("\n\n");
 
@@ -114,49 +115,29 @@ int main (void)
 int main (void)
 {
 
-	// printf("\n\n");
-	//    printf("%.0u", 0);
-	// printf("\n");
-	//    printf("%.u", 0);
-	// printf("\n");
-	//    printf("%.u", 1);
-	// printf("\n");
-	//    printf("%.0u", 1);
-	// printf("\n");
+   printf("%.0u", 0);
+   printf("%.u", 0); 
 
-	ft_printf("\n\n");
-	   ft_printf("%0.u", 0);
-	ft_printf("\n");
-	  ft_printf("%.u", 0);
-	ft_printf("\n");
-	   printf("%.u", 1);
-	printf("\n");
-	   ft_printf("%.0u", 1);
-	ft_printf("\n");
+	printf("\n\n");
+
+   ft_printf("%.0u", 0);
+   ft_printf("%.u", 0); 
 
 
+  	printf("%.0uis a big number", (unsigned int)-1);
+		printf("\n");
+   	printf("the number is %.u", (unsigned int)-1);
+		printf("\n");
+	printf("%u%.5u%.0u%.u%.9u", 5, 55, 2, 0, 42);
 
-
-
-//   printf("%.0uis a big number", (unsigned int)-1);
-// 	printf("\n");
-//    printf("the number is %.u", (unsigned int)-1);
-// 	printf("\n");
-//    printf("%u%.5u%.0u%.u%.9u", 5, 55, 2, 0, 42);
-// 	printf("\n"); 
-//    printf("%us%.5ui%.0uc%.up%.9ux", 5, 55, 2, 0, 42);   
-
-//	printf("\n\n");
- //ft_printf("%.u", 1);
- //  ft_printf("%.0uis a big number", (unsigned int)-1);
-//  	printf("\n");
-//    ft_printf("the number is %.u", (unsigned int)-1);
-// 	printf("\n");
-//    ft_printf("%u%.5u%.0u%.u%.9u", 5, 55, 2, 0, 42);
-// 	printf("\n");
-//    ft_printf("%us%.5ui%.0uc%.up%.9ux", 5, 55, 2, 0, 42);   
-
-//	printf("\n\n");
+		printf("\n\n");
+ 
+  	ft_printf("%.0uis a big number", (unsigned int)-1);
+ 		printf("\n");
+   	ft_printf("the number is %.u", (unsigned int)-1);
+		printf("\n");
+   	ft_printf("%u%.5u%.0u%.u%.9u", 5, 55, 2, 0, 42);
+	printf("\n\n");
 
 }
 

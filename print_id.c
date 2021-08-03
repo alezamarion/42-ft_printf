@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 15:07:45 by azamario          #+#    #+#             */
-/*   Updated: 2021/08/02 10:10:40 by azamario         ###   ########.fr       */
+/*   Updated: 2021/08/02 17:38:30 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,6 @@ void	print_id_positive(t_flags fl, int number, int *len)    		// (" %.2d ", -1)
 		{
 			ft_putstr_len(fl.strNum, len);
 			print_space(fl, size, len);
-		}
-		if (fl.dot == 0 && fl.zero == 0)
-		{
-			print_space(fl, size, len);
-			ft_putstr_len(fl.strNum, len);
 		}
 		else
 		{
@@ -122,107 +117,6 @@ void	print_id_negative(t_flags fl, int number, int *len) // 	printf(" %.2d ", -1
 		free(fl.strNum);
 }
 
-/*
-void	print_id_positive(t_flags fl, int number, int *len)    		// (" %.2d ", -1)  (" %.2d ", 1)
-{
-	int size;
-
-	fl.strNum = ft_itoa(number);
-	size = (int)ft_strlen(fl.strNum);
-	if ((fl.width == 0 ||fl.width <= size) && (fl.precision == 0 || fl.precision <= size)) //<-
-		ft_putstr_len(fl.strNum, len);
-	if ((fl.width > size && fl.precision == 0) || fl.precision > size)
-	{
-		if (fl.minus == 1)
-		{
-			ft_putstr_len(fl.strNum, len);
-			print_space(fl, size, len);
-		}
-		if (fl.precision > size)
-		{
-			while (fl.precision - size > 0)
-			{
-				write(1, "0", 1);
-				fl.precision--, (*len)++;
-			}
-			ft_putstr_len(fl.strNum, len);
-		}
-		else
-		{
-			print_i_d_zero(fl, size, len);
-			ft_putstr_len(fl.strNum, len);
-		}
-	}
-	if (fl.width > size && fl.precision <= size)
-	{	
-		if (fl.minus == 1)
-		{
-			ft_putstr_len(fl.strNum, len);
-			print_space(fl, size, len);
-		}
-		else
-		{
-			print_space(fl, size, len);
-			ft_putstr_len(fl.strNum, len);
-		}
-	}
-	free(fl.strNum);
-}
-*/
-/*
-void	print_id_negative(t_flags fl, int number, int *len)    		// (" %.2d ", -1)  (" %.2d ", 1)
-{
-	int size;
-
-	fl.strNum = ft_itoa(number);
-	size = (int)ft_strlen(fl.strNum);
-	if ((fl.width == 0 ||fl.width <= size) && (fl.precision == 0 || fl.precision <= size)) //<-
-		ft_putstr_len(fl.strNum, len);
-	if ((fl.width > size && fl.precision == 0) || fl.precision > size)
-	{
-		if (fl.minus == 1)
-		{
-			ft_putchar_len('-', len);
-			ft_putstr_len(fl.strNum, len);
-			print_space(fl, size, len);
-		}
-		if (fl.precision > size)
-		{
-			ft_putchar_len('-', len);
-			while (fl.precision - size > 0)
-			{
-				write(1, "0", 1);
-				fl.precision--, (*len)++;
-			}
-			ft_putstr_len(fl.strNum, len);
-		}
-		else
-		{
-			ft_putchar_len('-', len);
-			print_i_d_zero(fl, size, len);
-			ft_putstr_len(fl.strNum, len);
-		}
-	}
-	if (fl.width > size && fl.precision <= size)
-	{	
-		if (fl.minus == 1)
-		{
-			ft_putchar_len('-', len);
-			ft_putstr_len(fl.strNum, len);
-			print_space(fl, size, len);
-		}
-		else
-		{
-			ft_putchar_len('-', len);
-			print_space(fl, size, len);
-			ft_putstr_len(fl.strNum, len);
-		}
-	}
-	free(fl.strNum);
-}
-
-*/
-
 void	print_space(t_flags fl, int size, int *len)
 {
 	if (fl.precision > 0)
@@ -262,34 +156,3 @@ void	print_i_d_zero(t_flags fl, int size, int *len)
 		}
 	}
 }
-
-/*
-void	print_i_d(t_flags fl, va_list args, int *len) 
-{
-	int	size;
-
-	fl.strNum = ft_itoa(va_arg(args, int));
-	size = (int)ft_strlen(fl.strNum);
-	if (fl.width <= size && fl.precision <= size)
-		ft_putstr_len(fl.strNum, len);
-	if ( (fl.width > size && fl.precision == 0) || fl.precision > size)
-	{
-		print_i_d_zero(fl, size, len);
-		ft_putstr_len(fl.strNum, len);
-	}
-	if ((fl.width > size && fl.precision != 0) && fl.precision <= size )
-	{	
-		if (fl.minus == 1)
-		{
-			ft_putstr_len(fl.strNum, len);
-			print_space(fl, size, len);
-		}
-		else
-		{
-			print_space(fl, size, len);
-			ft_putstr_len(fl.strNum, len);
-		}
-	}
-	free(fl.strNum);
-}
-*/

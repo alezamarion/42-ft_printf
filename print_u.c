@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 15:11:44 by azamario          #+#    #+#             */
-/*   Updated: 2021/08/02 14:03:14 by azamario         ###   ########.fr       */
+/*   Updated: 2021/08/02 16:01:24 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,15 @@
 void	print_u(t_flags fl, va_list args, int *len)
 {
 	int	size;
+	//unsigned int number;
+
+	//number = va_arg(args, unsigned int);		
 
 	fl.strNum = ft_uitoa(va_arg(args, unsigned int));
 	size = (int)ft_strlen(fl.strNum);
-	if (fl.precision > size)
+	// if (number == 0 && fl.dot == 1 && fl.precision == 0)
+	// 	write(1, "", 0);
+	 if (fl.precision > size)
 	{
 		while (fl.precision - size > 0)
 		{
@@ -31,8 +36,6 @@ void	print_u(t_flags fl, va_list args, int *len)
 		print_u_zero_string(fl, len, size);
 	else if (fl.width > size && fl.precision <= size)
 		print_u_space_string(fl, len, size);
-	else if (fl.dot == 1 && fl.precision == 0 && fl.width == 0)
-		write(1, "", 0);
 	else
 		ft_putstr_len(fl.strNum, len);
 	free(fl.strNum);
