@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:00 by azamario          #+#    #+#             */
-/*   Updated: 2021/08/02 20:51:19 by azamario         ###   ########.fr       */
+/*   Updated: 2021/08/03 21:31:21 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,10 +72,7 @@ int	ft_printf(const char *format, ...)
 			i++;
 			fl = ft_clean_flags ();
 			while (format[i] && ft_strchr(FLAGS, format[i]))
-			{
-				fl = get_flag_width_precision(format, fl, &i);
-				i++;
-			}
+				fl = get_flag_width_precision(format++, fl, &i);
 			handle_types(format[i++], &len, args, fl);
 			if (len == -1)
 				return (-1);
@@ -88,6 +85,47 @@ int	ft_printf(const char *format, ...)
 
 /*
 int main (void)
+{
+
+printf("\n\n");
+
+	printf("%042.20u", 42000);
+
+printf("\n\n");
+
+ 	ft_printf("%042.20u", 42000);
+
+printf("\n\n");
+
+}
+*/
+
+/*
+int main (void)
+{
+
+printf("\n\n");
+
+    printf("%-10.u", 0);		//-> retorna 10 espaços
+// 	printf("\n");
+//    printf("%-14.6u", 10);	//-> retorna 00010 + 5 espaços
+// 	printf("\n");
+ //   printf("%-15.2u", -10);	//-> retorna 4294967286 + 5 espaços
+
+ 	printf("\n\n");
+
+  // ft_printf("%-10.u", 0);	//-> não está retornando os espaços
+//	printf("\n"); 
+ //  ft_printf("%-14.6u", 10); // -> não está retornando os 5 espaços adicionais
+//	printf("\n");
+ //  ft_printf("%-15.2u", -10);	// -> não está retornando os espaços
+
+printf("\n\n");
+
+}
+*/
+/*	
+int main (void)	
 {
 	printf("\n\n");
    printf("%.0xis a big number", 0);
@@ -108,39 +146,40 @@ int main (void)
 
 
 }
-*/
 
+*/
 
 /*
 int main (void)
 {
 
-   printf("%.0u", 0);
-   printf("%.u", 0); 
+//   printf("%.0u", 0);
+ //  printf("%.u", 0); 
+	printf(" %u ", 10);
 
 	printf("\n\n");
 
-   ft_printf("%.0u", 0);
-   ft_printf("%.u", 0); 
+// 	 ft_printf("%.0u", 0);
+//   ft_printf("%.u", 0); 
+	ft_printf(" %u ", 10);
 
 
-  	printf("%.0uis a big number", (unsigned int)-1);
-		printf("\n");
-   	printf("the number is %.u", (unsigned int)-1);
-		printf("\n");
-	printf("%u%.5u%.0u%.u%.9u", 5, 55, 2, 0, 42);
+  	// printf("%.0uis a big number", (unsigned int)-1);
+	// 	printf("\n");
+   	// printf("the number is %.u", (unsigned int)-1);
+	// 	printf("\n");
+	// printf("%u%.5u%.0u%.u%.9u", 5, 55, 2, 0, 42);
 
-		printf("\n\n");
+	// 	printf("\n\n");
  
-  	ft_printf("%.0uis a big number", (unsigned int)-1);
- 		printf("\n");
-   	ft_printf("the number is %.u", (unsigned int)-1);
-		printf("\n");
-   	ft_printf("%u%.5u%.0u%.u%.9u", 5, 55, 2, 0, 42);
-	printf("\n\n");
+  	// ft_printf("%.0uis a big number", (unsigned int)-1);
+ 	// 	printf("\n");
+   	// ft_printf("the number is %.u", (unsigned int)-1);
+	// 	printf("\n");
+   	// ft_printf("%u%.5u%.0u%.u%.9u", 5, 55, 2, 0, 42);
+	// printf("\n\n");
 
 }
-
 */
 
 /*

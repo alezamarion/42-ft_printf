@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 15:11:44 by azamario          #+#    #+#             */
-/*   Updated: 2021/08/02 16:01:24 by azamario         ###   ########.fr       */
+/*   Updated: 2021/08/03 21:40:55 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,31 +15,151 @@
 void	print_u(t_flags fl, va_list args, int *len)
 {
 	int	size;
-	//unsigned int number;
+	unsigned int number;
+	int count;
 
-	//number = va_arg(args, unsigned int);		
-
-	fl.strNum = ft_uitoa(va_arg(args, unsigned int));
+	count = 0;
+	number = va_arg(args, unsigned int);		////("%042.20u", 42000)
+	fl.strNum = ft_uitoa(number);
 	size = (int)ft_strlen(fl.strNum);
-	// if (number == 0 && fl.dot == 1 && fl.precision == 0)
-	// 	write(1, "", 0);
-	 if (fl.precision > size)
-	{
-		while (fl.precision - size > 0)
-		{
-			write(1, "0", 1);
-			fl.precision--, (*len)++;
-		}
-		ft_putstr_len(fl.strNum, len);
-	}
+	if (number == 0 && fl.dot == 1 && fl.precision == 0)
+//	 	write(1, "", 0);
+		print_zero_corner_case(fl, len, size);
 	else if (fl.zero == 1 && fl.width > size && fl.precision == 0)
 		print_u_zero_string(fl, len, size);
 	else if (fl.width > size && fl.precision <= size)
 		print_u_space_string(fl, len, size);
+	else if (fl.precision > size)
+	{
+		if (fl.width > size && fl.minus == 1)
+		{
+			while (fl.precision - size > 0)
+			{
+				write(1, "0", 1);
+				fl.precision--, (*len)++, count++;
+			}
+			ft_putstr_len(fl.strNum, len);
+			while (fl.width - (fl.precision + count) > 0)
+			{
+				write(1, " ", 1);
+				fl.width--, (*len)++;
+			}
+		}
+		else if (fl.minus == 0 && fl.width > fl.precision)   ////("%042.20u", 42000)
+		{
+			while (fl.width - fl.precision > 0)
+			{
+				write(1, " ", 1);
+				fl.width--, (*len)++;
+			}
+			while (fl.precision - size > 0)
+			{
+				write(1, "0", 1);
+				fl.precision--, (*len)++;
+			}
+			ft_putstr_len(fl.strNum, len);
+		}
+		else
+		{
+			while (fl.precision - size > 0)
+			{
+				write(1, "0", 1);
+				fl.precision--, (*len)++;
+			}
+			ft_putstr_len(fl.strNum, len);
+		}
+	}
 	else
 		ft_putstr_len(fl.strNum, len);
 	free(fl.strNum);
 }
+
+void	print_zero_corner_case(t_flags fl, int *len, int size)
+{
+	int count;
+
+	count = 0;
+
+	if (fl.width > fl.precision)
+	{
+		if (fl.minus == 1)
+		{
+			while (fl.precision > 0)
+			{
+				write(1, "0", 1);
+				fl.precision--, (*len)++, count++;
+			}
+			while (fl.width - (fl.precision + count) > 0)
+			{
+				write(1, " ", 1);
+				fl.width--, (*len)++;
+			}
+		}
+		else if (fl.minus == 0) //<-----
+		{
+			while (fl.width > fl.precision)
+			{
+				write(1, " ", 1);
+				fl.width--, (*len)++;
+			}
+			while (fl.precision > 0)
+			{
+				write(1, "0", 1);
+				fl.precision--, (*len)++;	
+			}
+		}
+		// else (fl.width > fl.precision)
+	}
+	else if (fl.precision > fl. width)
+	{ 
+		while (fl.precision > 0)
+		{
+			write(1, "0", 1);
+			fl.precision--, (*len)++;
+		}
+	}
+	else if (fl.width > size)
+	{
+		if (fl.dot == 1)
+		{
+			while (fl.width > 1)
+			{
+				write(1, " ", 1);
+				fl.width--, (*len)++;		
+			}
+		}
+		else if (fl.zero == 0 || fl.minus == 1)
+		{
+			while (fl.width > 1)
+			{
+				write(1, " ", 1);
+				fl.width--, (*len)++;		
+			}
+			ft_putstr_len(fl.strNum, len);
+		}
+		else
+		{
+			while (fl.width > 1)
+			{
+				write(1, "0", 1);
+				fl.width--, (*len)++;		
+			}
+			ft_putstr_len(fl.strNum, len);
+		}
+	}
+	else if (fl.precision > size)
+	{
+		while (fl.precision > 1)
+		{		
+			write(1, "0", 1);
+			fl.precision--, (*len)++;		
+		}
+		ft_putstr_len(fl.strNum, len);
+	}	
+	else
+		write(1, " ", 0);
+}
+
 
 void	print_u_space_string(t_flags fl, int *len, int size)
 {

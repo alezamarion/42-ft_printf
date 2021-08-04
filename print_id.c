@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 15:07:45 by azamario          #+#    #+#             */
-/*   Updated: 2021/08/02 17:38:30 by azamario         ###   ########.fr       */
+/*   Updated: 2021/08/03 18:57:35 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,7 +119,15 @@ void	print_id_negative(t_flags fl, int number, int *len) // 	printf(" %.2d ", -1
 
 void	print_space(t_flags fl, int size, int *len)
 {
-	if (fl.precision > 0)
+	if (fl.precision > 0 && fl.width > size) //<---- mudamos aqui
+	{
+		while (fl.width - size > 0)
+		{
+			write(1, " ", 1);
+			fl.width--, (*len)++;
+		}
+	}
+	else if (fl.precision > 0)
 	{
 		while (fl.precision - size > 0)
 		{

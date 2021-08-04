@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:14 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/30 09:12:35 by azamario         ###   ########.fr       */
+/*   Updated: 2021/08/03 20:02:09 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,8 @@ void	print_u_space_string(t_flags fl, int *len, int size);
 void	print_u_zero_string(t_flags fl, int *len, int size);
 int		ft_ulen(unsigned int num);
 char	*ft_uitoa(unsigned int n);
+void	print_zero_corner_case(t_flags fl, int *len, int size);
+
 
 //print_p
 void	print_p(t_flags fl, va_list args, int *len, const char c);
