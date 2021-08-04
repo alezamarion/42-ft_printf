@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 15:17:05 by azamario          #+#    #+#             */
-/*   Updated: 2021/08/03 18:57:48 by azamario         ###   ########.fr       */
+/*   Updated: 2021/08/04 15:14:02 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ void    print_xX(t_flags fl, va_list args, int *len, const char c)
         fl.strNum = ft_ullitoa_base(fl.ulli, HEXALOW);
     size = (int)ft_strlen(fl.strNum);
 	if (fl.ulli == 0 && fl.dot == 1 && fl.precision == 0)
-		write(1, "", 0);
+		print_zero_corner_case(fl, len, size);
     else if ((fl.width == 0 || fl.width <= size) && (fl.precision == 0 || fl.precision <= size))
         ft_putstr_len(fl.strNum, len);
-    else if ((fl.width == 0 || fl.width <= size) && (fl.precision  > size))		//(" %.10x ", LONG_MAX)
+    else if ((fl.width == 0 || fl.width <= size) && (fl.precision  > size))
   	{
 		while (fl.precision - size > 0)
 		{
@@ -34,7 +34,7 @@ void    print_xX(t_flags fl, va_list args, int *len, const char c)
 		}
 		ft_putstr_len(fl.strNum, len);
 	}
-    else if (fl.width > size && (fl.precision == 0 || fl.precision <= size))
+    else if (fl.width > size && (fl.precision == 0 || fl.precision <= size))   
     {
         if (fl.minus == 1)
         {
@@ -45,42 +45,68 @@ void    print_xX(t_flags fl, va_list args, int *len, const char c)
 		    	fl.width--, (*len)++;
 	    	}
         }
-		else
+		else if (fl.zero == 0 || (fl.zero == 1 && fl.dot == 1))
+		{ 	       					
+   	  		while (fl.width - size > 0)
+	    	{
+		   		write(1, " ", 1);
+		    	fl.width--, (*len)++;
+	    	}
+	    	ft_putstr_len(fl.strNum, len);
+     	}
+      	else
 		{
- 	       if (fl.zero == 0)
-   	    	{
-   		   		while (fl.width - size > 0)
-		    	{
-			   		write(1, " ", 1);
-			    	fl.width--, (*len)++;
-		    	}
-		    	ft_putstr_len(fl.strNum, len);
-        	}
-        	else
-			{
-  		    	while (fl.width - size > 0)
-		    	{
-			    	write(1, "0", 1);
-			    	fl.width--, (*len)++;
-		    	}
-		   		ft_putstr_len(fl.strNum, len);      
-			}
- 		}
-    }
+	    	while (fl.width - size > 0)
+	    	{
+		    	write(1, "0", 1);
+		    	fl.width--, (*len)++;
+	    	}
+	   		ft_putstr_len(fl.strNum, len);      
+		}
+	}
     else if (fl.width > size && fl.precision > size)
     {
+		int i;
+
+		i = 0;
 		if (fl.minus == 1)
 		{
-  			while (fl.precision - size > 0)
+			if (fl.width == fl.precision)
 			{
-			    write(1, "0", 1);
-			    fl.precision--, (*len)++;
+ 	  			while (fl.precision - size > 0)
+ 				{
+				    write(1, "0", 1);
+				    fl.precision--, (*len)++;
+				}
+				ft_putstr_len(fl.strNum, len);
 			}
-			ft_putstr_len(fl.strNum, len);
- 			while (fl.width - fl.precision > 0)
+			else if (fl.width > fl.precision)
 			{
-				write(1, " ", 1);
-				fl.width--, (*len)++;
+ 	  			while (fl.precision - size > 0)
+ 				{
+				    write(1, "0", 1);
+				    fl.precision--, (*len)++, i++;
+				}
+				ft_putstr_len(fl.strNum, len);
+ 				while (fl.width - (fl.precision + i) > 0)
+				{
+					write(1, " ", 1);
+					fl.width--, (*len)++;
+				}
+			}
+			else
+			{
+ 	  			while (fl.precision - size > 0)
+ 				{
+				    write(1, "0", 1);
+				    fl.precision--, (*len)++;
+				}
+				ft_putstr_len(fl.strNum, len);
+ 				// while (fl.width - fl.precision > 0)
+				// {
+				// 	write(1, " ", 1);
+				// 	fl.width--, (*len)++;
+				// }
 			}
 		}
 		else
@@ -100,49 +126,6 @@ void    print_xX(t_flags fl, va_list args, int *len, const char c)
     }
     free(fl.strNum);
 }
-
-
-/*
-void    print_xX(t_flags fl, va_list args, int *len, const char c)  // ft_printf("%-15.5x", 10); se precison > imprime zero antes | se zero + precision, imprime espaços no lugar do zero
-{
-    int    size;
-		fl.ulli = va_arg(args, unsigned int);		
-    if (c == 'X')
-        fl.strNum = ft_ullitoa_base(fl.ulli, HEXAUPP);
-    else if (c == 'x')
-        fl.strNum = ft_ullitoa_base(fl.ulli, HEXALOW);
-    size = (int)ft_strlen(fl.strNum);
-    if (fl.minus == 0 && fl.width > size)
-        print_xX_right_aligned(fl, len, size);
-    else if (fl.minus == 1 && fl.width > size)
-    {
-        ft_putstr_len(fl.strNum, len);
-        print_space(fl, size, len);
-    }
-    else
-        ft_putstr_len(fl.strNum, len);
-    free(fl.strNum);
-}
-*/
-/*
-void	print_xX_right_aligned(t_flags fl, int *len, int size)
-{
-	if (fl.zero == 0)
-	{
-		print_space(fl, size, len);
-		ft_putstr_len(fl.strNum, len);
-	}
-	if (fl.zero == 1)
-	{
-		while (fl.width - size > 0)
-		{
-			write(1, "0", 1);
-			fl.width--, (*len)++;
-		}
-		ft_putstr_len(fl.strNum, len);
-	}
-}
-*/
 
 
 int	ft_len_hex(unsigned long int x)

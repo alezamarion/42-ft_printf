@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 15:11:44 by azamario          #+#    #+#             */
-/*   Updated: 2021/08/03 21:40:55 by azamario         ###   ########.fr       */
+/*   Updated: 2021/08/04 13:44:41 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,10 @@ void	print_u(t_flags fl, va_list args, int *len)
 	int count;
 
 	count = 0;
-	number = va_arg(args, unsigned int);		////("%042.20u", 42000)
+	number = va_arg(args, unsigned int);
 	fl.strNum = ft_uitoa(number);
 	size = (int)ft_strlen(fl.strNum);
 	if (number == 0 && fl.dot == 1 && fl.precision == 0)
-//	 	write(1, "", 0);
 		print_zero_corner_case(fl, len, size);
 	else if (fl.zero == 1 && fl.width > size && fl.precision == 0)
 		print_u_zero_string(fl, len, size);
@@ -45,7 +44,7 @@ void	print_u(t_flags fl, va_list args, int *len)
 				fl.width--, (*len)++;
 			}
 		}
-		else if (fl.minus == 0 && fl.width > fl.precision)   ////("%042.20u", 42000)
+		else if (fl.minus == 0 && fl.width > fl.precision)
 		{
 			while (fl.width - fl.precision > 0)
 			{
@@ -95,7 +94,7 @@ void	print_zero_corner_case(t_flags fl, int *len, int size)
 				fl.width--, (*len)++;
 			}
 		}
-		else if (fl.minus == 0) //<-----
+		else if (fl.minus == 0)
 		{
 			while (fl.width > fl.precision)
 			{
@@ -108,7 +107,6 @@ void	print_zero_corner_case(t_flags fl, int *len, int size)
 				fl.precision--, (*len)++;	
 			}
 		}
-		// else (fl.width > fl.precision)
 	}
 	else if (fl.precision > fl. width)
 	{ 
