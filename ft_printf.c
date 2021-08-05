@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:00 by azamario          #+#    #+#             */
-/*   Updated: 2021/08/04 15:14:09 by azamario         ###   ########.fr       */
+/*   Updated: 2021/08/05 11:03:00 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,23 +81,21 @@ int	ft_printf(const char *format, ...)
 	va_end(args);
 	return (len);
 }
+
+
 /*
-int main(void)
+int main (void)
 {
 
-	printf("\n\n");
+   ft_printf("%020d", -42000);
+// 		printf("\n");
+// 		printf("\n");
 
-   printf("%042.2x", 42000);  // retorna 38 espaços + a410
-       	printf("\n");
-   printf("%0014.2X%020X%0002.X%000.5X", -1, 3, 30, -1); // retorna 6 espaços + ffffffff000000000000000000031effffffff
-       	printf("\n");
+//    ft_printf("%020.10d", -42000);
+// 	 	printf("\n");
+//   // ft_printf("%020.30d", -42000);
+// 	  printf("\n\n");
 
-	printf("\n\n");
-	
-   ft_printf("%042.2x", 42000);  // retorna 38 zeros + a410
- 	printf("\n");
-   ft_printf("%0014.2X%020X%0002.X%000.5X", -1, 3, 30, -1); // retorna 6 zeros + ffffffff000000000000000000031effffffff
-	printf("\n\n");
-
+// 		printf("\n");
 }
 */
