@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:14 by azamario          #+#    #+#             */
-/*   Updated: 2021/08/03 20:02:09 by azamario         ###   ########.fr       */
+/*   Updated: 2021/08/05 17:47:39 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ typedef struct t_flags
 	char	*strNum;
 
 	unsigned long long int    ulli;
-    long long int            lli;
+    long long int            lli;			// <--- ?
 	
 }	t_flags;
 
@@ -70,10 +70,31 @@ void	print_s_space_cut(char *c, int *len, t_flags fl);
 void	print_s_space_cut_right(char *c, int *len, t_flags fl);
 void	print_s_space_cut_left(char *c, int *len, t_flags fl);
 
+
+
 //print_id
 void	print_i_d(t_flags fl, va_list args, int *len);
 void	print_space(t_flags fl, int size, int *len);
+void	print_simple_space(t_flags fl, int size, int *len);							//<-----
+
 void	print_i_d_zero(t_flags fl, int size, int *len);
+void	print_width_zero(t_flags fl, int size, int *len);							//<-----
+void	print_precision_zero(t_flags fl, int size, int *len);							//<-----
+void	print_space_or_zero_number(t_flags fl, int size, int *len);
+void	print_zero_number_space(t_flags fl, int size, int *len, int *i);			//<-----
+void	print_corner_cases(t_flags fl, int size, int *len);
+
+
+void	print_neg_zero_number(t_flags fl, int size, int *len);
+void	print_space_neg_number(t_flags fl, int size, int *len);
+
+
+
+
+
+
+
+
 
 //print_u
 void	print_u(t_flags fl, va_list args, int *len);
@@ -92,9 +113,6 @@ void	ft_putstr_len_p(char *s, int *len);
 char	*ft_int_to_hex_p(unsigned long int n, const char c);
 
 
-//print_xX
-//void	print_xX(t_flags fl, va_list args, int *len, const char c);
-
 void    print_xX(t_flags fl, va_list args, int *len, const char c);
 
 
@@ -105,10 +123,6 @@ char	*ft_int_to_hex_pxX(unsigned long int n, const char c);
 char    *ft_ullitoa_base(unsigned long long int n, char *base);
 
 int	return_hex_len(int num);
-
-
-//char		*ft_dtox(unsigned long int n, const char *base, char c);
-//static char	*ft_trata_str(char *str, char c);
 
 
 void	print_id_positive(t_flags fl, int number, int *len);
