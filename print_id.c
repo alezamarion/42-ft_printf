@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 15:07:45 by azamario          #+#    #+#             */
-/*   Updated: 2021/08/05 11:04:10 by azamario         ###   ########.fr       */
+/*   Updated: 2021/08/05 15:42:00 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,7 @@ void	print_id_positive(t_flags fl, int number, int *len)
 	size = (int)ft_strlen(fl.strNum);
 	if (size == 0 && fl.dot == 1 && fl.precision == 0)
 		print_zero_corner_case(fl, len, size);
-    else if ((fl.width == 0 || fl.width <= size) && (fl.precision == 0 || fl.precision <= size))
-        ft_putstr_len(fl.strNum, len);
-    else if ((fl.width == 0 || fl.width <= size) && (fl.precision  > size))
+    if ((fl.width == 0 || fl.width <= size) && (fl.precision  > size))
   	{
 		while (fl.precision - size > 0)
 		{
@@ -139,6 +137,9 @@ void	print_id_positive(t_flags fl, int number, int *len)
 	    	ft_putstr_len(fl.strNum, len);
 		}
     }
+	else
+		ft_putstr_len(fl.strNum, len);
+
     free(fl.strNum);
 }
 

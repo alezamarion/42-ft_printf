@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:00 by azamario          #+#    #+#             */
-/*   Updated: 2021/08/05 11:03:00 by azamario         ###   ########.fr       */
+/*   Updated: 2021/08/05 15:30:02 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,21 +81,3 @@ int	ft_printf(const char *format, ...)
 	va_end(args);
 	return (len);
 }
-
-
-/*
-int main (void)
-{
-
-   ft_printf("%020d", -42000);
-// 		printf("\n");
-// 		printf("\n");
-
-//    ft_printf("%020.10d", -42000);
-// 	 	printf("\n");
-//   // ft_printf("%020.30d", -42000);
-// 	  printf("\n\n");
-
-// 		printf("\n");
-}
-*/

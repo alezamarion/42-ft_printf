@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 15:05:51 by azamario          #+#    #+#             */
-/*   Updated: 2021/08/04 18:51:17 by azamario         ###   ########.fr       */
+/*   Updated: 2021/08/05 15:31:25 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	print_s(char *c, int *len, t_flags fl)
 		c = "(null)";
 	size = (int)ft_strlen(c);
 	if ((fl.precision < size && fl.precision > 0) && fl.width < size)
-	{	
+	{
 		while (fl.precision > 0)
 		{
 			write(1, &*c, 1);
@@ -38,7 +38,6 @@ void	print_s(char *c, int *len, t_flags fl)
 		ft_putstr_len(c, len);
 }
 
- 
 void	print_s_space_print(char *c, int *len, t_flags fl)
 {
 	int	size;
@@ -93,12 +92,15 @@ void	print_s_space_cut_right(char *c, int *len, t_flags fl)
 
 void	print_s_space_cut_left(char *c, int *len, t_flags fl)
 {
+	int	count;
+
+	count = 0;
 	while (fl.precision > 0)
 	{
 		write(1, &*c, 1);
-		fl.precision--, (*len)++, c++;
+		fl.precision--, (*len)++, c++, count++;
 	}
-	while (fl.width - fl.precision > 0)
+	while (fl.width - (fl.precision + count) > 0)
 	{
 		write(1, " ", 1);
 		fl.width--, (*len)++;

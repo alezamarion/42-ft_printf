@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 15:14:31 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/29 18:24:33 by azamario         ###   ########.fr       */
+/*   Updated: 2021/08/05 15:45:17 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 void	print_p(t_flags fl, va_list args, int *len, const char c)
 {
 	int	size;
-	
-	fl.strNum = ft_int_to_hex_p(va_arg(args, unsigned long int), c);  // "0"; 0x45aalja
+
+	fl.strNum = ft_int_to_hex_p(va_arg(args, unsigned long int), c);
 	size = (int)ft_strlen(fl.strNum);
 	size = size + 2;
 	if (fl.zero == 0 && fl.width > size)
