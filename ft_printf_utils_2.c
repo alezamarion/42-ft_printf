@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 20:04:51 by azamario          #+#    #+#             */
-/*   Updated: 2021/07/31 23:20:47 by azamario         ###   ########.fr       */
+/*   Updated: 2021/08/06 17:42:57 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,4 +79,16 @@ char	*ft_itoa(int n)
 	if (sign == -1)
 		result[0] = '-';
 	return (result);
+}
+
+void	ft_putstr_len(char *s, int *len)
+{
+	int	i;
+
+	if (s != NULL)
+	{
+		i = 0;
+		while (s[i])
+			ft_putchar_len(s[i++], len);
+	}
 }
