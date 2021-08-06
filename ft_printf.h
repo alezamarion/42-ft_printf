@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:14 by azamario          #+#    #+#             */
-/*   Updated: 2021/08/05 23:06:22 by azamario         ###   ########.fr       */
+/*   Updated: 2021/08/06 16:37:52 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,84 +53,84 @@ void	ft_putchar(char c);
 //utils_2
 void	ft_putnbr(int n);
 int		ft_len(int num);
-//int		ft_to_positive(int num);
 char	*ft_itoa(int n);
-
-//utils_3
 t_flags	ft_clean_flags(void);
 void	ft_putstr_len(char *s, int *len);
+
+//utils_3
+void	print_space(t_flags fl, int size, int *len);
+void	print_simple_space_i_d(t_flags fl, int size, int *len);							//<-----
+void	print_space_or_zero_number_i_d(t_flags fl, int size, int *len);
+void	print_space_neg_number_i_d(t_flags fl, int size, int *len);
+void	print_simple_space_width_precision_i_d(t_flags fl, int *len);
+
+//utils_4
+void	print_zero_i_d(t_flags fl, int size, int *len);
+void	print_width_zero_i_d(t_flags fl, int size, int *len);							//<-----
+void	print_precision_zero_i_d(t_flags fl, int size, int *len);							//<-----
+void	print_zero_number_space_i_d(t_flags fl, int size, int *len, int *i);			//<-----
+void	print_neg_zero_variations_i_d(t_flags fl, int size, int *len);
+
+//utils_5
+void	print_precision_neg_zero_number_i_d(t_flags fl, int size, int *len);
+void	print_width_neg_zero_number_i_d(t_flags fl, int size, int *len);
+void	print_neg_precision_zero_number_i_d(t_flags fl, int size, int *len);
+void	print_neg_precision_zero_number_space_i_d(t_flags fl, int size, int *len);
+void	print_neg_number_space_i_d(t_flags fl, int size, int *len);
+
+//utils_6
+void	print_neg_number_i_d(t_flags fl, int *len);
+int		ft_ulen(unsigned int num);
+char	*ft_uitoa(unsigned int n);
+void	print_zero_string_u(t_flags fl, int *len, int size);
+void	print_zero_precision_u(t_flags fl, int size, int *len);
+
+//utils_7
+void	print_space_string_u(t_flags fl, int *len, int size);
+void	print_width_space_u(t_flags fl, int *len);
+void	print_precision_zero_u(t_flags fl, int *len);
+
+
+
 
 //print_c
 void	print_c(char c, int *len, t_flags fl);
 
 //print_s
 void	print_s(char *c, int *len, t_flags fl);
-void	print_s_space_print(char *c, int *len, t_flags fl);
-void	print_s_space_cut(char *c, int *len, t_flags fl);
-void	print_s_space_cut_right(char *c, int *len, t_flags fl);
-void	print_s_space_cut_left(char *c, int *len, t_flags fl);
-
-
+void	print_space_print_s(char *c, int *len, t_flags fl);
+void	print_space_cut_s(char *c, int *len, t_flags fl);
+void	print_space_cut_right_s(char *c, int *len, t_flags fl);
+void	print_space_cut_left_s(char *c, int *len, t_flags fl);
 
 //print_id
 void	print_i_d(t_flags fl, va_list args, int *len);
-void	print_space(t_flags fl, int size, int *len);
-void	print_simple_space(t_flags fl, int size, int *len);							//<-----
-
-void	print_i_d_zero(t_flags fl, int size, int *len);
-void	print_width_zero(t_flags fl, int size, int *len);							//<-----
-void	print_precision_zero(t_flags fl, int size, int *len);							//<-----
-void	print_space_or_zero_number(t_flags fl, int size, int *len);
-void	print_zero_number_space(t_flags fl, int size, int *len, int *i);			//<-----
-void	print_corner_cases(t_flags fl, int size, int *len);
-
-
-void	print_precision_neg_zero_number(t_flags fl, int size, int *len);
-void	print_space_neg_number(t_flags fl, int size, int *len);
-void	print_width_neg_zero_number(t_flags fl, int size, int *len);
-void	print_neg_number(t_flags fl, int *len);
-void	print_neg_corner_cases(t_flags fl, int size, int *len);
-void	print_neg_precision_zero_number(t_flags fl, int size, int *len);
-void	print_neg_precision_zero_number_space(t_flags fl, int size, int *len);
-void	print_neg_zero_variations(t_flags fl, int size, int *len);
-void	print_neg_number_space(t_flags fl, int size, int *len);
-
-
-
-
-
+void	print_positive_i_d(t_flags fl, int number, int *len);
+void	print_negative_i_d(t_flags fl, int number, int *len);
+void	print_corner_cases_i_d(t_flags fl, int size, int *len);
+void	print_neg_corner_cases_i_d(t_flags fl, int size, int *len);
 
 //print_u
 void	print_u(t_flags fl, va_list args, int *len);
-void	print_u_space_string(t_flags fl, int *len, int size);
-void	print_u_zero_string(t_flags fl, int *len, int size);
-int		ft_ulen(unsigned int num);
-char	*ft_uitoa(unsigned int n);
-void	print_zero_corner_case(t_flags fl, int *len, int size);
-
+void	print_corner_cases_width_precision_u(t_flags fl, int *len, int *count);
+void	print_width_bigger_than_size_u(t_flags fl, int *len);
+void	print_zero_corner_cases(t_flags fl, int size, int *len);
+void	print_corner_cases_u(t_flags fl, int size, int *len, int *count);
 
 //print_p
 void	print_p(t_flags fl, va_list args, int *len, const char c);
-void	print_p_no_zero(t_flags fl, int *len, int size);
-void	print_p_zero(t_flags fl, int *len, int size);
+void	print_no_zero_p(t_flags fl, int *len, int size);
+void	print_zero_p(t_flags fl, int *len, int size);
 void	ft_putstr_len_p(char *s, int *len);
 char	*ft_int_to_hex_p(unsigned long int n, const char c);
 
-
+//print_xX
 void    print_xX(t_flags fl, va_list args, int *len, const char c);
-
-
-void	print_xX_right_aligned(t_flags fl, int *len, int size);
 int		ft_len_hex(unsigned long int x);
-char	*ft_int_to_hex_pxX(unsigned long int n, const char c);
-
 char    *ft_ullitoa_base(unsigned long long int n, char *base);
+void	print_corner_cases_xX(t_flags fl, int size, int *len);
+void	print_regular_cases_xX(t_flags fl, int size, int *len);
 
-int	return_hex_len(int num);
-
-
-void	print_id_positive(t_flags fl, int number, int *len);
-void	print_id_negative(t_flags fl, int number, int *len);
-
+void	print_simple_zero_xX(t_flags fl, int size, int *len);
 
 #endif

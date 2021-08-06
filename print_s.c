@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 15:05:51 by azamario          #+#    #+#             */
-/*   Updated: 2021/08/05 22:31:42 by azamario         ###   ########.fr       */
+/*   Updated: 2021/08/06 14:08:17 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,16 +29,16 @@ void	print_s(char *c, int *len, t_flags fl)
 		}
 	}
 	else if ((fl.precision == 0 || fl.precision >= size) && fl.width > size)
-		print_s_space_print(c, len, fl);
+		print_space_print_s(c, len, fl);
 	else if (fl.precision < size && fl.width >= size)
-		print_s_space_cut(c, len, fl);
+		print_space_cut_s(c, len, fl);
 	else if (fl.dot == 1 && fl.precision == 0)
 		write(1, "", 0);
 	else
 		ft_putstr_len(c, len);
 }
 
-void	print_s_space_print(char *c, int *len, t_flags fl)
+void	print_space_print_s(char *c, int *len, t_flags fl)
 {
 	int	size;
 
@@ -63,7 +63,7 @@ void	print_s_space_print(char *c, int *len, t_flags fl)
 	}
 }
 
-void	print_s_space_cut(char *c, int *len, t_flags fl)
+void	print_space_cut_s(char *c, int *len, t_flags fl)
 {
 	int	size;
 
@@ -71,12 +71,12 @@ void	print_s_space_cut(char *c, int *len, t_flags fl)
 	if (fl.width == size)
 		ft_putstr_len(c, len);
 	else if (fl.minus == 0)
-		print_s_space_cut_right(c, len, fl);
+		print_space_cut_right_s(c, len, fl);
 	else
-		print_s_space_cut_left(c, len, fl);
+		print_space_cut_left_s(c, len, fl);
 }
 
-void	print_s_space_cut_right(char *c, int *len, t_flags fl)
+void	print_space_cut_right_s(char *c, int *len, t_flags fl)
 {
 	while (fl.width - fl.precision > 0)
 	{
@@ -90,7 +90,7 @@ void	print_s_space_cut_right(char *c, int *len, t_flags fl)
 	}
 }
 
-void	print_s_space_cut_left(char *c, int *len, t_flags fl)
+void	print_space_cut_left_s(char *c, int *len, t_flags fl)
 {
 	int	count;
 
