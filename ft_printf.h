@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:14 by azamario          #+#    #+#             */
-/*   Updated: 2021/08/05 17:47:39 by azamario         ###   ########.fr       */
+/*   Updated: 2021/08/05 23:06:22 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,11 +85,15 @@ void	print_zero_number_space(t_flags fl, int size, int *len, int *i);			//<-----
 void	print_corner_cases(t_flags fl, int size, int *len);
 
 
-void	print_neg_zero_number(t_flags fl, int size, int *len);
+void	print_precision_neg_zero_number(t_flags fl, int size, int *len);
 void	print_space_neg_number(t_flags fl, int size, int *len);
-
-
-
+void	print_width_neg_zero_number(t_flags fl, int size, int *len);
+void	print_neg_number(t_flags fl, int *len);
+void	print_neg_corner_cases(t_flags fl, int size, int *len);
+void	print_neg_precision_zero_number(t_flags fl, int size, int *len);
+void	print_neg_precision_zero_number_space(t_flags fl, int size, int *len);
+void	print_neg_zero_variations(t_flags fl, int size, int *len);
+void	print_neg_number_space(t_flags fl, int size, int *len);
 
 
 
