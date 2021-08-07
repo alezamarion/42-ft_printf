@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:00 by azamario          #+#    #+#             */
-/*   Updated: 2021/08/05 15:30:02 by azamario         ###   ########.fr       */
+/*   Updated: 2021/08/06 21:56:54 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,10 @@ t_flags	get_flag_width_precision(const char *format, t_flags fl, int *i)
 		else
 			fl.width = (fl.width * 10) + (format[*i] - '0');
 	}
+	else if (format[*i] == '#')
+		fl.hash = 1;
+	else if (format[*i] == '+')
+		fl.plus = 1;
 	return (fl);
 }
 

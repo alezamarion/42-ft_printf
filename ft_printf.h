@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:14 by azamario          #+#    #+#             */
-/*   Updated: 2021/08/06 18:11:00 by azamario         ###   ########.fr       */
+/*   Updated: 2021/08/06 21:40:35 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include "string.h"
 # include <limits.h>
 
-# define FLAGS			"-0.0123456789"
+# define FLAGS			"-0.0123456789#+ "
 # define NUMBERS		"0123456789"
 # define TYPES			"csidupxX%"
 
@@ -35,6 +35,8 @@ typedef struct t_flags
 	int		precision;
 	char	*strNum;
 	unsigned long long int    ulli;	
+	int		hash;
+	int		plus;
 }	t_flags;
 
 int	ft_printf(const char *format, ...);
@@ -125,5 +127,12 @@ int		ft_len_hex(unsigned long int x);
 char	*ft_ullitoa_base(unsigned long long int n, char *base);
 void	print_corner_cases_xX(t_flags fl, int size, int *len);
 void	print_regular_cases_xX(t_flags fl, int size, int *len);
+
+
+//void	check_hash_xX(t_flags fl, int *len, const char c);
+void	check_for_plus_id(t_flags fl, int *len);
+
+
+
 
 #endif

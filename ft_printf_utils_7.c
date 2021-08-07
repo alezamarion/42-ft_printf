@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/06 17:02:28 by azamario          #+#    #+#             */
-/*   Updated: 2021/08/06 17:58:16 by azamario         ###   ########.fr       */
+/*   Updated: 2021/08/06 20:56:06 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,5 +62,6 @@ t_flags	ft_clean_flags(void)
 	fl.width = 0;
 	fl.dot = 0;
 	fl.precision = 0;
+	fl.hash = 0;
 	return (fl);
 }
