@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 15:11:44 by azamario          #+#    #+#             */
-/*   Updated: 2021/08/06 17:25:58 by azamario         ###   ########.fr       */
+/*   Updated: 2021/08/07 10:51:19 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,8 @@ void	print_zero_corner_cases(t_flags fl, int size, int *len)
 		while (fl.precision > 1)
 		{		
 			write(1, "0", 1);
-			fl.precision--, (*len)++;
+			fl.precision--;
+			(*len)++;
 		}
 		ft_putstr_len(fl.strNum, len);
 	}	
@@ -67,7 +68,8 @@ void	print_corner_cases_u(t_flags fl, int size, int *len, int *count)
 		while (fl.width - (fl.precision + *count) > 0)
 		{
 			write(1, " ", 1);
-			fl.width--, (*len)++;
+			fl.width--;
+			(*len)++;
 		}
 	}
 	else if (fl.minus == 0 && fl.width > fl.precision)
@@ -75,7 +77,8 @@ void	print_corner_cases_u(t_flags fl, int size, int *len, int *count)
 		while (fl.width - fl.precision > 0)
 		{
 			write(1, " ", 1);
-			fl.width--, (*len)++;
+			fl.width--;
+			(*len)++;
 		}
 		print_zero_precision_u(fl, size, len);
 	}
@@ -90,12 +93,15 @@ void	print_corner_cases_width_precision_u(t_flags fl, int *len, int *count)
 		while (fl.precision > 0)
 		{
 			write(1, "0", 1);
-			fl.precision--, (*len)++, count++;
+			fl.precision--;
+			(*len)++;
+			count++;
 		}
 		while (fl.width - (fl.precision + *count) > 0)
 		{
 			write(1, " ", 1);
-			fl.width--, (*len)++;
+			fl.width--;
+			(*len)++;
 		}
 	}
 	else if (fl.minus == 0)
@@ -103,7 +109,8 @@ void	print_corner_cases_width_precision_u(t_flags fl, int *len, int *count)
 		while (fl.width > fl.precision)
 		{
 			write(1, " ", 1);
-			fl.width--, (*len)++;
+			fl.width--;
+			(*len)++;
 		}
 		print_precision_zero_u(fl, len);
 	}
@@ -123,7 +130,8 @@ void	print_width_bigger_than_size_u(t_flags fl, int *len)
 		while (fl.width > 1)
 		{
 			write(1, "0", 1);
-			fl.width--, (*len)++;
+			fl.width--;
+			(*len)++;
 		}
 		ft_putstr_len(fl.strNum, len);
 	}

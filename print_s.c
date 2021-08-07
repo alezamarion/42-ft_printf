@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 15:05:51 by azamario          #+#    #+#             */
-/*   Updated: 2021/08/06 14:08:17 by azamario         ###   ########.fr       */
+/*   Updated: 2021/08/07 10:49:15 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,9 @@ void	print_s(char *c, int *len, t_flags fl)
 		while (fl.precision > 0)
 		{
 			write(1, &*c, 1);
-			fl.precision--, (*len)++, c++;
+			fl.precision--;
+			(*len)++;
+			c++;
 		}
 	}
 	else if ((fl.precision == 0 || fl.precision >= size) && fl.width > size)
@@ -48,7 +50,8 @@ void	print_space_print_s(char *c, int *len, t_flags fl)
 		while (fl.width > size)
 		{
 			write(1, " ", 1);
-			fl.width--, (*len)++;
+			fl.width--;
+			(*len)++;
 		}
 		ft_putstr_len(c, len);
 	}
@@ -58,7 +61,8 @@ void	print_space_print_s(char *c, int *len, t_flags fl)
 		while (fl.width > size)
 		{
 			write(1, " ", 1);
-			fl.width--, (*len)++;
+			fl.width--;
+			(*len)++;
 		}
 	}
 }
@@ -81,12 +85,15 @@ void	print_space_cut_right_s(char *c, int *len, t_flags fl)
 	while (fl.width - fl.precision > 0)
 	{
 		write(1, " ", 1);
-		fl.width--, (*len)++;
+		fl.width--;
+		(*len)++;
 	}
 	while (fl.precision > 0)
 	{
 		write(1, &*c, 1);
-		fl.precision--, (*len)++, c++;
+		fl.precision--;
+		(*len)++;
+		c++;
 	}
 }
 
@@ -98,11 +105,15 @@ void	print_space_cut_left_s(char *c, int *len, t_flags fl)
 	while (fl.precision > 0)
 	{
 		write(1, &*c, 1);
-		fl.precision--, (*len)++, c++, count++;
+		fl.precision--;
+		(*len)++;
+		c++;
+		count++;
 	}
 	while (fl.width - (fl.precision + count) > 0)
 	{
 		write(1, " ", 1);
-		fl.width--, (*len)++;
+		fl.width--;
+		(*len)++;
 	}
 }

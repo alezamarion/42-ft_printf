@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/06 16:53:49 by azamario          #+#    #+#             */
-/*   Updated: 2021/08/07 09:18:28 by azamario         ###   ########.fr       */
+/*   Updated: 2021/08/07 10:44:46 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ void	print_zero_i_d(t_flags fl, int size, int *len)
 		while (fl.precision - size > 0)
 		{
 			write(1, "0", 1);
-			fl.precision--, (*len)++;
+			fl.precision--;
+			(*len)++;
 		}
 	}
 	else
@@ -27,7 +28,8 @@ void	print_zero_i_d(t_flags fl, int size, int *len)
 		while (fl.width - size > 0)
 		{
 			write(1, "0", 1);
-			fl.width--, (*len)++;
+			fl.width--;
+			(*len)++;
 		}
 	}
 }
@@ -37,7 +39,8 @@ void	print_width_zero_i_d(t_flags fl, int size, int *len)
 	while (fl.width - size > 0)
 	{
 		write(1, "0", 1);
-		fl.width--, (*len)++;
+		fl.width--;
+		(*len)++;
 	}
 	check_for_plus_and_space_i_d(fl, len);
 	ft_putstr_len(fl.strNum, len);
@@ -48,7 +51,8 @@ void	print_precision_zero_i_d(t_flags fl, int size, int *len)
 	while (fl.precision - size > 0)
 	{
 		write(1, "0", 1);
-		fl.precision--, (*len)++;
+		fl.precision--;
+		(*len)++;
 	}
 	check_for_plus_and_space_i_d(fl, len);
 	ft_putstr_len(fl.strNum, len);
@@ -60,7 +64,8 @@ void	print_zero_number_space_i_d(t_flags fl, int size, int *len, int *i)
 	while (fl.width - (fl.precision + *i) > 0)
 	{
 		write(1, " ", 1);
-		fl.width--, (*len)++;
+		fl.width--;
+		(*len)++;
 	}
 }
 
@@ -71,7 +76,8 @@ void	print_neg_zero_variations_i_d(t_flags fl, int size, int *len)
 		while (fl.width - (fl.precision + 1) > 0)
 		{
 			write(1, " ", 1);
-			fl.width--, (*len)++;
+			fl.width--;
+			(*len)++;
 		}
 		print_precision_neg_zero_number_i_d(fl, size, len);
 	}

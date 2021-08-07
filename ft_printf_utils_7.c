@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/06 17:02:28 by azamario          #+#    #+#             */
-/*   Updated: 2021/08/06 20:56:06 by azamario         ###   ########.fr       */
+/*   Updated: 2021/08/07 10:39:53 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ void	print_width_space_u(t_flags fl, int *len)
 	while (fl.width > 1)
 	{
 		write(1, " ", 1);
-		fl.width--, (*len)++;
+		fl.width--;
+		(*len)++;
 	}
 }
 
@@ -40,7 +41,8 @@ void	print_precision_zero_u(t_flags fl, int *len)
 	while (fl.precision > 0)
 	{
 		write(1, "0", 1);
-		fl.precision--, (*len)++;
+		fl.precision--;
+		(*len)++;
 	}	
 }
 
@@ -49,7 +51,8 @@ void	print_simple_zero_xX(t_flags fl, int size, int *len)
 	while (fl.width - size > 0)
 	{
 		write(1, "0", 1);
-		fl.width--, (*len)++;
+		fl.width--;
+		(*len)++;
 	}
 }
 

@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 20:03:26 by azamario          #+#    #+#             */
-/*   Updated: 2021/08/07 09:17:57 by azamario         ###   ########.fr       */
+/*   Updated: 2021/08/07 10:45:35 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ void	print_space(t_flags fl, int size, int *len)
 		while (fl.width - size > 0)
 		{
 			write(1, " ", 1);
-			fl.width--, (*len)++;
+			fl.width--;
+			(*len)++;
 		}
 	}
 	else if (fl.precision > 0)
@@ -27,7 +28,8 @@ void	print_space(t_flags fl, int size, int *len)
 		while (fl.precision - size > 0)
 		{
 			write(1, "0", 1);
-			fl.precision--, (*len)++;
+			fl.precision--;
+			(*len)++;
 		}
 	}
 	else
@@ -35,7 +37,8 @@ void	print_space(t_flags fl, int size, int *len)
 		while (fl.width - size > 0)
 		{
 			write(1, " ", 1);
-			fl.width--, (*len)++;
+			fl.width--;
+			(*len)++;
 		}
 	}
 }
@@ -45,7 +48,8 @@ void	print_simple_space_i_d(t_flags fl, int size, int *len)
 	while (fl.width - size > 0)
 	{
 		write(1, " ", 1);
-		fl.width--, (*len)++;
+		fl.width--;
+		(*len)++;
 	}
 }
 
@@ -79,6 +83,7 @@ void	print_simple_space_width_precision_i_d(t_flags fl, int *len)
 	while (fl.width - fl.precision > 0)
 	{
 		write(1, " ", 1);
-		fl.width--, (*len)++;
+		fl.width--;
+		(*len)++;
 	}
 }

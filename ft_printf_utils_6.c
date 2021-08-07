@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/06 17:00:34 by azamario          #+#    #+#             */
-/*   Updated: 2021/08/06 18:03:06 by azamario         ###   ########.fr       */
+/*   Updated: 2021/08/07 10:42:30 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,8 @@ void	print_zero_string_u(t_flags fl, int *len, int size)
 		while (fl.width - size > 0)
 		{
 			write(1, "0", 1);
-			fl.width--, (*len)++;
+			fl.width--;
+			(*len)++;
 		}
 		ft_putstr_len(fl.strNum, len);
 	}
@@ -77,7 +78,8 @@ void	print_zero_precision_u(t_flags fl, int size, int *len)
 	while (fl.precision - size > 0)
 	{
 		write(1, "0", 1);
-		fl.precision--, (*len)++;
+		fl.precision--;
+		(*len)++;
 	}
 	ft_putstr_len(fl.strNum, len);
 }
