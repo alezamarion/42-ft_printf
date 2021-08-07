@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:14 by azamario          #+#    #+#             */
-/*   Updated: 2021/08/07 10:08:13 by azamario         ###   ########.fr       */
+/*   Updated: 2021/08/07 11:46:52 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ char	*ft_itoa(int n);
 void	ft_putstr_len(char *s, int *len);
 
 void	print_space(t_flags fl, int size, int *len);
-void	print_simple_space_i_d(t_flags fl, int size, int *len);
+void	print_simple_space_width_i_d(t_flags fl, int size, int *len);
 void	print_space_or_zero_number_i_d(t_flags fl, int size, int *len);
 void	print_space_neg_number_i_d(t_flags fl, int size, int *len);
 void	print_simple_space_width_precision_i_d(t_flags fl, int *len);
@@ -86,6 +86,8 @@ t_flags	ft_clean_flags(void);
 
 void	basic_output_check_hash_xX(t_flags fl, int *len, const char c);
 void	check_for_plus_and_space_i_d(t_flags fl, int *len);
+void	print_simple_space_precision_i_d(t_flags fl, int size, int *len);
+void	print_space_width_greater_than_precision(t_flags fl, int *len);
 
 void	print_c(char c, int *len, t_flags fl);
 

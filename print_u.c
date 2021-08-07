@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 15:11:44 by azamario          #+#    #+#             */
-/*   Updated: 2021/08/07 10:51:19 by azamario         ###   ########.fr       */
+/*   Updated: 2021/08/07 11:36:32 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,12 +106,7 @@ void	print_corner_cases_width_precision_u(t_flags fl, int *len, int *count)
 	}
 	else if (fl.minus == 0)
 	{
-		while (fl.width > fl.precision)
-		{
-			write(1, " ", 1);
-			fl.width--;
-			(*len)++;
-		}
+		print_space_width_greater_than_precision(fl, len);
 		print_precision_zero_u(fl, len);
 	}
 }

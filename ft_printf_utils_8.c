@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/07 09:32:51 by azamario          #+#    #+#             */
-/*   Updated: 2021/08/07 09:57:50 by azamario         ###   ########.fr       */
+/*   Updated: 2021/08/07 11:47:12 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,24 @@ void	basic_output_check_hash_xX(t_flags fl, int *len, const char c)
 	}
 	else
 		ft_putstr_len(fl.strNum, len);
+}
+
+void	print_simple_space_precision_i_d(t_flags fl, int size, int *len)
+{
+	while (fl.precision - size > 0)
+	{
+		write(1, " ", 1);
+		fl.precision--;
+		(*len)++;
+	}
+}
+
+void	print_space_width_greater_than_precision(t_flags fl, int *len)
+{
+	while (fl.width > fl.precision)
+	{
+		write(1, " ", 1);
+		fl.width--;
+		(*len)++;
+	}
 }

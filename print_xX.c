@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 15:17:05 by azamario          #+#    #+#             */
-/*   Updated: 2021/08/07 10:52:51 by azamario         ###   ########.fr       */
+/*   Updated: 2021/08/07 11:16:55 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,11 +110,11 @@ void	print_regular_cases_xX(t_flags fl, int size, int *len)
 	if (fl.minus == 1)
 	{
 		ft_putstr_len(fl.strNum, len);
-		print_simple_space_i_d(fl, size, len);
+		print_simple_space_width_i_d(fl, size, len);
 	}
 	else if (fl.zero == 0 || (fl.zero == 1 && fl.dot == 1))
 	{
-		print_simple_space_i_d(fl, size, len);
+		print_simple_space_width_i_d(fl, size, len);
 		ft_putstr_len(fl.strNum, len);
 	}
 	else

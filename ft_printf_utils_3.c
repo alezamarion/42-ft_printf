@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 20:03:26 by azamario          #+#    #+#             */
-/*   Updated: 2021/08/07 10:45:35 by azamario         ###   ########.fr       */
+/*   Updated: 2021/08/07 11:11:29 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,7 @@ void	print_space(t_flags fl, int size, int *len)
 		}
 	}
 	else if (fl.precision > 0)
-	{
-		while (fl.precision - size > 0)
-		{
-			write(1, "0", 1);
-			fl.precision--;
-			(*len)++;
-		}
-	}
+		print_simple_space_precision_i_d(fl, size, len);
 	else
 	{
 		while (fl.width - size > 0)
@@ -43,7 +36,7 @@ void	print_space(t_flags fl, int size, int *len)
 	}
 }
 
-void	print_simple_space_i_d(t_flags fl, int size, int *len)
+void	print_simple_space_width_i_d(t_flags fl, int size, int *len)
 {
 	while (fl.width - size > 0)
 	{
@@ -59,11 +52,11 @@ void	print_space_or_zero_number_i_d(t_flags fl, int size, int *len)
 	{
 		check_for_plus_and_space_i_d(fl, len);
 		ft_putstr_len(fl.strNum, len);
-		print_simple_space_i_d(fl, size, len);
+		print_simple_space_width_i_d(fl, size, len);
 	}
 	else if (fl.zero == 0 || (fl.zero == 1 && fl.dot == 1))
 	{
-		print_simple_space_i_d(fl, size, len);
+		print_simple_space_width_i_d(fl, size, len);
 		check_for_plus_and_space_i_d(fl, len);
 		ft_putstr_len(fl.strNum, len);
 	}
