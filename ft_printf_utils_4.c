@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/06 16:53:49 by azamario          #+#    #+#             */
-/*   Updated: 2021/08/06 21:44:58 by azamario         ###   ########.fr       */
+/*   Updated: 2021/08/07 09:18:28 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	print_width_zero_i_d(t_flags fl, int size, int *len)
 		write(1, "0", 1);
 		fl.width--, (*len)++;
 	}
-	check_for_plus_id(fl, len);
+	check_for_plus_and_space_i_d(fl, len);
 	ft_putstr_len(fl.strNum, len);
 }
 
@@ -50,7 +50,7 @@ void	print_precision_zero_i_d(t_flags fl, int size, int *len)
 		write(1, "0", 1);
 		fl.precision--, (*len)++;
 	}
-	check_for_plus_id(fl, len);
+	check_for_plus_and_space_i_d(fl, len);
 	ft_putstr_len(fl.strNum, len);
 }
 

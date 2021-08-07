@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 15:07:45 by azamario          #+#    #+#             */
-/*   Updated: 2021/08/06 21:49:30 by azamario         ###   ########.fr       */
+/*   Updated: 2021/08/07 09:37:26 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,16 +51,10 @@ void	print_positive_i_d(t_flags fl, int number, int *len)
 		print_corner_cases_i_d(fl, size, len);
 	else
 	{
-		check_for_plus_id(fl, len);
+		check_for_plus_and_space_i_d(fl, len);
 		ft_putstr_len(fl.strNum, len);
 	}
 	free(fl.strNum);
-}
-
-void	check_for_plus_id(t_flags fl, int *len)
-{
-	if (fl.plus == 1)
-		ft_putchar_len('+', len);
 }
 
 void	print_negative_i_d(t_flags fl, int number, int *len)

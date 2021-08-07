@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 15:17:05 by azamario          #+#    #+#             */
-/*   Updated: 2021/08/07 09:03:03 by azamario         ###   ########.fr       */
+/*   Updated: 2021/08/07 09:53:50 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,20 +26,7 @@ void	print_xX(t_flags fl, va_list args, int *len, const char c)
 		print_zero_corner_cases(fl, size, len);
 	else if ((fl.width == 0 || fl.width <= size)
 		&& (fl.precision == 0 || fl.precision <= size))
-	{
-		if (fl.hash == 1 && c == 'X' && fl.ulli != 0)
-		{
-			ft_putstr_len( "0X", len);
-			ft_putstr_len(fl.strNum, len);
-		}
-		else if (fl.hash == 1 && c == 'x' && fl.ulli != 0)
-		{
-			ft_putstr_len( "0x", len);
-			ft_putstr_len(fl.strNum, len);
-		}
-		else
-			ft_putstr_len(fl.strNum, len);
-		}
+		basic_output_check_hash_xX(fl, len, c);
 	else if ((fl.width == 0 || fl.width <= size) && (fl.precision > size))
 		print_precision_zero_i_d(fl, size, len);
 	else if (fl.width > size && (fl.precision == 0 || fl.precision <= size))
@@ -48,14 +35,6 @@ void	print_xX(t_flags fl, va_list args, int *len, const char c)
 		print_corner_cases_xX(fl, size, len);
 	free(fl.strNum);
 }
-
-// void	check_hash_xX(t_flags fl, int *len, const char c)
-// {
-// 	if (fl.hash == 1 && c == 'X')
-// 		ft_putstr_len( "0X", len);
-// 	else if (fl.hash == 1 && c == 'x')
-// 		ft_putstr_len( "0x", len);
-// }
 
 int	ft_len_hex(unsigned long int x)
 {
@@ -72,32 +51,29 @@ int	ft_len_hex(unsigned long int x)
 
 char	*ft_ullitoa_base(unsigned long long int n, char *base)
 {
-    char                 	   *result;
-    unsigned long long int 	   number;
-    size_t                 	   size;
-    int                        base_len;
+	char						*result;
+	unsigned long long int		number;
+	size_t						size;
+	int							base_len;
 
-    base_len = ft_strlen(base);
-    number = n;
-    size = 1;
+	base_len = ft_strlen(base);
+	number = n;
+	size = 1;
 	n /= base_len;
-    while (n)
-	{
-        size++;
-		n /= base_len;
-	}
+	while (n)
+		size++, n /= base_len;
 	result = (char *)malloc(size + 1);
-    if (!result)
-        return (0);
-    result[size--] = '\0';
-    while (number > 0)
-    {
-        result[size--] = base[number % base_len];
-        number /= base_len;
-    }
-    if (size == 0 && result[1] == '\0')
-        result[0] = '0';
-    return (result);
+	if (!result)
+		return (0);
+	result[size--] = '\0';
+	while (number > 0)
+	{
+		result[size--] = base[number % base_len];
+		number /= base_len;
+	}
+	if (size == 0 && result[1] == '\0')
+		result[0] = '0';
+	return (result);
 }
 
 void	print_corner_cases_xX(t_flags fl, int size, int *len)

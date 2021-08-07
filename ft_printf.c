@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:24:00 by azamario          #+#    #+#             */
-/*   Updated: 2021/08/07 09:03:38 by azamario         ###   ########.fr       */
+/*   Updated: 2021/08/07 09:28:39 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,8 @@ t_flags	get_flag_width_precision(const char *format, t_flags fl, int *i)
 		fl.hash = 1;
 	else if (format[*i] == '+')
 		fl.plus = 1;
+	else if (format[*i] == ' ')
+		fl.space = 1;
 	return (fl);
 }
 
@@ -85,13 +87,3 @@ int	ft_printf(const char *format, ...)
 	va_end(args);
 	return (len);
 }
-
-/*
-int main(void)
-{
-	   ft_printf("%#x", 0);
-	   ft_printf("\n");
-	   ft_printf("%x", 0);
-
-}
-*/
