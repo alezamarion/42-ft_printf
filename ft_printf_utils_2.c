@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 20:04:51 by azamario          #+#    #+#             */
-/*   Updated: 2021/08/06 17:42:57 by azamario         ###   ########.fr       */
+/*   Updated: 2021/08/10 17:31:27 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,3 +92,4 @@ void	ft_putstr_len(char *s, int *len)
 			ft_putchar_len(s[i++], len);
 	}
 }
+

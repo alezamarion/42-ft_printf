@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 15:17:05 by azamario          #+#    #+#             */
-/*   Updated: 2021/08/07 11:16:55 by azamario         ###   ########.fr       */
+/*   Updated: 2021/08/10 17:33:14 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,3 +123,4 @@ void	print_regular_cases_xX(t_flags fl, int size, int *len)
 		ft_putstr_len(fl.strNum, len);
 	}
 }
+

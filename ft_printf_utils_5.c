@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/06 16:58:32 by azamario          #+#    #+#             */
-/*   Updated: 2021/08/07 10:43:51 by azamario         ###   ########.fr       */
+/*   Updated: 2021/08/10 17:31:54 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,3 +64,4 @@ void	print_neg_number_space_i_d(t_flags fl, int size, int *len)
 	print_neg_number_i_d(fl, len);
 	print_space(fl, size, len);
 }
+

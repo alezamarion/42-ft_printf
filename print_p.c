@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 15:14:31 by azamario          #+#    #+#             */
-/*   Updated: 2021/08/07 10:52:21 by azamario         ###   ########.fr       */
+/*   Updated: 2021/08/10 17:33:04 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,3 +100,4 @@ char	*ft_int_to_hex_p(unsigned long int n, const char c)
 	}
 	return (result);
 }
+

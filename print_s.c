@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 15:05:51 by azamario          #+#    #+#             */
-/*   Updated: 2021/08/07 10:49:15 by azamario         ###   ########.fr       */
+/*   Updated: 2021/08/10 17:33:00 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,3 +117,4 @@ void	print_space_cut_left_s(char *c, int *len, t_flags fl)
 		(*len)++;
 	}
 }
+

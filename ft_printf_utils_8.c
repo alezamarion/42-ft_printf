@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/07 09:32:51 by azamario          #+#    #+#             */
-/*   Updated: 2021/08/07 11:47:12 by azamario         ###   ########.fr       */
+/*   Updated: 2021/08/10 17:32:18 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,3 +55,4 @@ void	print_space_width_greater_than_precision(t_flags fl, int *len)
 		(*len)++;
 	}
 }
+
