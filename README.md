@@ -26,7 +26,7 @@ Printf function recoded, with limited specifiers and flags. Because putnbr and p
 Basically, this printf works on demand. It goes through the string and, at each step, prints the character found. (Like a char machine gun - the char found is printed and counted).
 If printf finds the formatting character <b>'%'</b>, it stores the formatting instructions (the flags) in a structure to later format the output according to the stored flags.
 
-![ft_print.png](info/ft_print.png)
+![ft_print.png](info/ft_printf.png)
 <br>
 
 ![ft_printf.png]](info/print
