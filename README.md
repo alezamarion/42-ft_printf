@@ -29,9 +29,8 @@ If printf finds the formatting character <b>'%'</b>, it stores the formatting in
 ![ft_print.png](info/ft_printf.png)
 <br>
 
-![ft_printf.png]](info/print
-Below, a ft_printf's logic:
 
+Below, a ft_printf's logic:
 
 ![printf_logic](info/printf_logic.png)
 
