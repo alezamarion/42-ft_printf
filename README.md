@@ -29,7 +29,7 @@ If printf finds the formatting character <b>'%'</b>, it stores the formatting in
 Below, a ft_printf's logic:
 
 
-![printf_logic](imgs/printf_logic.png)
+![printf_logic](info/printf_logic.png)
 
 <h2><b>Var's scope</b></h2>
 
@@ -38,5 +38,5 @@ The function has many variables and each one is used in more than one function. 
 Below, a ft_printf's vars scope:
 
 
-![printf_var_scope](imgs/printf_var_scope.png)
+![printf_var_scope](info/printf_var_scope.png)
 
